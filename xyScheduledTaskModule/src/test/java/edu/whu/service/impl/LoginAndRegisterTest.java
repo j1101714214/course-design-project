@@ -41,8 +41,8 @@ public class LoginAndRegisterTest {
     @BeforeEach
     public void before() {
         loginAndRegisterVo = new LoginAndRegisterVo();
-        loginAndRegisterVo.setUsername("test_user1");
-        loginAndRegisterVo.setPassword("test_password");
+        loginAndRegisterVo.setUsername("admin");
+        loginAndRegisterVo.setPassword("admin");
     }
 
     @AfterEach

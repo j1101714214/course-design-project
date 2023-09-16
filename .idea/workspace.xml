@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="对部分注册操作添加对应的测试, 添加用户管理控制器">
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/static/login.html" afterDir="false" />
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="开启Knife4j的静态资源映射, 解决拦截器阻拦API文档的静态资源的问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/Knife4jConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/Knife4jConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/user/pojo/XyUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/user/pojo/XyUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/ExceptionEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/ExceptionEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/UserLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/UserLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/LoginAndRegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/LoginAndRegisterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +111,7 @@
       <recent name="edu.whu.service.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.XyScheduledTaskApplication">
+  <component name="RunManager" selected="JUnit.LoginAndRegisterTest.testRegisterNormal">
     <configuration name="LoginAndRegisterTest.testRegister1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xyScheduledTaskModule" />
       <extension name="coverage">
@@ -192,8 +191,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.XyScheduledTaskApplication" />
         <item itemvalue="JUnit.LoginAndRegisterTest.testRegisterNormal" />
+        <item itemvalue="Spring Boot.XyScheduledTaskApplication" />
         <item itemvalue="JUnit.LoginAndRegisterTest.testRegisterAbnormal" />
         <item itemvalue="JUnit.LoginAndRegisterTest.testRegister1" />
         <item itemvalue="JUnit.LoginAndRegisterTest.testRegister2" />
@@ -215,7 +214,7 @@
       <workItem from="1694786933844" duration="1062000" />
       <workItem from="1694817608845" duration="16000" />
       <workItem from="1694847636496" duration="7904000" />
-      <workItem from="1694858560241" duration="13503000" />
+      <workItem from="1694858560241" duration="15254000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -245,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694870663401</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="开启Knife4j的静态资源映射, 解决拦截器阻拦API文档的静态资源的问题">
+      <created>1694872581389</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694872581389</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +273,8 @@
     <MESSAGE value="定时任务子模块的基础框架搭建" />
     <MESSAGE value="SpringSecurity实现用户登录和注册鉴权操作" />
     <MESSAGE value="对部分注册操作添加对应的测试, 添加用户管理控制器" />
-    <option name="LAST_COMMIT_MESSAGE" value="对部分注册操作添加对应的测试, 添加用户管理控制器" />
+    <MESSAGE value="开启Knife4j的静态资源映射, 解决拦截器阻拦API文档的静态资源的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="开启Knife4j的静态资源映射, 解决拦截器阻拦API文档的静态资源的问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

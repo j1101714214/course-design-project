@@ -25,4 +25,11 @@ public interface IXyUserService extends IService<XyUser> {
      * @return                      保存的用户信息
      */
     XyUser saveUser(LoginAndRegisterVo loginAndRegisterVo);
+
+    /**
+     * 删除用户
+     * @param userId    待删除用户的id
+     * @return          操作结果
+     */
+    Boolean deleteUser(Long userId);
 }

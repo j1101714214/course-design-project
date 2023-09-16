@@ -12,6 +12,8 @@ public enum ExceptionEnum {
     USER_NOT_EXIST(HttpStatus.BAD_REQUEST, "当前用户不存在"),
     USER_HAS_EXIST(HttpStatus.BAD_REQUEST, "当前用户已经存在"),
     CANNOT_SAVE_USER(HttpStatus.BAD_REQUEST, "保存用户异常"),
+    ILLEGAL_OPERATION(HttpStatus.BAD_REQUEST, "非法操作"),
+
     UN_AUTHORIZED(HttpStatus.UNAUTHORIZED, "用户账号或密码错误");
 
     private HttpStatus code;

@@ -15,6 +15,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.parameters.P;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -67,5 +70,21 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
             throw new CustomerException(ExceptionEnum.CANNOT_SAVE_USER);
         }
         return xyUser;
+    }
+
+    @Override
+    public Boolean deleteUser(Long userId) {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if(principal instanceof UserDetails) {
+            // 如果当前用户已经登录
+            UserDetails userDetails = (UserDetails) principal;
+            XyUser user = findUserByUsername(userDetails.getUsername(), false);
+            if(ObjectUtil.equal(user.getId(), userId)) {
+                throw new CustomerException(ExceptionEnum.ILLEGAL_OPERATION);
+            }
+        }
+
+        int cnt = xyUserMapper.deleteById(userId);
+        return cnt == 1;
     }
 }

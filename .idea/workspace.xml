@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="SpringSecurity实现用户登录和注册鉴权操作">
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/LoginAndRegisterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java" afterDir="false" />
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="对部分注册操作添加对应的测试, 添加用户管理控制器">
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/static/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/Knife4jConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/Knife4jConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/user/pojo/XyUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/user/pojo/XyUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +29,7 @@
         <option value="HTTP Public Environment File" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -55,6 +61,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -71,7 +78,7 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "spring.boot",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "efe00c94848c6a26b7322a567d695df3",
     "vue.rearranger.settings.migration": "true"
   },
@@ -105,23 +112,7 @@
       <recent name="edu.whu.service.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LoginAndRegisterTest.testRegisterAbnormal">
-    <configuration name="LoginAndRegisterTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.LoginAndRegisterTest" />
-      <module name="xyScheduledTaskModule" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.whu.service.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="authentication | 用户登录操作: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" index="2" requestIdentifier="用户登录操作: 正常情况" runType="运行单个请求">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.XyScheduledTaskApplication">
     <configuration name="LoginAndRegisterTest.testRegister1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xyScheduledTaskModule" />
       <extension name="coverage">
@@ -170,13 +161,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LoginAndRegisterTest.testRegisterNormal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xyScheduledTaskModule" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.whu.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.LoginAndRegisterTest" />
+      <option name="METHOD_NAME" value="testRegisterNormal" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="XyScheduledTaskApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="xyScheduledTaskModule" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.whu.XyScheduledTaskApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.XyScheduledTaskApplication" />
+        <item itemvalue="JUnit.LoginAndRegisterTest.testRegisterNormal" />
         <item itemvalue="JUnit.LoginAndRegisterTest.testRegisterAbnormal" />
         <item itemvalue="JUnit.LoginAndRegisterTest.testRegister1" />
         <item itemvalue="JUnit.LoginAndRegisterTest.testRegister2" />
-        <item itemvalue="应用程序.LoginAndRegisterTest" />
-        <item itemvalue="HTTP 请求.authentication | 用户登录操作: 正常情况" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +215,7 @@
       <workItem from="1694786933844" duration="1062000" />
       <workItem from="1694817608845" duration="16000" />
       <workItem from="1694847636496" duration="7904000" />
-      <workItem from="1694858560241" duration="11513000" />
+      <workItem from="1694858560241" duration="13503000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -218,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694868548412</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="对部分注册操作添加对应的测试, 添加用户管理控制器">
+      <created>1694870663401</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694870663401</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +266,29 @@
     <MESSAGE value="创建定时任务子模块" />
     <MESSAGE value="定时任务子模块的基础框架搭建" />
     <MESSAGE value="SpringSecurity实现用户登录和注册鉴权操作" />
-    <option name="LAST_COMMIT_MESSAGE" value="SpringSecurity实现用户登录和注册鉴权操作" />
+    <MESSAGE value="对部分注册操作添加对应的测试, 添加用户管理控制器" />
+    <option name="LAST_COMMIT_MESSAGE" value="对部分注册操作添加对应的测试, 添加用户管理控制器" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

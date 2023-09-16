@@ -42,11 +42,20 @@ public class SecurityConfig {
             httpSecurity
                     .authorizeRequests()
                     .antMatchers("/authenticate/**").permitAll()
-                    .antMatchers("/doc.html").permitAll()
+                    .antMatchers(
+                            "/login",
+                            "index.html",
+                            "favicon.ico",
+                            "/doc.html",
+                            "/webjars/**",
+                            "/swagger-resources/**",
+                            "/v2/api-docs/**",
+                            "/captcha"
+                    ).permitAll()
                     .anyRequest().authenticated()
                     .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
             httpSecurity
-                    .formLogin().and().httpBasic();
+                    .formLogin().loginPage("/login.html").loginProcessingUrl("/authenticate/login").permitAll();
 
             httpSecurity.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
             return httpSecurity.build();

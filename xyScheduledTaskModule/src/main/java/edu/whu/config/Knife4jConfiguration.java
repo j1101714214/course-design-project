@@ -18,7 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * @author Akihabara
  * @version 1.0
- * @description Knife4jConfiguration: TODO
+ * @description Knife4jConfiguration: knife4j API文档配置类
  * @date 2023/9/16 15:56
  */
 @Configuration

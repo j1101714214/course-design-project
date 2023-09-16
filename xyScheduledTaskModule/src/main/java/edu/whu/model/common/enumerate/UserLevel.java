@@ -10,16 +10,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * @date 2023/9/16 15:37
  */
 public enum UserLevel {
-    GUEST(1, "游客"),
-    USER(2, "普通用户"),
-    ADV_USER(3, "高级用户"),
-    ADMIN(6, "管理员"),
-    SYS_ADMIN(7, "系统管理员");
+    GUEST(1, "guest"),
+    USER(2, "user"),
+    ADV_USER(3, "adv_user"),
+    ADMIN(6, "admin"),
+    SYS_ADMIN(7, "sys_admin");
 
     @EnumValue      // 与数据库字段相对应
+    @JsonValue      // 与JSON前段返回字段相对应
     final int level;
 
-    @JsonValue      // 与JSON前段返回字段相对应
     final String description;
 
     UserLevel(int level, String description) {

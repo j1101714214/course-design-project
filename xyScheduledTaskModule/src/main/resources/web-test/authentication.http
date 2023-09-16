@@ -1,0 +1,18 @@
+### 用户注册操作: 正常情况
+POST http://localhost:12138/authenticate/register
+Content-Type: application/json
+
+{
+  "username":"zhangsan",
+  "password":"123456"
+}
+
+
+### 用户登录操作: 正常情况
+POST http://localhost:12138/authenticate/login
+Content-Type: application/json
+
+{
+  "username":"zhangsan",
+  "password":"123456"
+}

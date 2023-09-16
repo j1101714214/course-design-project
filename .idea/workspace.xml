@@ -4,25 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="创建定时任务子模块">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/XyScheduledTaskApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/Knife4jConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/MyBatisPlusConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/property/Knife4jProperty.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/mapper/XyUserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/UserLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/user/pojo/XyUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/model/user/UserEntityTest.java" afterDir="false" />
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="定时任务子模块的基础框架搭建">
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/exception/CustomerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/filter/JwtRequestFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/ExceptionEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/user/vo/LoginAndRegisterVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/UserDetailServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/sql/tb_users.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/Knife4jConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/Knife4jConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/UserLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/UserLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/model/user/UserEntityTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/model/user/UserEntityTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,11 +38,15 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTTP Public Environment File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -65,17 +70,22 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/360MoveData/Users/Akihabara/OneDrive/桌面/大型软件课程设计/xyNasTools/xyScheduledTaskModule/src/main/java/edu/whu/utils",
     "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "spring.boot",
-    "spring.configuration.checksum": "cb65b2eb04a7c4f6cdfe8016e3e0e2b7",
+    "spring.configuration.checksum": "efe00c94848c6a26b7322a567d695df3",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -84,29 +94,27 @@
     ]
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\xyScheduledTaskModule\src\main\java\edu\whu\utils" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\xyScheduledTaskModule\src\main\resources\sql" />
       <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\xyScheduledTaskModule" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="edu.whu" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.XyScheduledTaskApplication">
-    <configuration name="UserEntityTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="xyScheduledTaskModule" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.whu.model.user.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.whu.model.user" />
-      <option name="MAIN_CLASS_NAME" value="edu.whu.model.user.UserEntityTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="HTTP 请求.authentication | 用户注册操作: 正常情况">
+    <configuration name="authentication | 用户登录操作: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" index="2" requestIdentifier="用户登录操作: 正常情况" runType="运行单个请求">
+      <method v="2" />
+    </configuration>
+    <configuration name="authentication | 用户注册操作: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" requestIdentifier="用户注册操作: 正常情况" runType="运行单个请求">
+      <method v="2" />
     </configuration>
     <configuration name="UserEntityTest.testUserEntityInject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xyScheduledTaskModule" />
@@ -119,6 +127,22 @@
       <option name="PACKAGE_NAME" value="edu.whu.model.user" />
       <option name="MAIN_CLASS_NAME" value="edu.whu.model.user.UserEntityTest" />
       <option name="METHOD_NAME" value="testUserEntityInject" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserEntityTest.testUserFind" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xyScheduledTaskModule" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.model.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.whu.model.user" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.model.user.UserEntityTest" />
+      <option name="METHOD_NAME" value="testUserFind" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,9 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP 请求.authentication | 用户登录操作: 正常情况" />
+        <item itemvalue="HTTP 请求.authentication | 用户注册操作: 正常情况" />
         <item itemvalue="Spring Boot.XyScheduledTaskApplication" />
+        <item itemvalue="JUnit.UserEntityTest.testUserFind" />
         <item itemvalue="JUnit.UserEntityTest.testUserEntityInject" />
-        <item itemvalue="JUnit.UserEntityTest" />
       </list>
     </recent_temporary>
   </component>
@@ -159,7 +185,8 @@
       <workItem from="1694785543862" duration="228000" />
       <workItem from="1694786933844" duration="1062000" />
       <workItem from="1694817608845" duration="16000" />
-      <workItem from="1694847636496" duration="6292000" />
+      <workItem from="1694847636496" duration="7904000" />
+      <workItem from="1694858560241" duration="9344000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -168,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694847731880</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="定时任务子模块的基础框架搭建">
+      <created>1694854014709</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694854014709</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +221,34 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="创建定时任务子模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="创建定时任务子模块" />
+    <MESSAGE value="定时任务子模块的基础框架搭建" />
+    <option name="LAST_COMMIT_MESSAGE" value="定时任务子模块的基础框架搭建" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/UserDetailServiceImpl.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

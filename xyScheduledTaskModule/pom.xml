@@ -52,6 +52,13 @@
             </exclusions>
         </dependency>
 
+        <!--自定义yaml文件数据装配-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!--postgreSQL连接依赖-->
         <dependency>
             <groupId>org.postgresql</groupId>

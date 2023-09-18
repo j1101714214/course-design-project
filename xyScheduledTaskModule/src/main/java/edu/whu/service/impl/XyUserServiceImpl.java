@@ -1,8 +1,11 @@
 package edu.whu.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import edu.whu.exception.CustomerException;
 import edu.whu.mapper.XyUserMapper;
@@ -20,6 +23,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Objects;
 
 /**
  * @author Akihabara
@@ -108,7 +113,27 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
 
     @Override
     public XyUser queryUserById(Long userId) {
-        return xyUserMapper.selectById(userId);
+        XyUser operator = findCurrentOperator();
+        if (operator == null) {
+            throw new CustomerException(ExceptionEnum.USER_NOT_EXIST);
+        }
+        if (!ObjectUtil.equals(operator.getId(), userId)) {
+            throw new CustomerException(ExceptionEnum.ILLEGAL_OPERATION);
+        }
+        operator.setPassword("*******");
+        return operator;
+    }
+
+    @Override
+    public IPage<XyUser> queryUserList(Integer pageNum, Integer pageSize) {
+        IPage<XyUser> page = new Page<>(pageNum - 1, pageSize);
+        page = xyUserMapper.selectPage(page, null);
+
+        page.getRecords().forEach(user -> {
+            user.setPassword("******");
+        });
+
+        return page;
     }
 
     /**
@@ -125,4 +150,5 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
 
         return null;
     }
+
 }

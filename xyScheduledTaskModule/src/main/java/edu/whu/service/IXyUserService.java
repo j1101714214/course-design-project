@@ -1,5 +1,6 @@
 package edu.whu.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import edu.whu.model.user.pojo.XyUser;
 import edu.whu.model.user.vo.LoginAndRegisterVo;
@@ -47,4 +48,12 @@ public interface IXyUserService extends IService<XyUser> {
      * @return          该用户的详细信息
      */
     XyUser queryUserById(Long userId);
+
+    /**
+     * 分页查询用户列表, 不包含条件查询部分
+     * @param pageNum   当前页码
+     * @param pageSize  每页条数
+     * @return          用户列表
+     */
+    IPage<XyUser> queryUserList(Integer pageNum, Integer pageSize);
 }

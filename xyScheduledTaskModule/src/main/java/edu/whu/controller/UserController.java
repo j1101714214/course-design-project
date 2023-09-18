@@ -1,5 +1,6 @@
 package edu.whu.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import edu.whu.model.user.pojo.XyUser;
 import edu.whu.service.IXyUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +44,14 @@ public class UserController {
     @GetMapping("{userId}")
     public ResponseEntity<XyUser> queryUserById(@PathVariable("userId") Long userId) {
         return ResponseEntity.ok(userService.queryUserById(userId));
+    }
+
+    @GetMapping("/list")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_SYS_ADMIN')")
+    public ResponseEntity<IPage<XyUser>> queryUserList(
+            @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+            @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize
+    ) {
+        return ResponseEntity.ok(userService.queryUserList(pageNum, pageSize));
     }
 }

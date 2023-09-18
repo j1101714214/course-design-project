@@ -1,13 +1,11 @@
 package edu.whu.controller;
 
+import edu.whu.model.user.pojo.XyUser;
 import edu.whu.service.IXyUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author Akihabara
@@ -30,5 +28,20 @@ public class UserController {
         } else {
             return ResponseEntity.badRequest().body("删除用户失败");
         }
+    }
+
+    @PutMapping("{userId}")
+    public ResponseEntity<String> updateUser(@PathVariable("userId") Long userId, @RequestBody XyUser user) {
+        Boolean ret = userService.updateUser(userId, user);
+        if(ret) {
+            return ResponseEntity.ok("更新用户成功");
+        } else {
+            return ResponseEntity.badRequest().body("更新用户失败");
+        }
+    }
+
+    @GetMapping("{userId}")
+    public ResponseEntity<XyUser> queryUserById(@PathVariable("userId") Long userId) {
+        return ResponseEntity.ok(userService.queryUserById(userId));
     }
 }

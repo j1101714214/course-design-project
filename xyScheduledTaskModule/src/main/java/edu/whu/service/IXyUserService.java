@@ -32,4 +32,19 @@ public interface IXyUserService extends IService<XyUser> {
      * @return          操作结果
      */
     Boolean deleteUser(Long userId);
+
+    /**
+     * 修改用户信息: 操作者能修改的用户等级不超过当前操作者的等级, 仅允许超级管理员和用户本身修改密码
+     * @param userId    待修改用户的id
+     * @param user      待修改用户的信息
+     * @return          操作结果
+     */
+    Boolean updateUser(Long userId, XyUser user);
+
+    /**
+     * 根据用户id查询用户的详细信息
+     * @param userId    待查询用户的id
+     * @return          该用户的详细信息
+     */
+    XyUser queryUserById(Long userId);
 }

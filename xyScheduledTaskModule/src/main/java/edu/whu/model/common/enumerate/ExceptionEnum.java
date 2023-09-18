@@ -13,8 +13,8 @@ public enum ExceptionEnum {
     USER_HAS_EXIST(HttpStatus.BAD_REQUEST, "当前用户已经存在"),
     CANNOT_SAVE_USER(HttpStatus.BAD_REQUEST, "保存用户异常"),
     ILLEGAL_OPERATION(HttpStatus.BAD_REQUEST, "非法操作"),
-
-    UN_AUTHORIZED(HttpStatus.UNAUTHORIZED, "用户账号或密码错误");
+    UN_AUTHORIZED(HttpStatus.UNAUTHORIZED, "当前用户未授权"),
+    INSUFFICIENT_PERMISSION(HttpStatus.UNAUTHORIZED, "用户权限不足");
 
     private HttpStatus code;
     private String message;

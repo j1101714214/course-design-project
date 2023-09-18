@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="开启Knife4j的静态资源映射, 解决拦截器阻拦API文档的静态资源的问题">
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="添加删除用户操作">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/ExceptionEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/ExceptionEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/UserLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/UserLevel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/LoginAndRegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/LoginAndRegisterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,35 +56,35 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "D:/360MoveData/Users/Akihabara/OneDrive/桌面/大型软件课程设计/xyNasTools/xyScheduledTaskModule/src/main/java/edu/whu/utils",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "efe00c94848c6a26b7322a567d695df3",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/360MoveData/Users/Akihabara/OneDrive/桌面/大型软件课程设计/xyNasTools/xyScheduledTaskModule/src/main/java/edu/whu/utils&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;efe00c94848c6a26b7322a567d695df3&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -214,7 +212,8 @@
       <workItem from="1694786933844" duration="1062000" />
       <workItem from="1694817608845" duration="16000" />
       <workItem from="1694847636496" duration="7904000" />
-      <workItem from="1694858560241" duration="15254000" />
+      <workItem from="1694858560241" duration="15352000" />
+      <workItem from="1695018725666" duration="1708000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -251,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694872581389</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="添加删除用户操作">
+      <created>1694874226434</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1694874226434</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +280,8 @@
     <MESSAGE value="SpringSecurity实现用户登录和注册鉴权操作" />
     <MESSAGE value="对部分注册操作添加对应的测试, 添加用户管理控制器" />
     <MESSAGE value="开启Knife4j的静态资源映射, 解决拦截器阻拦API文档的静态资源的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="开启Knife4j的静态资源映射, 解决拦截器阻拦API文档的静态资源的问题" />
+    <MESSAGE value="添加删除用户操作" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加删除用户操作" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -2,7 +2,7 @@ package edu.whu.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import edu.whu.exception.CustomerException;
 import edu.whu.mapper.XyUserMapper;
@@ -16,9 +16,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -74,17 +72,57 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
 
     @Override
     public Boolean deleteUser(Long userId) {
+        int cnt = xyUserMapper.deleteById(userId);
+        return cnt == 1;
+    }
+
+
+
+    @Override
+    public Boolean updateUser(Long userId, XyUser user) {
+        XyUser operator = findCurrentOperator();
+        if(operator == null) {
+            throw new CustomerException(ExceptionEnum.USER_NOT_EXIST);
+        }
+
+        UserLevel operatorUserLevel = operator.getUserLevel();
+        UserLevel userUpdateLevel = user.getUserLevel();
+
+        if(operatorUserLevel.getLevel() < userUpdateLevel.getLevel()) {
+            throw new CustomerException(ExceptionEnum.INSUFFICIENT_PERMISSION);
+        }
+
+        Long operatorId = operator.getId();
+        if(!ObjectUtil.equal(operatorId, userId) && UserLevel.SYS_ADMIN != operatorUserLevel) {
+            throw new CustomerException(ExceptionEnum.INSUFFICIENT_PERMISSION);
+        }
+
+        LambdaUpdateWrapper<XyUser> luw = new LambdaUpdateWrapper<>();
+        luw.set(XyUser::getPassword, passwordEncoder.encode(user.getPassword()))
+                .set(XyUser::getUserLevel, userUpdateLevel)
+                .eq(XyUser::getId, user);
+
+        int cnt = xyUserMapper.update(null, luw);
+        return cnt == 1;
+    }
+
+    @Override
+    public XyUser queryUserById(Long userId) {
+        return xyUserMapper.selectById(userId);
+    }
+
+    /**
+     * 获取当前操作者: 即当前操作系统的用户
+     * @return      当前系统的操作者
+     */
+    private XyUser findCurrentOperator() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if(principal instanceof UserDetails) {
             // 如果当前用户已经登录
             UserDetails userDetails = (UserDetails) principal;
-            XyUser user = findUserByUsername(userDetails.getUsername(), false);
-            if(ObjectUtil.equal(user.getId(), userId)) {
-                throw new CustomerException(ExceptionEnum.ILLEGAL_OPERATION);
-            }
+            return findUserByUsername(userDetails.getUsername(), false);
         }
 
-        int cnt = xyUserMapper.deleteById(userId);
-        return cnt == 1;
+        return null;
     }
 }

@@ -56,4 +56,10 @@ public interface IXyUserService extends IService<XyUser> {
      * @return          用户列表
      */
     IPage<XyUser> queryUserList(Integer pageNum, Integer pageSize);
+
+    /**
+     * 获取当前操作者: 即当前操作系统的用户
+     * @return      当前系统的操作者
+     */
+    XyUser findCurrentOperator();
 }

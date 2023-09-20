@@ -1,4 +1,4 @@
-package edu.whu.model.job.vo;
+package edu.whu.model.job.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -16,15 +16,18 @@ import java.sql.Timestamp;
 /**
  * @author Akihabara
  * @version 1.0
- * @description XyJob: TODO
+ * @description XyJob: tb_jobs实体类
  * @date 2023/9/20 20:06
  */
 @Data
 @ApiModel(value = "任务实体类", description = "与tb_jobs表相对应的用户实体类")
 @NoArgsConstructor
-@TableName("public.tb_job")
+@TableName("public.tb_jobs")
 public class XyJob implements Serializable {
     private static final long serialVersionUID = 1L;
+    // 并发性的常量值
+    public static final String ENABLE_CONCURRENT = "1";
+    public static final String DISABLE_CONCURRENT = "0";
 
     /**
      * 主键
@@ -62,18 +65,18 @@ public class XyJob implements Serializable {
     private String cronExpression;
 
     /**
-     * cron计划策略
+     * cron计划策略: quartz框架的ScheduleConstants枚举值
      */
     @TableField("misfire_policy")
     @ApiModelProperty(value = "cron计划策略")
     private String misfirePolicy;
 
     /**
-     * 是否允许并发执行
+     * 是否允许并发执行: 0允许 1禁止
      */
     @TableField("concurrent")
     @ApiModelProperty(value = "是否允许并发执行")
-    private Boolean concurrent;
+    private String concurrent;
 
     /**
      * 创建人Id
@@ -115,5 +118,5 @@ public class XyJob implements Serializable {
      */
     @TableField("is_deleted")
     @ApiModelProperty(value = "任务是否已删除")
-    private Boolean isDeleted;
+    private Integer isDeleted;
 }

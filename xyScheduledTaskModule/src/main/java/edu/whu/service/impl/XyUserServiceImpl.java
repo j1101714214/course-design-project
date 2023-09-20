@@ -84,7 +84,7 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
     public Boolean updateUser(Long userId, XyUser user) {
         XyUser operator = findCurrentOperator();
         if(operator == null) {
-            throw new CustomerException(ExceptionEnum.USER_NOT_EXIST);
+            throw new CustomerException(ExceptionEnum.USER_NOT_LOGIN);
         }
 
         UserLevel operatorUserLevel = operator.getUserLevel();
@@ -112,7 +112,7 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
     public XyUser queryUserById(Long userId) {
         XyUser operator = findCurrentOperator();
         if (operator == null) {
-            throw new CustomerException(ExceptionEnum.USER_NOT_EXIST);
+            throw new CustomerException(ExceptionEnum.USER_NOT_LOGIN);
         }
         if (!ObjectUtil.equals(operator.getId(), userId)) {
             throw new CustomerException(ExceptionEnum.ILLEGAL_OPERATION);
@@ -135,7 +135,8 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
      * 获取当前操作者: 即当前操作系统的用户
      * @return      当前系统的操作者
      */
-    private XyUser findCurrentOperator() {
+    @Override
+    public XyUser findCurrentOperator() {
         try {
             Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             if(principal instanceof UserDetails) {

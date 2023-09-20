@@ -1,7 +1,7 @@
 package edu.whu.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import edu.whu.model.job.vo.XyJob;
+import edu.whu.model.job.pojo.XyJob;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

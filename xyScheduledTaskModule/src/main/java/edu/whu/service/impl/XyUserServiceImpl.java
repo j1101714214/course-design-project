@@ -1,6 +1,5 @@
 package edu.whu.service.impl;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
@@ -24,7 +23,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Objects;
 
 /**
  * @author Akihabara
@@ -34,6 +32,7 @@ import java.util.Objects;
  */
 @Slf4j
 @Service
+@Transactional(rollbackFor = Exception.class)
 public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> implements IXyUserService {
     @Autowired
     private XyUserMapper xyUserMapper;
@@ -41,7 +40,6 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
     @Lazy
     private PasswordEncoder passwordEncoder;
     @Override
-    @Transactional
     public XyUser findUserByUsername(String username, boolean isLogin) {
         LambdaQueryWrapper<XyUser> lqw = new LambdaQueryWrapper<>();
         lqw.eq(XyUser::getUsername, username);
@@ -53,7 +51,6 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
     }
 
     @Override
-    @Transactional()
     public XyUser saveUser(LoginAndRegisterVo loginAndRegisterVo) {
         // 根据用户名查询用户, 如果用户存在则抛出异常
         XyUser userInDB = findUserByUsername(loginAndRegisterVo.getUsername(), false);
@@ -129,9 +126,7 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
         IPage<XyUser> page = new Page<>(pageNum - 1, pageSize);
         page = xyUserMapper.selectPage(page, null);
 
-        page.getRecords().forEach(user -> {
-            user.setPassword("******");
-        });
+        page.getRecords().forEach(user -> user.setPassword("******"));
 
         return page;
     }
@@ -141,14 +136,17 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
      * @return      当前系统的操作者
      */
     private XyUser findCurrentOperator() {
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if(principal instanceof UserDetails) {
-            // 如果当前用户已经登录
-            UserDetails userDetails = (UserDetails) principal;
-            return findUserByUsername(userDetails.getUsername(), false);
+        try {
+            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            if(principal instanceof UserDetails) {
+                // 如果当前用户已经登录
+                UserDetails userDetails = (UserDetails) principal;
+                return findUserByUsername(userDetails.getUsername(), false);
+            }
+            return null;
+        } catch (NullPointerException e) {
+            return null;
         }
-
-        return null;
     }
 
 }

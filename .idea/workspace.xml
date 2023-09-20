@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="添加查询用户列表方法">
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="添加用户管理相关服务层的测试用例">
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/mapper/XyJobMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/JobStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/job/vo/XyJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyJobService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/UserDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/UserDetailServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/user/pojo/XyUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/user/pojo/XyUser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +24,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTTP Public Environment File" />
-        <option value="Class" />
         <option value="HTML File" />
         <option value="JUnit5 Test Class" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -221,7 +224,7 @@
       <workItem from="1695018725666" duration="3772000" />
       <workItem from="1695125144939" duration="59000" />
       <workItem from="1695125290595" duration="600000" />
-      <workItem from="1695210389271" duration="1092000" />
+      <workItem from="1695210389271" duration="2196000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -279,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695022386432</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="添加用户管理相关服务层的测试用例">
+      <created>1695211508623</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1695211508623</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +315,8 @@
     <MESSAGE value="添加删除用户操作" />
     <MESSAGE value="添加修改用户操作, 修改删除用户操作的不合理之处" />
     <MESSAGE value="添加查询用户列表方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加查询用户列表方法" />
+    <MESSAGE value="添加用户管理相关服务层的测试用例" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加用户管理相关服务层的测试用例" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

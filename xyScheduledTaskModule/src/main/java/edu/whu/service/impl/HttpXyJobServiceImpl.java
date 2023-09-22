@@ -7,7 +7,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import edu.whu.exception.CustomerException;
+import edu.whu.exception.TaskException;
 import edu.whu.mapper.XyJobMapper;
+import edu.whu.model.common.constant.ScheduleConstants;
 import edu.whu.model.common.enumerate.ExceptionEnum;
 import edu.whu.model.common.enumerate.JobStatus;
 import edu.whu.model.common.enumerate.UserLevel;
@@ -16,13 +18,20 @@ import edu.whu.model.job.vo.AddJobVo;
 import edu.whu.model.user.pojo.XyUser;
 import edu.whu.service.IXyJobService;
 import edu.whu.service.IXyUserService;
+import edu.whu.utils.ScheduleUtils;
+import org.quartz.JobDataMap;
+import org.quartz.JobKey;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.PostConstruct;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author Akihabara
@@ -37,6 +46,81 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
     private XyJobMapper jobMapper;
     @Autowired
     private IXyUserService userService;
+    @Autowired
+    private Scheduler scheduler;
+
+    @PostConstruct
+    public void init() throws SchedulerException {
+        // 在服务器启动之后读取所有数据加入任务调度之中
+        scheduler.clear();
+        List<XyJob> xyJobs = super.list();
+        for (XyJob job : xyJobs) {
+            if(ObjectUtil.notEqual(job.getStatus(), JobStatus.PROCESSED)) {
+                ScheduleUtils.createScheduleJob(scheduler, job);
+            }
+        }
+        scheduler.start();
+    }
+
+    @Override
+    public Boolean pauseJob(Long jobId) {
+        XyJob xyJob = queryJobById(jobId);
+        String jobGroup = xyJob.getJobGroup();
+        if(ObjectUtil.notEqual(xyJob.getStatus(), JobStatus.PROCESSING)) {
+            // 任务不在执行状态
+            throw new CustomerException(ExceptionEnum.TASK_NOT_BE_PROCESSING);
+        }
+        xyJob.setStatus(JobStatus.PENDING);
+
+        boolean flag = super.updateById(xyJob);// 更新数据库信息
+        try {
+            if(flag) {
+                scheduler.pauseJob(ScheduleUtils.getJobKey(jobId, jobGroup));
+            }
+            return flag;
+        } catch (SchedulerException e) {
+            throw new TaskException(jobId, ExceptionEnum.PAUSE_ERROR);
+        }
+    }
+
+    @Override
+    public Boolean resumeJob(Long jobId) {
+        XyJob xyJob = queryJobById(jobId);
+        String jobGroup = xyJob.getJobGroup();
+        if(ObjectUtil.notEqual(xyJob.getStatus(), JobStatus.PENDING)) {
+            // 任务不在执行状态
+            throw new CustomerException(ExceptionEnum.TASK_NOT_BE_PENDING);
+        }
+        xyJob.setStatus(JobStatus.PROCESSING);
+
+        boolean flag = super.updateById(xyJob);// 更新数据库信息
+        try {
+            if(flag) {
+                scheduler.resumeJob(ScheduleUtils.getJobKey(jobId, jobGroup));
+            }
+            return flag;
+        } catch (SchedulerException e) {
+            throw new TaskException(jobId, ExceptionEnum.PAUSE_ERROR);
+        }
+    }
+
+    @Override
+    public Boolean runOnce(Long jobId) {
+        XyJob xyJob = queryJobById(jobId);
+        String jobGroup = xyJob.getJobGroup();
+
+        JobDataMap jobDataMap = new JobDataMap();
+        jobDataMap.put(ScheduleConstants.TASK_PROPERTIES, xyJob);
+        JobKey jobKey = ScheduleUtils.getJobKey(jobId, jobGroup);
+        try {
+            if(scheduler.checkExists(jobKey)) {
+                scheduler.triggerJob(jobKey, jobDataMap);
+            }
+            return true;
+        } catch (SchedulerException e) {
+            throw new TaskException(jobId, ExceptionEnum.TASK_RUN_ERROR);
+        }
+    }
 
     @Override
     public IPage<XyJob> queryUserList(Integer pageNum, Integer pageSize) {
@@ -44,6 +128,8 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
         page = jobMapper.selectPage(page, null);
         return page;
     }
+
+
 
     @Override
     public IPage<XyJob> queryJobListByUser(Integer pageNum, Integer pageSize, Long userId) {
@@ -83,7 +169,11 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
         xyJob.setIsDeleted(0);
 
         int cnt = jobMapper.insert(xyJob);
-        return cnt == 1;
+        boolean flag = cnt == 1;
+        if(flag) {
+            ScheduleUtils.createScheduleJob(scheduler, xyJob);
+        }
+        return flag;
     }
 
     @Override
@@ -99,7 +189,16 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
         xyJob.setUpdateUser(operator.getId());
 
         int cnt = jobMapper.update(xyJob, null);
-        return cnt == 1;
+        boolean flag = cnt == 1;
+        try {
+            if(flag) {
+                scheduler.deleteJob(ScheduleUtils.getJobKey(jobId, xyJob.getJobGroup()));
+            }
+            ScheduleUtils.createScheduleJob(scheduler, xyJob);
+            return flag;
+        } catch (SchedulerException e) {
+            throw new CustomerException(ExceptionEnum.TASK_NOT_UPDATE);
+        }
     }
 
     @Override
@@ -110,11 +209,20 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
     @Override
     public Boolean deleteJob(Long jobId) {
         XyJob xyJob = queryJobById(jobId);
+        String jobGroup = xyJob.getJobGroup();
         XyUser operator = userService.findCurrentOperator();
         checkPermission(operator, xyJob);
 
         int cnt = jobMapper.deleteById(jobId);
-        return cnt == 1;
+        try {
+            boolean flag = cnt == 1;
+            if(flag) {
+                scheduler.deleteJob(ScheduleUtils.getJobKey(jobId, jobGroup));
+            }
+            return flag;
+        } catch (SchedulerException e) {
+            throw new CustomerException(ExceptionEnum.TASK_NOT_DELETED);
+        }
     }
 
     private void checkPermission(XyUser operator, XyJob xyJob) {

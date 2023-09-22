@@ -13,6 +13,26 @@ import edu.whu.model.job.vo.AddJobVo;
  */
 public interface IXyJobService extends IService<XyJob> {
     /**
+     * 挂起任务
+     * @param jobId 任务详情
+     * @return      操作结果
+     */
+    Boolean pauseJob(Long jobId);
+
+    /**
+     * 恢复任务
+     * @param jobId 任务详情
+     * @return      操作结果
+     */
+    Boolean resumeJob(Long jobId);
+
+    /**
+     * 立即执行一次任务
+     * @param jobId 任务详情
+     * @return      操作结果
+     */
+    Boolean runOnce(Long jobId);
+    /**
      * 分页查询任务列表, 仅管理员及以上级别用户可以使用, 可以查出所有用的的任务
      * @param pageNum   页码
      * @param pageSize  每页条数

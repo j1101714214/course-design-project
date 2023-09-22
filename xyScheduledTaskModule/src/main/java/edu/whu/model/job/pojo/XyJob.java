@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import edu.whu.model.common.enumerate.InvokeMethod;
 import edu.whu.model.common.enumerate.JobStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -56,6 +57,20 @@ public class XyJob implements Serializable {
     @TableField("invoke_target")
     @ApiModelProperty(value = "调用目标字符串")
     private String invokeTarget;
+
+    /**
+     * 调用目标字符串: 暂定为API接口调用
+     */
+    @TableField("invoke_method")
+    @ApiModelProperty(value = "请求方式")
+    private InvokeMethod invokeMethod;
+
+    /**
+     * 调用目标字符串: 暂定为API接口调用
+     */
+    @TableField("invoke_param")
+    @ApiModelProperty(value = "请求参数")
+    private String invokeParam;
 
     /**
      * cron执行表达式

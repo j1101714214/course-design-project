@@ -10,11 +10,10 @@ import org.springframework.http.HttpStatus;
  * @description CustomerException: 自定义异常处理
  * @date 2023/9/16 18:27
  */
-@Data
 public class CustomerException extends RuntimeException{
     private static final long serialVersionUID = 1L;
-    private String message;
-    private HttpStatus code;
+    private final String message;
+    private final HttpStatus code;
     public CustomerException(String message) {
         super(message);
         this.message = message;
@@ -29,5 +28,14 @@ public class CustomerException extends RuntimeException{
 
     public CustomerException(ExceptionEnum exception) {
         this(exception.getMessage(), exception.getCode());
+    }
+
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    public HttpStatus getCode() {
+        return code;
     }
 }

@@ -41,6 +41,12 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(exception.getCode()).body(exception.getMessage());
     }
 
+    /**
+     * spring-validation框架对于参数校验的异常处理器
+     * @param request   请求
+     * @param exception 异常
+     * @return          异常响应实体, 并设置不同的状态码
+     */
     @ExceptionHandler(value = BindException.class)
     public ResponseEntity<String> handleBindException(HttpServletRequest request, BindException exception) {
         List<FieldError> errors = exception.getFieldErrors();
@@ -49,5 +55,18 @@ public class GlobalExceptionHandler {
             sb.append(errorMessage.getField()).append(": ").append(errorMessage.getDefaultMessage()).append(", ");
         }
         return ResponseEntity.badRequest().body(sb.toString());
+    }
+
+    /**
+     * spring-validation框架对于参数校验的异常处理器
+     * @param request   请求
+     * @param exception 异常
+     * @return          异常响应实体, 并设置不同的状态码
+     */
+    @ExceptionHandler(value = TaskException.class)
+    public ResponseEntity<String> handleTaskException(HttpServletRequest request, TaskException exception) {
+        String message = exception.getMessage();
+        Long jobId = exception.getJobId();
+        return ResponseEntity.status(exception.getCode()).body(jobId + ":" + message);
     }
 }

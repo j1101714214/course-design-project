@@ -30,11 +30,11 @@ public interface IRestTemplateService {
      * 执行put调用
      * @param xyJob 任务详情
      */
-    void doPut(XyJob xyJob);
+    CompletableFuture<Void> doPut(XyJob xyJob);
 
     /**
      * 执行delete调用
      * @param xyJob 任务详情
      */
-    void doDelete(XyJob xyJob);
+    CompletableFuture<Void> doDelete(XyJob xyJob);
 }

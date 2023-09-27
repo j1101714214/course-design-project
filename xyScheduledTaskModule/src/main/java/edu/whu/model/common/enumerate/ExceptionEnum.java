@@ -26,6 +26,8 @@ public enum ExceptionEnum {
     TASK_RUN_ERROR(HttpStatus.BAD_REQUEST, "任务执行失败"),
     ERROR_INVOKE_METHOD(HttpStatus.BAD_REQUEST, "未知的任务请求方式"),
     UNKNOWN_TASK(HttpStatus.BAD_REQUEST, "未知任务被调用"),
+    /* 插件管理 */
+    ERROR_INVOKE_PLUGIN(HttpStatus.BAD_REQUEST, "启动插件失败"),
     /* 权限管理 */
     USER_NOT_LOGIN(HttpStatus.UNAUTHORIZED, "用户未登录"),
     UN_AUTHORIZED(HttpStatus.UNAUTHORIZED, "当前用户未授权"),

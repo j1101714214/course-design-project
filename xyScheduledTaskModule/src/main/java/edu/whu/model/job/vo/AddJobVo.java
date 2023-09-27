@@ -1,5 +1,8 @@
 package edu.whu.model.job.vo;
 
+import edu.whu.model.common.enumerate.InvokeMethod;
+import lombok.Data;
+
 import javax.validation.constraints.NotEmpty;
 
 /**
@@ -8,9 +11,11 @@ import javax.validation.constraints.NotEmpty;
  * @description AddJobVo: 添加和修改任务详情的视图对象
  * @date 2023/9/20 20:36
  */
+@Data
 public class AddJobVo {
     @NotEmpty(message = "任务名不为空")
     private String jobName;
+    @NotEmpty(message = "任务组别不能为空")
     private String jobGroup;
     @NotEmpty(message = "调用目标不能为空")
     private String invokeTarget;
@@ -19,4 +24,6 @@ public class AddJobVo {
     @NotEmpty(message = "cron策略不能为空")
     private String misfirePolicy;
     private String concurrent;
+    private String invokeParam;
+    private InvokeMethod invokeMethod;
 }

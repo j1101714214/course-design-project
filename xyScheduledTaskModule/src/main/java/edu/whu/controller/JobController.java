@@ -1,11 +1,8 @@
 package edu.whu.controller;
 
-import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import edu.whu.exception.CustomerException;
 import edu.whu.model.job.pojo.XyJob;
 import edu.whu.model.job.vo.AddJobVo;
-import edu.whu.model.user.pojo.XyUser;
 import edu.whu.service.IXyJobService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -78,5 +75,35 @@ public class JobController {
             return ResponseEntity.badRequest().body("删除任务信息失败");
         }
         return ResponseEntity.ok("删除任务信息成功");
+    }
+
+    @GetMapping("/run/{jobId}")
+    @ApiOperation(value = "立即执行一次")
+    public ResponseEntity<String> run(@PathVariable("jobId") Long jobId) {
+        Boolean ret = jobService.runOnce(jobId);
+        if(!ret) {
+            return ResponseEntity.badRequest().body("任务调用出错");
+        }
+        return ResponseEntity.ok("任务成功调用");
+    }
+
+    @GetMapping("/resume/{jobId}")
+    @ApiOperation(value = "恢复任务")
+    public ResponseEntity<String> resume(@PathVariable("jobId") Long jobId) {
+        Boolean ret = jobService.resumeJob(jobId);
+        if(!ret) {
+            return ResponseEntity.badRequest().body("任务恢复调用出错");
+        }
+        return ResponseEntity.ok("任务恢复调用成功");
+    }
+
+    @GetMapping("/pause/{jobId}")
+    @ApiOperation(value = "挂起任务")
+    public ResponseEntity<String> pause(@PathVariable("jobId") Long jobId) {
+        Boolean ret = jobService.pauseJob(jobId);
+        if(!ret) {
+            return ResponseEntity.badRequest().body("任务挂起出错");
+        }
+        return ResponseEntity.ok("任务挂起成功");
     }
 }

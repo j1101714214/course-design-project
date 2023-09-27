@@ -25,6 +25,7 @@ import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -51,14 +52,8 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
 
     @PostConstruct
     public void init() throws SchedulerException {
-        // 在服务器启动之后读取所有数据加入任务调度之中
+        // 在服务器启动之后读取所有数据加入任务调度之中(等用户登录之后在启动用户计划)
         scheduler.clear();
-        List<XyJob> xyJobs = super.list();
-        for (XyJob job : xyJobs) {
-            if(ObjectUtil.notEqual(job.getStatus(), JobStatus.PROCESSED)) {
-                ScheduleUtils.createScheduleJob(scheduler, job);
-            }
-        }
         scheduler.start();
     }
 
@@ -129,8 +124,6 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
         return page;
     }
 
-
-
     @Override
     public IPage<XyJob> queryJobListByUser(Integer pageNum, Integer pageSize, Long userId) {
         XyUser operator = userService.findCurrentOperator();
@@ -166,7 +159,6 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
         xyJob.setCreateUser(operator.getId());
         xyJob.setUpdateUser(operator.getId());
         xyJob.setStatus(JobStatus.PENDING);
-        xyJob.setIsDeleted(0);
 
         int cnt = jobMapper.insert(xyJob);
         boolean flag = cnt == 1;
@@ -222,6 +214,21 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
             return flag;
         } catch (SchedulerException e) {
             throw new CustomerException(ExceptionEnum.TASK_NOT_DELETED);
+        }
+    }
+
+    @Override
+    @Async
+    public void startTasksByUserId(Long userId) {
+        XyUser operator = userService.findCurrentOperator();
+        LambdaQueryWrapper<XyJob> lqw = new LambdaQueryWrapper<>();
+        lqw.select(XyJob::getCreateUser).eq(XyJob::getCreateUser, operator.getId());
+
+        List<XyJob> xyJobs = jobMapper.selectList(lqw);
+        for (XyJob job : xyJobs) {
+            if(ObjectUtil.notEqual(job.getStatus(), JobStatus.PROCESSED)) {
+                ScheduleUtils.createScheduleJob(scheduler, job);
+            }
         }
     }
 

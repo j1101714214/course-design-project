@@ -127,11 +127,4 @@ public class XyJob implements Serializable {
     @TableField("status")
     @ApiModelProperty(value = "任务执行状态")
     private JobStatus status;
-
-    /**
-     * 任务是否已删除
-     */
-    @TableField("is_deleted")
-    @ApiModelProperty(value = "任务是否已删除")
-    private Integer isDeleted;
 }

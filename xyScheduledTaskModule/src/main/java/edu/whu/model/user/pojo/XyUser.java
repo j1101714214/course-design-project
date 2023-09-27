@@ -4,13 +4,16 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import edu.whu.handler.ListToStringHandler;
 import edu.whu.model.common.enumerate.UserLevel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.ibatis.type.JdbcType;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author Akihabara
@@ -21,7 +24,7 @@ import java.io.Serializable;
 @Data
 @ApiModel(value = "用户实体类", description = "与tb_user表相对应的用户实体类")
 @NoArgsConstructor
-@TableName("public.tb_users")
+@TableName(value = "public.tb_users", autoResultMap = true)
 public class XyUser implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -50,5 +53,8 @@ public class XyUser implements Serializable {
     @ApiModelProperty(value = "用户权限")
     private UserLevel userLevel;
 
+    @TableField(value = "plugins", typeHandler = ListToStringHandler.class)
+    @ApiModelProperty(value = "用户下载的插件")
+    private List<Long> plugins;
 
 }

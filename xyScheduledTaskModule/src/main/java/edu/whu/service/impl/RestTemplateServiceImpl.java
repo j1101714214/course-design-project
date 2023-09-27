@@ -50,18 +50,22 @@ public class RestTemplateServiceImpl implements IRestTemplateService {
 
     @Override
     @Async
-    public void doPut(XyJob xyJob) {
+    public CompletableFuture<Void> doPut(XyJob xyJob) {
         String url = xyJob.getInvokeTarget();
         Map<String, String> param = parseParam(xyJob.getInvokeParam());
-        restTemplate.put(url, param);
+        return CompletableFuture.runAsync(() -> {
+            restTemplate.put(url, param);
+        });
     }
 
     @Override
     @Async
-    public void doDelete(XyJob xyJob) {
+    public CompletableFuture<Void> doDelete(XyJob xyJob) {
         String url = xyJob.getInvokeTarget();
         Map<String, String> param = parseParam(xyJob.getInvokeParam());
-        restTemplate.delete(url, param);
+        return CompletableFuture.runAsync(() -> {
+            restTemplate.delete(url, param);
+        });
     }
 
     private Map<String, String> parseParam(String invokeParam) {

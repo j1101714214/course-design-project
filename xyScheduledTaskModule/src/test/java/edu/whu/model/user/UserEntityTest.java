@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,6 +27,12 @@ public class UserEntityTest {
         xyUser.setPassword("test001");
         xyUser.setUserLevel(UserLevel.GUEST);
 
+        List<Long> plugins = new ArrayList<>();
+        plugins.add(1L);
+        plugins.add(2L);
+        plugins.add(3L);
+
+        xyUser.setPlugins(plugins);
         userService.save(xyUser);
     }
 

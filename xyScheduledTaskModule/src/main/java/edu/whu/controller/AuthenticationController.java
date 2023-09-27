@@ -4,6 +4,7 @@ import edu.whu.exception.CustomerException;
 import edu.whu.model.common.enumerate.ExceptionEnum;
 import edu.whu.model.user.pojo.XyUser;
 import edu.whu.model.user.vo.LoginAndRegisterVo;
+import edu.whu.service.IXyJobService;
 import edu.whu.service.IXyUserService;
 import edu.whu.utils.JwtUtil;
 import io.swagger.annotations.Api;
@@ -36,6 +37,8 @@ public class AuthenticationController {
     private UserDetailsService userDetailsService;
     @Autowired
     private IXyUserService userService;
+    @Autowired
+    private IXyJobService jobService;
 
     @ApiOperation(value = "登录操作")
     @PostMapping("/login")
@@ -46,6 +49,9 @@ public class AuthenticationController {
             );
             UserDetails userDetails = userDetailsService.loadUserByUsername(loginAndRegisterVo.getUsername());
             String token = JwtUtil.getToken(userDetails);
+            // 用户如果成功登录, 就针对用户的所有任务投入启动
+            XyUser operator = userService.findUserByUsername(userDetails.getUsername(), false);
+            jobService.startTasksByUserId(operator.getId());
             return ResponseEntity.ok(token);
         } catch (Exception e) {
             throw new CustomerException(ExceptionEnum.UN_AUTHORIZED);

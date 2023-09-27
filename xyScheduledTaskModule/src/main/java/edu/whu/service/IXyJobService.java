@@ -77,4 +77,6 @@ public interface IXyJobService extends IService<XyJob> {
      * @return      相关任务详情
      */
     Boolean deleteJob(Long jobId);
+
+    void startTasksByUserId(Long userId);
 }

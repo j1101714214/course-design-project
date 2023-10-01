@@ -43,6 +43,7 @@ public class AuthenticationController {
     @ApiOperation(value = "登录操作")
     @PostMapping("/login")
     public ResponseEntity<String> login(@Validated @RequestBody LoginAndRegisterVo loginAndRegisterVo) {
+        System.out.println("here");
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginAndRegisterVo.getUsername(), loginAndRegisterVo.getPassword())

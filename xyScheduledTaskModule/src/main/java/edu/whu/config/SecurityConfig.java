@@ -39,12 +39,15 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) {
         try {
             httpSecurity.csrf().disable();
+            /**
+             * 注意: 不要配置.loginProcessingUrl()为自定义controller, 不如会被覆盖API接口
+             */
+            httpSecurity
+                    .formLogin().loginPage("/login.html").permitAll();
             httpSecurity
                     .authorizeRequests()
-                    .antMatchers("/authenticate/**").permitAll()
                     .antMatchers(
-                            "/login",
-                            "index.html",
+                            "/authenticate/**",
                             "favicon.ico",
                             "/doc.html",
                             "/webjars/**",
@@ -54,8 +57,7 @@ public class SecurityConfig {
                     ).permitAll()
                     .anyRequest().authenticated()
                     .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-            httpSecurity
-                    .formLogin().loginProcessingUrl("/authenticate/login").permitAll();
+
 
             httpSecurity.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
             return httpSecurity.build();

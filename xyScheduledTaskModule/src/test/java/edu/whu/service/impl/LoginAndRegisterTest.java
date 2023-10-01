@@ -26,8 +26,8 @@ import java.net.BindException;
  * @date 2023/9/16 20:58
  */
 @SpringBootTest
-@Transactional
-@Rollback
+//@Transactional
+//@Rollback
 public class LoginAndRegisterTest {
     @Autowired
     private IXyUserService userService;

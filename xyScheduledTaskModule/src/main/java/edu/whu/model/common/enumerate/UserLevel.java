@@ -10,11 +10,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * @date 2023/9/16 15:37
  */
 public enum UserLevel {
-    GUEST(1, "ROLE_GUEST"),
-    USER(2, "ROLE_USER"),
-    ADV_USER(3, "ROLE_ADV_USER"),
-    ADMIN(6, "ROLE_ADMIN"),
-    SYS_ADMIN(7, "ROLE_SYS_ADMIN");
+    GUEST(1, "GUEST"),
+    USER(2, "USER"),
+    ADV_USER(3, "ADV_USER"),
+    ADMIN(6, "ADMIN"),
+    SYS_ADMIN(7, "SYS_ADMIN");
 
 
     final int level;

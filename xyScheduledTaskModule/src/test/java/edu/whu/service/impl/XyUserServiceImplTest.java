@@ -1,18 +1,27 @@
 package edu.whu.service.impl;
 
+import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.whu.exception.CustomerException;
 import edu.whu.model.common.enumerate.UserLevel;
 import edu.whu.model.user.pojo.XyUser;
+import edu.whu.model.user.vo.LoginAndRegisterVo;
 import edu.whu.service.IXyUserService;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.event.annotation.AfterTestClass;
+import org.springframework.test.context.event.annotation.BeforeTestClass;
+import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
 /**
  * @author Akihabara
@@ -21,26 +30,46 @@ import org.springframework.transaction.annotation.Transactional;
  * @date 2023/9/16 20:53
  */
 @SpringBootTest
-@Transactional
-@Rollback
+@AutoConfigureMockMvc
 public class XyUserServiceImplTest {
     @Autowired
     private IXyUserService xyUserService;
+    @Autowired
+    private MockMvc mockMvc;
+    @Autowired
+    private ObjectMapper objectMapper;
 
     private XyUser user = null;
+    private LoginAndRegisterVo vo = null;
 
 
     @BeforeEach
-    public void before() {
+    public void before() throws Exception {
         user = new XyUser();
-        user.setUsername("test_user1");
-        user.setPassword("123456");
+        user.setUsername(RandomUtil.randomString(10));
+        user.setPassword(RandomUtil.randomString(10));
         user.setUserLevel(UserLevel.GUEST);
+
+        vo = new LoginAndRegisterVo();
+        vo.setUsername(user.getUsername());
+        vo.setPassword(user.getPassword());
+
+        byte[] bytes = objectMapper.writeValueAsBytes(vo);
+
+        mockMvc.perform(post("/authenticate/register")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(bytes)
+        );
+        mockMvc.perform(post("/authenticate/login")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(bytes)
+        );
     }
 
-    @AfterEach
+    @AfterTestClass
     public void after() {
         user = null;
+        vo = null;
     }
 
     @Test

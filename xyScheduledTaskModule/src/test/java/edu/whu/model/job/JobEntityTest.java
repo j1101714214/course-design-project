@@ -28,7 +28,6 @@ public class JobEntityTest {
         XyJob xyJob = new XyJob();
         xyJob.setJobName("任务1");
         xyJob.setCreateTime(Timestamp.valueOf(LocalDateTime.now()));
-        xyJob.setIsDeleted(0);
 
         jobService.save(xyJob);
     }

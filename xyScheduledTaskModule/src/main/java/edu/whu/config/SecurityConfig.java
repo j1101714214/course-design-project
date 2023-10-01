@@ -55,7 +55,7 @@ public class SecurityConfig {
                     .anyRequest().authenticated()
                     .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
             httpSecurity
-                    .formLogin().loginPage("/login.html").loginProcessingUrl("/authenticate/login").permitAll();
+                    .formLogin().loginProcessingUrl("/authenticate/login").permitAll();
 
             httpSecurity.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
             return httpSecurity.build();

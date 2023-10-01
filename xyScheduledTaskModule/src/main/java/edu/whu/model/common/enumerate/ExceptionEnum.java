@@ -28,6 +28,8 @@ public enum ExceptionEnum {
     UNKNOWN_TASK(HttpStatus.BAD_REQUEST, "未知任务被调用"),
     /* 插件管理 */
     ERROR_INVOKE_PLUGIN(HttpStatus.BAD_REQUEST, "启动插件失败"),
+    ERROR_PLUGIN_TYPE(HttpStatus.BAD_REQUEST, "错误插件类型"),
+
     /* 权限管理 */
     USER_NOT_LOGIN(HttpStatus.UNAUTHORIZED, "用户未登录"),
     UN_AUTHORIZED(HttpStatus.UNAUTHORIZED, "当前用户未授权"),

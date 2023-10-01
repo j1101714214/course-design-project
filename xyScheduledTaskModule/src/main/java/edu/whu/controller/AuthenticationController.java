@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.validation.annotation.Validated;
@@ -43,7 +44,6 @@ public class AuthenticationController {
     @ApiOperation(value = "登录操作")
     @PostMapping("/login")
     public ResponseEntity<String> login(@Validated @RequestBody LoginAndRegisterVo loginAndRegisterVo) {
-        System.out.println("here");
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginAndRegisterVo.getUsername(), loginAndRegisterVo.getPassword())
@@ -52,7 +52,14 @@ public class AuthenticationController {
             String token = JwtUtil.getToken(userDetails);
             // 用户如果成功登录, 就针对用户的所有任务投入启动
             XyUser operator = userService.findUserByUsername(userDetails.getUsername(), false);
+            // 在此处先保存一次用户
+            UsernamePasswordAuthenticationToken authenticationToken =
+                    new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+
             jobService.startTasksByUserId(operator.getId());
+            // TODO: 启动插件
+
             return ResponseEntity.ok(token);
         } catch (Exception e) {
             throw new CustomerException(ExceptionEnum.UN_AUTHORIZED);

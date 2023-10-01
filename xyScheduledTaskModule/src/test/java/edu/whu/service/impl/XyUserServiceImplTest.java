@@ -30,6 +30,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
  * @date 2023/9/16 20:53
  */
 @SpringBootTest
+@Transactional
+@Rollback
 @AutoConfigureMockMvc
 public class XyUserServiceImplTest {
     @Autowired
@@ -51,15 +53,15 @@ public class XyUserServiceImplTest {
         user.setUserLevel(UserLevel.GUEST);
 
         vo = new LoginAndRegisterVo();
-        vo.setUsername(user.getUsername());
-        vo.setPassword(user.getPassword());
+        vo.setUsername("admin");
+        vo.setPassword("admin");
 
         byte[] bytes = objectMapper.writeValueAsBytes(vo);
 
-        mockMvc.perform(post("/authenticate/register")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(bytes)
-        );
+//        mockMvc.perform(post("/authenticate/register")
+//                .contentType(MediaType.APPLICATION_JSON)
+//                .content(bytes)
+//        );
         mockMvc.perform(post("/authenticate/login")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(bytes)
@@ -79,6 +81,12 @@ public class XyUserServiceImplTest {
         XyUser userInDb = xyUserService.findUserByUsername(user.getUsername(), false);
         Assertions.assertNotNull(userInDb);
         Assertions.assertEquals(userInDb.getUsername(), user.getUsername());
+
+        try {
+            Thread.sleep(100000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Test

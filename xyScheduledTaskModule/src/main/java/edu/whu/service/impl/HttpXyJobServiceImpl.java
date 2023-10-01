@@ -220,9 +220,9 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
     @Override
     @Async
     public void startTasksByUserId(Long userId) {
-        XyUser operator = userService.findCurrentOperator();
+        // 异步方法不用使用任何与本地线程有关的操作
         LambdaQueryWrapper<XyJob> lqw = new LambdaQueryWrapper<>();
-        lqw.select(XyJob::getCreateUser).eq(XyJob::getCreateUser, operator.getId());
+        lqw.eq(XyJob::getCreateUser, userId);
 
         List<XyJob> xyJobs = jobMapper.selectList(lqw);
         for (XyJob job : xyJobs) {

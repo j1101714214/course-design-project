@@ -1,5 +1,6 @@
 package edu.whu.service.impl;
 
+import cn.hutool.core.util.StrUtil;
 import edu.whu.model.job.pojo.XyJob;
 import edu.whu.service.IRestTemplateService;
 import lombok.extern.slf4j.Slf4j;
@@ -70,7 +71,7 @@ public class RestTemplateServiceImpl implements IRestTemplateService {
 
     private Map<String, String> parseParam(String invokeParam) {
         Map<String, String> map = new HashMap<>();
-        if(invokeParam == null) {
+        if(StrUtil.isEmptyOrUndefined(invokeParam)) {
             return map;
         }
         String[] kvPairs = invokeParam.split(";");

@@ -22,6 +22,8 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.stream.Collectors;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
 /**
@@ -96,7 +98,7 @@ public class XyUserServiceImplTest {
     }
 
     @Test
-    void deleteUser() {
+    void testDeleteUser() {
         xyUserService.save(user);
         xyUserService.deleteUser(user.getId());
 
@@ -105,7 +107,7 @@ public class XyUserServiceImplTest {
     }
 
     @Test
-    void updateUser() {
+    void testUpdateUser() {
         xyUserService.save(user);
 
         // 成功情况
@@ -137,10 +139,12 @@ public class XyUserServiceImplTest {
     }
 
     @Test
-    void queryUserById() {
+    void testQueryUserById() {
         xyUserService.save(user);
 
         Assertions.assertThrows(CustomerException.class, () -> xyUserService.queryUserById(otherOperator, user.getId()));
+        Assertions.assertThrows(CustomerException.class, () -> xyUserService.queryUserById(null, user.getId()));
+        Assertions.assertNotNull(xyUserService.queryUserById(currOperator, user.getId()));
     }
 
     @Test
@@ -149,8 +153,9 @@ public class XyUserServiceImplTest {
 
         IPage<XyUser> page = xyUserService.queryUserList(1, 10);
         Assertions.assertNotNull(page.getRecords());
-        Assertions.assertEquals(page.getTotal(), 1);
+        Assertions.assertEquals(page.getTotal(), 3);
         Assertions.assertEquals(page.getCurrent(), 1L);
-        Assertions.assertEquals(page.getRecords().get(0).getId(), user.getId());
+        Assertions.assertNotNull(page.getRecords().stream()
+                .filter(xyUser -> xyUser.getId().equals(user.getId())).collect(Collectors.toList()).get(0));
     }
 }

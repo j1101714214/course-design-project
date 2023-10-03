@@ -5,6 +5,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 /**
@@ -21,11 +25,9 @@ public class JwtUtil {
         INVALID;
     }
     // TOKEN的有效期一天（S）
-    private static final int TOKEN_TIME_OUT = 3_600;
+    private static final int TOKEN_TIME_OUT = 60 * 60 * 1000;   // 分钟数
     // 加密KEY
     private static final String TOKEN_ENCRY_KEY = "MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY";
-    // 最小刷新间隔(S)
-    private static final int REFRESH_TIME = 300;
 
     // 生产ID
     public static String getToken(UserDetails userDetails){
@@ -38,7 +40,7 @@ public class JwtUtil {
                 .setAudience("app")                     //接收用户
                 .compressWith(CompressionCodecs.GZIP)   //数据压缩方式
                 .signWith(SignatureAlgorithm.HS512, generalKey())               //加密方式
-                .setExpiration(new Date(currentTime + TOKEN_TIME_OUT * 1000))   //过期时间戳
+                .setExpiration(new Date(currentTime + TOKEN_TIME_OUT))   //过期时间戳
                 .compact();
     }
 
@@ -63,7 +65,7 @@ public class JwtUtil {
     public static Claims getClaimsBody(String token) {
         try {
             return getJws(token).getBody();
-        }catch (ExpiredJwtException e){
+        } catch (ExpiredJwtException e){
             return null;
         }
     }
@@ -90,7 +92,7 @@ public class JwtUtil {
         }
         try {
             // 需要自动刷新TOKEN
-            if((claims.getExpiration().getTime()-System.currentTimeMillis()) > REFRESH_TIME*1000){
+            if((claims.getExpiration().getTime()-System.currentTimeMillis()) > TOKEN_TIME_OUT){
                 return VerifyResult.EXPIRE;
             }else {
                 return VerifyResult.VALID;
@@ -110,5 +112,11 @@ public class JwtUtil {
     public static SecretKey generalKey() {
         byte[] encodedKey = Base64.getEncoder().encode(TOKEN_ENCRY_KEY.getBytes());
         return new SecretKeySpec(encodedKey, 0, encodedKey.length, "AES");
+    }
+
+    public static void main(String[] args) {
+        long now = System.currentTimeMillis();
+        System.out.println(new Date(now));
+        System.out.println(new Date(now + TOKEN_TIME_OUT));
     }
 }

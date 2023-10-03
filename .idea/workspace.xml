@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="修改用户登录时任务自启动报错bug">
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="修改异步任务无法获取SecurityContextHolder所包含的当前用户的信息的bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/JobController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyJobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyJobService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/JwtUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,19 +117,16 @@
       <recent name="edu.whu.service.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.XyUserServiceImplTest.updateUser">
-    <configuration name="LoginAndRegisterTest.testRegisterNormal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.XyScheduledTaskApplication">
+    <configuration name="JwtUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.whu.utils.JwtUtil" />
       <module name="xyScheduledTaskModule" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.whu.service.impl.*" />
+          <option name="PATTERN" value="edu.whu.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.whu.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.LoginAndRegisterTest" />
-      <option name="METHOD_NAME" value="testRegisterNormal" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -202,11 +193,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.XyUserServiceImplTest.updateUser" />
         <item itemvalue="Spring Boot.XyScheduledTaskApplication" />
-        <item itemvalue="JUnit.XyUserServiceImplTest.findUserByUsername" />
+        <item itemvalue="应用程序.JwtUtil" />
         <item itemvalue="JUnit.XyUserServiceImplTest" />
-        <item itemvalue="JUnit.LoginAndRegisterTest.testRegisterNormal" />
+        <item itemvalue="JUnit.XyUserServiceImplTest.updateUser" />
+        <item itemvalue="JUnit.XyUserServiceImplTest.findUserByUsername" />
       </list>
     </recent_temporary>
   </component>
@@ -240,7 +231,7 @@
       <workItem from="1695816003801" duration="6240000" />
       <workItem from="1696159688423" duration="7975000" />
       <workItem from="1696167753099" duration="780000" />
-      <workItem from="1696333052750" duration="793000" />
+      <workItem from="1696333052750" duration="3150000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -354,7 +345,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696166239424</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="修改异步任务无法获取SecurityContextHolder所包含的当前用户的信息的bug">
+      <created>1696333954337</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1696333954337</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +389,8 @@
     <MESSAGE value="修改Spring security不能以ROLE_开头的bug" />
     <MESSAGE value="修改了Spring security配置存在的映射错误问题" />
     <MESSAGE value="修改用户登录时任务自启动报错bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改用户登录时任务自启动报错bug" />
+    <MESSAGE value="修改异步任务无法获取SecurityContextHolder所包含的当前用户的信息的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改异步任务无法获取SecurityContextHolder所包含的当前用户的信息的bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -426,6 +425,21 @@
           <line>71</line>
           <option name="timeStamp" value="53" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/filter/JwtRequestFilter.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-defaults>
         <breakpoint suspend="THREAD" type="java-line" />
@@ -439,6 +453,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/xyNasTools$PluginUtils.ic" NAME="PluginUtils 覆盖结果" MODIFIED="1695473870526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>edu.whu.utils.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/xyNasTools$XyScheduledTaskApplication.ic" NAME="XyScheduledTaskApplication 覆盖结果" MODIFIED="1696336098194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>edu.whu.*</FILTER>
     </SUITE>
   </component>
 </project>

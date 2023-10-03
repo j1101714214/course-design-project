@@ -100,9 +100,20 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
         }
 
         LambdaUpdateWrapper<XyUser> luw = new LambdaUpdateWrapper<>();
-        luw.set(XyUser::getPassword, passwordEncoder.encode(user.getPassword()))
-                .set(XyUser::getUserLevel, userUpdateLevel)
-                .eq(XyUser::getId, user);
+        if(user.getUsername() != null && !ObjectUtil.equal(user.getUsername(), operator.getUsername())) {
+            XyUser usernameInDb = findUserByUsername(user.getUsername(), false);
+            if(usernameInDb != null) {
+                throw new CustomerException(ExceptionEnum.USER_HAS_EXIST);
+            }
+            luw.set(XyUser::getUsername, user.getUsername());
+        }
+        if(user.getPassword() != null) {
+            luw.set(XyUser::getPassword, passwordEncoder.encode(user.getPassword()));
+        }
+        if(user.getUserLevel() != null) {
+            luw.set(XyUser::getUserLevel, userUpdateLevel);
+        }
+        luw.eq(XyUser::getId, userId);
 
         int cnt = xyUserMapper.update(null, luw);
         return cnt == 1;

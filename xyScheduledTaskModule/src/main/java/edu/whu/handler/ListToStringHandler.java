@@ -24,7 +24,11 @@ public class ListToStringHandler extends BaseTypeHandler<List<Long>> {
 
     @Override
     public void setNonNullParameter(PreparedStatement ps, int i, List<Long> parameter, JdbcType jdbcType) throws SQLException {
-        ps.setString(i, JSON.toJSONString(parameter));
+        if(parameter == null) {
+            ps.setString(i, JSON.toJSONString(""));
+        } else {
+            ps.setString(i, JSON.toJSONString(parameter));
+        }
     }
 
     @Override

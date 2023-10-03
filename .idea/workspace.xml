@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="修改异步任务无法获取SecurityContextHolder所包含的当前用户的信息的bug">
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="修改JWT过期时间不正确问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/handler/ListToStringHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/handler/ListToStringHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +120,7 @@
       <recent name="edu.whu.service.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.XyScheduledTaskApplication">
+  <component name="RunManager" selected="JUnit.XyUserServiceImplTest.updateUser">
     <configuration name="JwtUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.whu.utils.JwtUtil" />
       <module name="xyScheduledTaskModule" />
@@ -193,10 +196,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.XyUserServiceImplTest.updateUser" />
         <item itemvalue="Spring Boot.XyScheduledTaskApplication" />
         <item itemvalue="应用程序.JwtUtil" />
         <item itemvalue="JUnit.XyUserServiceImplTest" />
-        <item itemvalue="JUnit.XyUserServiceImplTest.updateUser" />
         <item itemvalue="JUnit.XyUserServiceImplTest.findUserByUsername" />
       </list>
     </recent_temporary>
@@ -231,7 +234,7 @@
       <workItem from="1695816003801" duration="6240000" />
       <workItem from="1696159688423" duration="7975000" />
       <workItem from="1696167753099" duration="780000" />
-      <workItem from="1696333052750" duration="3150000" />
+      <workItem from="1696333052750" duration="5383000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -352,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696333954337</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="修改JWT过期时间不正确问题">
+      <created>1696336294825</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1696336294825</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,7 +400,8 @@
     <MESSAGE value="修改了Spring security配置存在的映射错误问题" />
     <MESSAGE value="修改用户登录时任务自启动报错bug" />
     <MESSAGE value="修改异步任务无法获取SecurityContextHolder所包含的当前用户的信息的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改异步任务无法获取SecurityContextHolder所包含的当前用户的信息的bug" />
+    <MESSAGE value="修改JWT过期时间不正确问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改JWT过期时间不正确问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -402,7 +413,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/handler/ListToStringHandler.java</url>
-          <line>26</line>
+          <line>29</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -415,30 +426,35 @@
           <line>48</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java</url>
           <line>30</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="58" />
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/filter/JwtRequestFilter.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="59" />
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java</url>
+          <line>116</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-defaults>

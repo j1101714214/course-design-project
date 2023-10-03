@@ -52,11 +52,6 @@ public class AuthenticationController {
             String token = JwtUtil.getToken(userDetails);
             // 用户如果成功登录, 就针对用户的所有任务投入启动
             XyUser operator = userService.findUserByUsername(userDetails.getUsername(), false);
-            // 在此处先保存一次用户
-            UsernamePasswordAuthenticationToken authenticationToken =
-                    new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-
             jobService.startTasksByUserId(operator.getId());
             // TODO: 启动插件
 

@@ -2,7 +2,6 @@ package edu.whu.service.impl;
 
 import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.whu.exception.CustomerException;
 import edu.whu.model.common.enumerate.UserLevel;
@@ -14,11 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.event.annotation.AfterTestClass;
-import org.springframework.test.context.event.annotation.BeforeTestClass;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,14 +44,17 @@ public class XyUserServiceImplTest {
 
     private XyUser user = null;
     private LoginAndRegisterVo vo = null;
-    private Object principal = null;
+    private Object otherOperator = null;
+    private Object currOperator = null;
 
 
     @BeforeEach
     public void before() throws Exception {
         user = new XyUser();
-        user.setUsername(RandomUtil.randomString(10));
-        user.setPassword(RandomUtil.randomString(10));
+        String username = RandomUtil.randomString(10);
+        user.setUsername(username);
+        String password = RandomUtil.randomString(10);
+        user.setPassword(password);
         user.setUserLevel(UserLevel.GUEST);
 
         vo = new LoginAndRegisterVo();
@@ -64,12 +67,17 @@ public class XyUserServiceImplTest {
 //                .contentType(MediaType.APPLICATION_JSON)
 //                .content(bytes)
 //        );
-        mockMvc.perform(post("/authenticate/login")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(bytes)
-        );
+        // 构造一个管理员角色操作非本人的数据
+        otherOperator = User.builder().username("admin")
+                .password("$2a$10$dY3wAtsqpXdGbq2qfrxL/OCJm4BlsxB8pU2.hc6uhiW6rZb1wQUaS")
+                .roles("ADMIN")
+                .build();
 
-        principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        currOperator = User.builder().username(username)
+                .password(new BCryptPasswordEncoder().encode(password))
+                .roles("USER")
+                .build();
+
     }
 
     @AfterEach
@@ -102,21 +110,37 @@ public class XyUserServiceImplTest {
 
         // 成功情况
         user.setUsername("张三");
-        Boolean ret = xyUserService.updateUser(principal, user.getId(), user);
+        Boolean ret = xyUserService.updateUser(currOperator, user.getId(), user);
         Assertions.assertTrue(ret);
 
-        XyUser userInDBUpdated = xyUserService.findUserByUsername("张三", false);
+        XyUser userInDBUpdated = xyUserService.getById(user.getId());
         Assertions.assertNotNull(userInDBUpdated);
         Assertions.assertEquals("张三", userInDBUpdated.getUsername());
 
+        // 无操作权限
+        Assertions.assertThrows(CustomerException.class, () -> {
+            xyUserService.updateUser(otherOperator, user.getId(), user);
+        });
 
+        // 修改用户名为已存在用户名
+        user.setUsername("admin");
+        Assertions.assertThrows(CustomerException.class, () -> {
+            xyUserService.updateUser(currOperator, user.getId(), user);
+        });
+
+        // 修改权限不足
+        user.setUsername("张三");
+        user.setUserLevel(UserLevel.SYS_ADMIN);
+        Assertions.assertThrows(CustomerException.class, () -> {
+            xyUserService.updateUser(currOperator, user.getId(), user);
+        });
     }
 
     @Test
     void queryUserById() {
         xyUserService.save(user);
 
-        Assertions.assertThrows(CustomerException.class, () -> xyUserService.queryUserById(principal, user.getId()));
+        Assertions.assertThrows(CustomerException.class, () -> xyUserService.queryUserById(otherOperator, user.getId()));
     }
 
     @Test

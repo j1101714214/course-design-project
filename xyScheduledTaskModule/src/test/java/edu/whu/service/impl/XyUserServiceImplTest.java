@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.event.annotation.AfterTestClass;
@@ -43,6 +44,7 @@ public class XyUserServiceImplTest {
 
     private XyUser user = null;
     private LoginAndRegisterVo vo = null;
+    private Object principal = null;
 
 
     @BeforeEach
@@ -66,27 +68,23 @@ public class XyUserServiceImplTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(bytes)
         );
+
+        principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 
-    @AfterTestClass
+    @AfterEach
     public void after() {
         user = null;
         vo = null;
     }
 
     @Test
-    void findUserByUsername() {
+    void testFindUserByUsername() {
         xyUserService.save(user);
 
         XyUser userInDb = xyUserService.findUserByUsername(user.getUsername(), false);
         Assertions.assertNotNull(userInDb);
         Assertions.assertEquals(userInDb.getUsername(), user.getUsername());
-
-        try {
-            Thread.sleep(100000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     @Test
@@ -102,15 +100,23 @@ public class XyUserServiceImplTest {
     void updateUser() {
         xyUserService.save(user);
 
+        // 成功情况
         user.setUsername("张三");
-        Assertions.assertThrows(CustomerException.class, () -> xyUserService.updateUser(user.getId(), user));
+        Boolean ret = xyUserService.updateUser(principal, user.getId(), user);
+        Assertions.assertTrue(ret);
+
+        XyUser userInDBUpdated = xyUserService.findUserByUsername("张三", false);
+        Assertions.assertNotNull(userInDBUpdated);
+        Assertions.assertEquals("张三", userInDBUpdated.getUsername());
+
+
     }
 
     @Test
     void queryUserById() {
         xyUserService.save(user);
 
-        Assertions.assertThrows(CustomerException.class, () -> xyUserService.queryUserById(user.getId()));
+        Assertions.assertThrows(CustomerException.class, () -> xyUserService.queryUserById(principal, user.getId()));
     }
 
     @Test

@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,14 +42,16 @@ public class JobController {
             @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize,
             @PathVariable("userId") Long userId
     ) {
-        return ResponseEntity.ok(jobService.queryJobListByUser(pageNum, pageSize, userId));
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return ResponseEntity.ok(jobService.queryJobListByUser(principal, pageNum, pageSize, userId));
     }
 
     @PostMapping("/add")
     @ApiOperation(value = "添加任务")
     @PreAuthorize("!hasRole('ROLE_GUEST')")     // 非游客
     public ResponseEntity<String> addJob(@Validated @RequestBody AddJobVo addJobVo) {
-        Boolean ret = jobService.addJob(addJobVo);
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Boolean ret = jobService.addJob(principal, addJobVo);
         if(!ret) {
             return ResponseEntity.badRequest().body("保存任务信息失败");
         }
@@ -59,7 +62,8 @@ public class JobController {
     @ApiOperation(value = "更新任务")
     @PreAuthorize("!hasRole('ROLE_GUEST')")     // 非游客
     public ResponseEntity<String> updateJob(@Validated @RequestBody AddJobVo addJobVo, @PathVariable("jobId") Long jobId) {
-        Boolean ret = jobService.updateJob(addJobVo, jobId);
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Boolean ret = jobService.updateJob(principal, addJobVo, jobId);
         if(!ret) {
             return ResponseEntity.badRequest().body("更新任务信息失败");
         }
@@ -70,7 +74,8 @@ public class JobController {
     @ApiOperation(value = "删除任务")
     @PreAuthorize("!hasRole('ROLE_GUEST')")     // 非游客
     public ResponseEntity<String> deleteJob(@PathVariable("jobId") Long jobId) {
-        Boolean ret = jobService.deleteJob(jobId);
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Boolean ret = jobService.deleteJob(principal, jobId);
         if(!ret) {
             return ResponseEntity.badRequest().body("删除任务信息失败");
         }

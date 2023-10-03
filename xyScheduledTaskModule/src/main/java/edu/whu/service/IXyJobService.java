@@ -45,24 +45,27 @@ public interface IXyJobService extends IService<XyJob> {
      * @param pageNum   页码
      * @param pageSize  每条页数
      * @param userId    当前页面的当前登录用户的信息
+     * @param principal 当前操作人
      * @return          当前用户的任务信息
      */
-    IPage<XyJob> queryJobListByUser(Integer pageNum, Integer pageSize, Long userId);
+    IPage<XyJob> queryJobListByUser(Object principal, Integer pageNum, Integer pageSize, Long userId);
 
     /**
      * 将任务添加到数据库之中
      * @param addJobVo  任务详情
+     * @param principal 当前操作人
      * @return          操作结果
      */
-    Boolean addJob(AddJobVo addJobVo);
+    Boolean addJob(Object principal, AddJobVo addJobVo);
 
     /**
      * 修改指定用户的指定任务
      * @param addJobVo  修改任务的信息
      * @param jobId     任务id
+     * @param principal 当前操作人
      * @return          操作结果
      */
-    Boolean updateJob(AddJobVo addJobVo, Long jobId);
+    Boolean updateJob(Object principal, AddJobVo addJobVo, Long jobId);
 
     /**
      * 根据任务id查询任务
@@ -74,9 +77,10 @@ public interface IXyJobService extends IService<XyJob> {
     /**
      * 删除指定任务
      * @param jobId 任务id
+     * @param principal 当前操作人
      * @return      相关任务详情
      */
-    Boolean deleteJob(Long jobId);
+    Boolean deleteJob(Object principal, Long jobId);
 
     void startTasksByUserId(Long userId);
 }

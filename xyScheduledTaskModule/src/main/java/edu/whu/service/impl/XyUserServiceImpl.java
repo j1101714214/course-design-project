@@ -81,8 +81,8 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
 
 
     @Override
-    public Boolean updateUser(Long userId, XyUser user) {
-        XyUser operator = findCurrentOperator();
+    public Boolean updateUser(Object principal, Long userId, XyUser user) {
+        XyUser operator = findCurrentOperator(principal);
         if(operator == null) {
             throw new CustomerException(ExceptionEnum.USER_NOT_LOGIN);
         }
@@ -109,8 +109,9 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
     }
 
     @Override
-    public XyUser queryUserById(Long userId) {
-        XyUser operator = findCurrentOperator();
+    public XyUser queryUserById(Object principal, Long userId) {
+        XyUser operator = findCurrentOperator(principal);
+
         if (operator == null) {
             throw new CustomerException(ExceptionEnum.USER_NOT_LOGIN);
         }
@@ -132,13 +133,12 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
     }
 
     /**
-     * 获取当前操作者: 即当前操作系统的用户
+     * 获取当前操作者: 即当前操作系统的用户(已弃用, 因为mybatis底层使用代理无法获取对应的线程上下文)
      * @return      当前系统的操作者
      */
     @Override
-    public XyUser findCurrentOperator() {
+    public XyUser findCurrentOperator(Object principal) {
         try {
-            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             if(principal instanceof UserDetails) {
                 // 如果当前用户已经登录
                 UserDetails userDetails = (UserDetails) principal;

@@ -125,8 +125,8 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
     }
 
     @Override
-    public IPage<XyJob> queryJobListByUser(Integer pageNum, Integer pageSize, Long userId) {
-        XyUser operator = userService.findCurrentOperator();
+    public IPage<XyJob> queryJobListByUser(Object principal, Integer pageNum, Integer pageSize, Long userId) {
+        XyUser operator = userService.findCurrentOperator(principal);
         if(ObjectUtil.isNull(operator)) {
             throw new CustomerException(ExceptionEnum.USER_NOT_LOGIN);
         }
@@ -143,8 +143,8 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
     }
 
     @Override
-    public Boolean addJob(AddJobVo addJobVo) {
-        XyUser operator = userService.findCurrentOperator();
+    public Boolean addJob(Object principal, AddJobVo addJobVo) {
+        XyUser operator = userService.findCurrentOperator(principal);
         if(ObjectUtil.isNull(operator)) {
             throw new CustomerException(ExceptionEnum.USER_NOT_LOGIN);
         }
@@ -169,9 +169,9 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
     }
 
     @Override
-    public Boolean updateJob(AddJobVo addJobVo, Long jobId) {
+    public Boolean updateJob(Object principle, AddJobVo addJobVo, Long jobId) {
         XyJob xyJob = queryJobById(jobId);
-        XyUser operator = userService.findCurrentOperator();
+        XyUser operator = userService.findCurrentOperator(principle);
         checkPermission(operator, xyJob);
 
 
@@ -199,10 +199,10 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
     }
 
     @Override
-    public Boolean deleteJob(Long jobId) {
+    public Boolean deleteJob(Object principal, Long jobId) {
         XyJob xyJob = queryJobById(jobId);
         String jobGroup = xyJob.getJobGroup();
-        XyUser operator = userService.findCurrentOperator();
+        XyUser operator = userService.findCurrentOperator(principal);
         checkPermission(operator, xyJob);
 
         int cnt = jobMapper.deleteById(jobId);

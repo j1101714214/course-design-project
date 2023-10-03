@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -38,7 +39,8 @@ public class UserController {
     @ApiOperation(value = "更新用户信息")
     @PutMapping("{userId}")
     public ResponseEntity<String> updateUser(@PathVariable("userId") Long userId, @RequestBody XyUser user) {
-        Boolean ret = userService.updateUser(userId, user);
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Boolean ret = userService.updateUser(principal, userId, user);
         if(ret) {
             return ResponseEntity.ok("更新用户成功");
         } else {
@@ -49,7 +51,9 @@ public class UserController {
     @ApiOperation(value = "根据Id查询用户信息")
     @GetMapping("{userId}")
     public ResponseEntity<XyUser> queryUserById(@PathVariable("userId") Long userId) {
-        return ResponseEntity.ok(userService.queryUserById(userId));
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        return ResponseEntity.ok(userService.queryUserById(principal, userId));
     }
 
     @ApiOperation(value = "查询用户列表")

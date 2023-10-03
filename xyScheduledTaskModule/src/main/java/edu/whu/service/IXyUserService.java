@@ -38,16 +38,18 @@ public interface IXyUserService extends IService<XyUser> {
      * 修改用户信息: 操作者能修改的用户等级不超过当前操作者的等级, 仅允许超级管理员和用户本身修改密码
      * @param userId    待修改用户的id
      * @param user      待修改用户的信息
+     * @param principal 主线程传递的上下文信息
      * @return          操作结果
      */
-    Boolean updateUser(Long userId, XyUser user);
+    Boolean updateUser(Object principal, Long userId, XyUser user);
 
     /**
      * 根据用户id查询用户的详细信息
      * @param userId    待查询用户的id
+     * @param principal 主线程传递的上下文信息
      * @return          该用户的详细信息
      */
-    XyUser queryUserById(Long userId);
+    XyUser queryUserById(Object principal, Long userId);
 
     /**
      * 分页查询用户列表, 不包含条件查询部分
@@ -61,5 +63,5 @@ public interface IXyUserService extends IService<XyUser> {
      * 获取当前操作者: 即当前操作系统的用户
      * @return      当前系统的操作者
      */
-    XyUser findCurrentOperator();
+    XyUser findCurrentOperator(Object principal);
 }

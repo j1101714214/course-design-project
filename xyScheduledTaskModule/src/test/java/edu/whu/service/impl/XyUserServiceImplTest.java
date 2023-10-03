@@ -86,6 +86,8 @@ public class XyUserServiceImplTest {
     public void after() {
         user = null;
         vo = null;
+        currOperator = null;
+        otherOperator = null;
     }
 
     @Test

@@ -4,6 +4,7 @@ import edu.whu.model.common.enumerate.InvokeMethod;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 /**
  * @author Akihabara
@@ -24,6 +25,7 @@ public class AddJobVo {
     @NotEmpty(message = "cron策略不能为空")
     private String misfirePolicy;
     private String concurrent;
-    private String invokeParam;
+    private String invokeParam = "";
+    @NotEmpty(message = "请求方式为空")
     private InvokeMethod invokeMethod;
 }

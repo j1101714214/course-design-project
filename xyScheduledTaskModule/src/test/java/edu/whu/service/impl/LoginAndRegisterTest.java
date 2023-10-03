@@ -1,5 +1,6 @@
 package edu.whu.service.impl;
 
+import cn.hutool.core.util.RandomUtil;
 import edu.whu.exception.CustomerException;
 import edu.whu.model.user.pojo.XyUser;
 import edu.whu.model.user.vo.LoginAndRegisterVo;
@@ -26,8 +27,8 @@ import java.net.BindException;
  * @date 2023/9/16 20:58
  */
 @SpringBootTest
-//@Transactional
-//@Rollback
+@Transactional
+@Rollback
 public class LoginAndRegisterTest {
     @Autowired
     private IXyUserService userService;
@@ -41,8 +42,10 @@ public class LoginAndRegisterTest {
     @BeforeEach
     public void before() {
         loginAndRegisterVo = new LoginAndRegisterVo();
-        loginAndRegisterVo.setUsername("admin");
-        loginAndRegisterVo.setPassword("admin");
+        String username = RandomUtil.randomString(10);
+        String password = RandomUtil.randomString(10);
+        loginAndRegisterVo.setUsername(username);
+        loginAndRegisterVo.setPassword(password);
     }
 
     @AfterEach

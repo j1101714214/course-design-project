@@ -151,7 +151,7 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
         XyJob xyJob = new XyJob();
         BeanUtils.copyProperties(addJobVo, xyJob);
         if(StrUtil.isNullOrUndefined(xyJob.getConcurrent())) {
-            xyJob.setJobName(XyJob.DISABLE_CONCURRENT);
+            xyJob.setConcurrent(XyJob.DISABLE_CONCURRENT);
         }
         // 设置默认信息
         xyJob.setCreateTime(Timestamp.valueOf(LocalDateTime.now()));
@@ -173,7 +173,6 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
         XyJob xyJob = queryJobById(jobId);
         XyUser operator = userService.findCurrentOperator(principle);
         checkPermission(operator, xyJob);
-
 
         BeanUtils.copyProperties(addJobVo, xyJob);
         // 设置默认信息
@@ -233,6 +232,9 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
     }
 
     private void checkPermission(XyUser operator, XyJob xyJob) {
+        if(ObjectUtil.isNull(operator)) {
+            throw new CustomerException(ExceptionEnum.USER_NOT_LOGIN);
+        }
         if(ObjectUtil.isNull(xyJob)) {
             throw new CustomerException(ExceptionEnum.JOB_NOT_EXIST);
         }

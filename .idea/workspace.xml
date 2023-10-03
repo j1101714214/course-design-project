@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="修改更新用户存在的bug">
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="完成用户管理服务层测试">
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/HttpXyJobServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/job/vo/AddJobVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/job/vo/AddJobVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/LoginAndRegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/LoginAndRegisterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,10 +25,10 @@
       <list>
         <option value="HTTP Public Environment File" />
         <option value="HTML File" />
-        <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -110,15 +114,15 @@
       <recent name="edu.whu" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="edu.whu.service" />
       <recent name="edu.whu.service.impl" />
+      <recent name="edu.whu.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="edu.whu.service.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.XyUserServiceImplTest.testQueryUserById">
-    <configuration name="XyUserServiceImplTest.deleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.HttpXyJobServiceTest.deleteJob">
+    <configuration name="HttpXyJobServiceTest.addJob" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xyScheduledTaskModule" />
       <extension name="coverage">
         <pattern>
@@ -127,14 +131,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.whu.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.XyUserServiceImplTest" />
-      <option name="METHOD_NAME" value="deleteUser" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.HttpXyJobServiceTest" />
+      <option name="METHOD_NAME" value="addJob" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="XyUserServiceImplTest.queryUserList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HttpXyJobServiceTest.deleteJob" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xyScheduledTaskModule" />
       <extension name="coverage">
         <pattern>
@@ -143,14 +147,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.whu.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.XyUserServiceImplTest" />
-      <option name="METHOD_NAME" value="queryUserList" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.HttpXyJobServiceTest" />
+      <option name="METHOD_NAME" value="deleteJob" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="XyUserServiceImplTest.testFindUserByUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HttpXyJobServiceTest.queryJobById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xyScheduledTaskModule" />
       <extension name="coverage">
         <pattern>
@@ -159,14 +163,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.whu.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.XyUserServiceImplTest" />
-      <option name="METHOD_NAME" value="testFindUserByUsername" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.HttpXyJobServiceTest" />
+      <option name="METHOD_NAME" value="queryJobById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="XyUserServiceImplTest.testQueryUserById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HttpXyJobServiceTest.queryJobListByUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xyScheduledTaskModule" />
       <extension name="coverage">
         <pattern>
@@ -175,14 +179,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.whu.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.XyUserServiceImplTest" />
-      <option name="METHOD_NAME" value="testQueryUserById" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.HttpXyJobServiceTest" />
+      <option name="METHOD_NAME" value="queryJobListByUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="XyUserServiceImplTest.updateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HttpXyJobServiceTest.updateJob" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xyScheduledTaskModule" />
       <extension name="coverage">
         <pattern>
@@ -191,8 +195,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="edu.whu.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.XyUserServiceImplTest" />
-      <option name="METHOD_NAME" value="updateUser" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.HttpXyJobServiceTest" />
+      <option name="METHOD_NAME" value="updateJob" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -200,11 +204,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.XyUserServiceImplTest.testQueryUserById" />
-        <item itemvalue="JUnit.XyUserServiceImplTest.testFindUserByUsername" />
-        <item itemvalue="JUnit.XyUserServiceImplTest.deleteUser" />
-        <item itemvalue="JUnit.XyUserServiceImplTest.queryUserList" />
-        <item itemvalue="JUnit.XyUserServiceImplTest.updateUser" />
+        <item itemvalue="JUnit.HttpXyJobServiceTest.deleteJob" />
+        <item itemvalue="JUnit.HttpXyJobServiceTest.updateJob" />
+        <item itemvalue="JUnit.HttpXyJobServiceTest.queryJobById" />
+        <item itemvalue="JUnit.HttpXyJobServiceTest.addJob" />
+        <item itemvalue="JUnit.HttpXyJobServiceTest.queryJobListByUser" />
       </list>
     </recent_temporary>
   </component>
@@ -238,7 +242,7 @@
       <workItem from="1695816003801" duration="6240000" />
       <workItem from="1696159688423" duration="7975000" />
       <workItem from="1696167753099" duration="780000" />
-      <workItem from="1696333052750" duration="5703000" />
+      <workItem from="1696333052750" duration="8618000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -373,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696338457585</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="完成用户管理服务层测试">
+      <created>1696338802614</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1696338802614</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,7 +424,8 @@
     <MESSAGE value="修改异步任务无法获取SecurityContextHolder所包含的当前用户的信息的bug" />
     <MESSAGE value="修改JWT过期时间不正确问题" />
     <MESSAGE value="修改更新用户存在的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改更新用户存在的bug" />
+    <MESSAGE value="完成用户管理服务层测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成用户管理服务层测试" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -449,19 +461,19 @@
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java</url>
-          <line>154</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java</url>
           <line>41</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java</url>
-          <line>118</line>
+          <line>120</line>
           <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/ScheduleUtils.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-defaults>

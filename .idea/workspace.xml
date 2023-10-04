@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="完成用户管理服务层测试">
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/HttpXyJobServiceTest.java" afterDir="false" />
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="修改部分任务相关CRUD的错误, 添加任务相关CRUD的服务层测试用例">
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/CharSetConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/user.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/job/vo/AddJobVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/job/vo/AddJobVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/LoginAndRegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/LoginAndRegisterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/service/impl/XyUserServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +27,9 @@
         <option value="HTML File" />
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="HTTP Private Environment File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -38,6 +39,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="HttpClientSelectedEnvironments">
+    <file url="file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" environment="dev" />
+    <file url="file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/user.http" environment="dev" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -59,39 +64,40 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelOrder2&quot;: &quot;2&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth2&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/360MoveData/Users/Akihabara/OneDrive/桌面/大型软件课程设计/xyNasTools/xyScheduledTaskModule/src/main/resources/plugin&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;efe00c94848c6a26b7322a567d695df3&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelOrder2": "2",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RequestMappingsPanelWidth2": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/360MoveData/Users/Akihabara/OneDrive/桌面/大型软件课程设计/xyNasTools/xyScheduledTaskModule/src/main/resources/plugin",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "rest.client.default.execution.environment": "dev",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "spring.configuration.checksum": "efe00c94848c6a26b7322a567d695df3",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -121,94 +127,46 @@
       <recent name="edu.whu.service.impl" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.HttpXyJobServiceTest.deleteJob">
-    <configuration name="HttpXyJobServiceTest.addJob" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="xyScheduledTaskModule" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.whu.service.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.whu.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.HttpXyJobServiceTest" />
-      <option name="METHOD_NAME" value="addJob" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunDashboard">
+    <option name="excludedTypes">
+      <set>
+        <option value="HttpClient.HttpRequestRunConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="HTTP 请求.user | 更新用户信息: 权限不足#2">
+    <configuration name="authentication | 用户登录操作: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" index="5" requestIdentifier="用户登录操作: 正常情况" runType="运行单个请求">
+      <method v="2" />
     </configuration>
-    <configuration name="HttpXyJobServiceTest.deleteJob" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="xyScheduledTaskModule" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.whu.service.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.whu.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.HttpXyJobServiceTest" />
-      <option name="METHOD_NAME" value="deleteJob" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="user | 更新用户信息: 权限不足#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/user.http" index="6" requestIdentifier="更新用户信息: 权限不足#1" runType="运行单个请求">
+      <method v="2" />
     </configuration>
-    <configuration name="HttpXyJobServiceTest.queryJobById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="xyScheduledTaskModule" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.whu.service.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.whu.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.HttpXyJobServiceTest" />
-      <option name="METHOD_NAME" value="queryJobById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="user | 更新用户信息: 权限不足#2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/user.http" index="7" requestIdentifier="更新用户信息: 权限不足#2" runType="运行单个请求">
+      <method v="2" />
     </configuration>
-    <configuration name="HttpXyJobServiceTest.queryJobListByUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="xyScheduledTaskModule" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.whu.service.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.whu.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.HttpXyJobServiceTest" />
-      <option name="METHOD_NAME" value="queryJobListByUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="user | 删除用户: 权限不足" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/user.http" index="8" requestIdentifier="删除用户: 权限不足" runType="运行单个请求">
+      <method v="2" />
     </configuration>
-    <configuration name="HttpXyJobServiceTest.updateJob" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="XyScheduledTaskApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="xyScheduledTaskModule" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.whu.XyScheduledTaskApplication" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.whu.service.impl.*" />
+          <option name="PATTERN" value="edu.whu.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="edu.whu.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="edu.whu.service.impl.HttpXyJobServiceTest" />
-      <option name="METHOD_NAME" value="updateJob" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HttpXyJobServiceTest.deleteJob" />
-        <item itemvalue="JUnit.HttpXyJobServiceTest.updateJob" />
-        <item itemvalue="JUnit.HttpXyJobServiceTest.queryJobById" />
-        <item itemvalue="JUnit.HttpXyJobServiceTest.addJob" />
-        <item itemvalue="JUnit.HttpXyJobServiceTest.queryJobListByUser" />
+        <item itemvalue="HTTP 请求.user | 更新用户信息: 权限不足#2" />
+        <item itemvalue="HTTP 请求.authentication | 用户登录操作: 正常情况" />
+        <item itemvalue="Spring Boot.XyScheduledTaskApplication" />
+        <item itemvalue="HTTP 请求.user | 更新用户信息: 权限不足#1" />
+        <item itemvalue="HTTP 请求.user | 删除用户: 权限不足" />
       </list>
     </recent_temporary>
   </component>
@@ -242,7 +200,9 @@
       <workItem from="1695816003801" duration="6240000" />
       <workItem from="1696159688423" duration="7975000" />
       <workItem from="1696167753099" duration="780000" />
-      <workItem from="1696333052750" duration="8618000" />
+      <workItem from="1696333052750" duration="8761000" />
+      <workItem from="1696405992324" duration="6000" />
+      <workItem from="1696419630673" duration="8363000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -384,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696338802614</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="修改部分任务相关CRUD的错误, 添加任务相关CRUD的服务层测试用例">
+      <created>1696342261526</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1696342261526</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +392,8 @@
     <MESSAGE value="修改JWT过期时间不正确问题" />
     <MESSAGE value="修改更新用户存在的bug" />
     <MESSAGE value="完成用户管理服务层测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成用户管理服务层测试" />
+    <MESSAGE value="修改部分任务相关CRUD的错误, 添加任务相关CRUD的服务层测试用例" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改部分任务相关CRUD的错误, 添加任务相关CRUD的服务层测试用例" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -474,6 +442,11 @@
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/ScheduleUtils.java</url>
           <line>27</line>
           <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/filter/JwtRequestFilter.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-defaults>

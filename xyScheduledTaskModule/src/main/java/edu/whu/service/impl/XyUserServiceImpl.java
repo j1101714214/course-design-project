@@ -17,7 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -90,8 +89,12 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
         UserLevel operatorUserLevel = operator.getUserLevel();
         UserLevel userUpdateLevel = user.getUserLevel();
 
-        if(operatorUserLevel.getLevel() < userUpdateLevel.getLevel()) {
-            throw new CustomerException(ExceptionEnum.INSUFFICIENT_PERMISSION);
+        if(ObjectUtil.isNotNull(operatorUserLevel) && ObjectUtil.isNotNull(userUpdateLevel)) {
+            if(operatorUserLevel.getLevel() < userUpdateLevel.getLevel()) {
+                throw new CustomerException(ExceptionEnum.INSUFFICIENT_PERMISSION);
+            }
+        } else if(ObjectUtil.isNull(operatorUserLevel)) {
+            throw new CustomerException(ExceptionEnum.UN_AUTHORIZED);
         }
 
         Long operatorId = operator.getId();
@@ -100,23 +103,32 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
         }
 
         LambdaUpdateWrapper<XyUser> luw = new LambdaUpdateWrapper<>();
+        boolean hasUpdate = false;
         if(user.getUsername() != null && !ObjectUtil.equal(user.getUsername(), operator.getUsername())) {
             XyUser usernameInDb = findUserByUsername(user.getUsername(), false);
             if(usernameInDb != null) {
                 throw new CustomerException(ExceptionEnum.USER_HAS_EXIST);
             }
+            hasUpdate = true;
             luw.set(XyUser::getUsername, user.getUsername());
         }
         if(user.getPassword() != null) {
+            hasUpdate = true;
             luw.set(XyUser::getPassword, passwordEncoder.encode(user.getPassword()));
         }
         if(user.getUserLevel() != null) {
+            hasUpdate = true;
             luw.set(XyUser::getUserLevel, userUpdateLevel);
         }
-        luw.eq(XyUser::getId, userId);
 
-        int cnt = xyUserMapper.update(null, luw);
-        return cnt == 1;
+        if(hasUpdate) {
+            luw.eq(XyUser::getId, userId);
+
+            int cnt = xyUserMapper.update(null, luw);
+            return cnt == 1;
+        } else {
+            return true;
+        }
     }
 
     @Override

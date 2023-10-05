@@ -39,11 +39,11 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) {
         try {
             httpSecurity.csrf().disable();
-            /**
-             * 注意: 不要配置.loginProcessingUrl()为自定义controller, 不如会被覆盖API接口
-             */
-            httpSecurity
-                    .formLogin().loginPage("/login.html").permitAll();
+//            /**
+//             * 注意: 不要配置.loginProcessingUrl()为自定义controller, 不如会被覆盖API接口
+//             */
+//            httpSecurity
+//                    .formLogin().loginPage("/login.html").permitAll();
             httpSecurity
                     .authorizeRequests()
                     .antMatchers(

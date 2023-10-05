@@ -52,9 +52,3 @@ xy-nas-tools:
         title: xyNasTools任务调度服务在线API文档
         description: xyNasTools任务调度服务在线API文档, 用于前后端联调
         version: 1.0
-knife4j:
-    enable: true
-    basic:
-        enable: true  #进入界面是否需要账号密码
-        username: admin
-        password: 123456

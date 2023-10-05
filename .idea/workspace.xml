@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="对用户授权和用户管理部分进行Controller层的测试">
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/annotation/InvokeMethodValidate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" afterDir="false" />
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="优化所有的任务操作为线程启动">
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/WebMvcConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/InvokeMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/common/enumerate/InvokeMethod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/job/vo/AddJobVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/job/vo/AddJobVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/CronUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/CronUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/ScheduleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/ScheduleUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/CharSetConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/Knife4jConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/Knife4jConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +29,9 @@
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
         <option value="HTTP Private Environment File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="UML Use Case" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -72,6 +71,7 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Use Case&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelOrder2&quot;: &quot;2&quot;,
@@ -92,7 +92,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;rest.client.default.execution.environment&quot;: &quot;dev&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;efe00c94848c6a26b7322a567d695df3&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -139,16 +139,22 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.XyScheduledTaskApplication">
+    <configuration name="authentication | 用户注册操作: 异常情况 - 重复注册" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" index="4" requestIdentifier="用户注册操作: 异常情况 - 重复注册" runType="运行单个请求">
+      <method v="2" />
+    </configuration>
+    <configuration name="authentication | 用户登录操作: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" index="5" requestIdentifier="用户登录操作: 正常情况" runType="运行单个请求">
+      <method v="2" />
+    </configuration>
     <configuration name="job | 查询任务列表: 异常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="2" requestIdentifier="查询任务列表: 异常情况" runType="运行单个请求">
       <method v="2" />
     </configuration>
-    <configuration name="job | 查询某个用户的任务列表: 非本人操作的异常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="4" requestIdentifier="查询某个用户的任务列表: 非本人操作的异常情况" runType="运行单个请求">
+    <configuration name="job | 查询任务列表: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" requestIdentifier="查询任务列表: 正常情况" runType="运行单个请求">
       <method v="2" />
     </configuration>
     <configuration name="job | 添加任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="5" requestIdentifier="添加任务: 正常情况" runType="运行单个请求">
       <method v="2" />
     </configuration>
-    <configuration name="job | 查询某个用户的任务列表" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="3" requestIdentifier="查询某个用户的任务列表" runType="运行单个请求">
+    <configuration name="job | 添加任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="5" requestIdentifier="添加任务: 正常情况" runType="运行单个请求">
       <method v="2" />
     </configuration>
     <configuration name="XyScheduledTaskApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -166,11 +172,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP 请求.job | 添加任务: 正常情况" />
         <item itemvalue="Spring Boot.XyScheduledTaskApplication" />
-        <item itemvalue="HTTP 请求.job | 查询某个用户的任务列表: 非本人操作的异常情况" />
-        <item itemvalue="HTTP 请求.job | 查询某个用户的任务列表" />
-        <item itemvalue="HTTP 请求.job | 查询任务列表: 异常情况" />
+        <item itemvalue="HTTP 请求.job | 添加任务: 正常情况" />
+        <item itemvalue="HTTP 请求.authentication | 用户登录操作: 正常情况" />
+        <item itemvalue="HTTP 请求.authentication | 用户注册操作: 异常情况 - 重复注册" />
       </list>
     </recent_temporary>
   </component>
@@ -210,7 +215,10 @@
       <workItem from="1696333052750" duration="8761000" />
       <workItem from="1696405992324" duration="6000" />
       <workItem from="1696419630673" duration="8444000" />
-      <workItem from="1696504316351" duration="3461000" />
+      <workItem from="1696504316351" duration="4056000" />
+      <workItem from="1696508411463" duration="174000" />
+      <workItem from="1696508600028" duration="1782000" />
+      <workItem from="1696510408966" duration="1136000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -366,7 +374,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696428503672</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="优化所有的任务操作为线程启动">
+      <created>1696507931220</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1696507931220</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,7 +424,8 @@
     <MESSAGE value="完成用户管理服务层测试" />
     <MESSAGE value="修改部分任务相关CRUD的错误, 添加任务相关CRUD的服务层测试用例" />
     <MESSAGE value="对用户授权和用户管理部分进行Controller层的测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="对用户授权和用户管理部分进行Controller层的测试" />
+    <MESSAGE value="优化所有的任务操作为线程启动" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化所有的任务操作为线程启动" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -463,16 +479,6 @@
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java</url>
           <line>160</line>
           <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/ScheduleUtils.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/CronUtils.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>jar://$PROJECT_DIR$/../../../../../../../Development/local_repository/org/quartz-scheduler/quartz/2.3.2/quartz-2.3.2-sources.jar!/org/quartz/CronExpression.java</url>

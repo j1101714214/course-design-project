@@ -3,8 +3,8 @@ POST http://{{base-url}}:{{port}}/authenticate/register
 Content-Type: application/json
 
 {
-  "username": "11111",
-  "password":"22222"
+  "username": "liuxingyu",
+  "password":"123000000"
 }
 
 <> 2023-10-04T200805.200.json
@@ -40,8 +40,8 @@ POST http://{{base-url}}:{{port}}/authenticate/register
 Content-Type: application/json;charset=UTF-8
 
 {
-  "username": "test",
-  "password":"123456"
+  "username": "admin",
+  "password": "admin"
 }
 
 > {% client.test("testRepeatRegiste", () => {

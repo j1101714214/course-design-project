@@ -53,8 +53,8 @@ POST http://localhost:12138/authenticate/login
 Content-Type: application/json
 
 {
-  "username":"王五",
-  "password":"123456"
+  "username":"admin",
+  "password":"admin"
 }
 
 ### 用户登录操作 - 用户不存在

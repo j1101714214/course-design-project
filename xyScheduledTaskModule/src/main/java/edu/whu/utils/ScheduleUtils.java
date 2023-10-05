@@ -41,8 +41,6 @@ public class ScheduleUtils {
         );
     }
 
-
-
     public static void createScheduleJob(Scheduler scheduler, XyJob xyJob) {
         Class<? extends Job> jobClass = getQuartzJobClass(xyJob);
         // 构架jobDetail信息

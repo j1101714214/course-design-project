@@ -1,5 +1,6 @@
 package edu.whu.model.job.vo;
 
+import edu.whu.annotation.InvokeMethodValidate;
 import edu.whu.model.common.enumerate.InvokeMethod;
 import lombok.Data;
 
@@ -26,6 +27,6 @@ public class AddJobVo {
     private String misfirePolicy;
     private String concurrent;
     private String invokeParam = "";
-    @NotEmpty(message = "请求方式为空")
+    @InvokeMethodValidate(message = "请求方式为空")
     private InvokeMethod invokeMethod;
 }

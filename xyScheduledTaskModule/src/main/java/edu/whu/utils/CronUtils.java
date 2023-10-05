@@ -48,7 +48,7 @@ public class CronUtils {
     public static Date getNextExecution(String cronExpression) {
         try {
             CronExpression cron = new CronExpression(cronExpression);
-            return cron.getNextInvalidTimeAfter(new Date(System.currentTimeMillis()));
+            return cron.getNextValidTimeAfter(new Date(System.currentTimeMillis()));
         } catch (ParseException e) {
             throw new CustomerException(ExceptionEnum.CRON_INVALID);
         }

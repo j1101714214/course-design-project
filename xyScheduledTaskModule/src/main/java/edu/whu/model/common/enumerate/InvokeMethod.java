@@ -3,6 +3,8 @@ package edu.whu.model.common.enumerate;
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import java.lang.annotation.Annotation;
+
 /**
  * @author Akihabara
  * @version 1.0

@@ -33,6 +33,8 @@ import javax.annotation.PostConstruct;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @author Akihabara
@@ -49,6 +51,9 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
     private IXyUserService userService;
     @Autowired
     private Scheduler scheduler;
+
+    // 线程池执行启动和关闭任务相关的事务, 不影响主线程
+    private static final ExecutorService THREAD_POOL = Executors.newFixedThreadPool(4);
 
     @PostConstruct
     public void init() throws SchedulerException {
@@ -68,14 +73,17 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
         xyJob.setStatus(JobStatus.PENDING);
 
         boolean flag = super.updateById(xyJob);// 更新数据库信息
-        try {
-            if(flag) {
-                scheduler.pauseJob(ScheduleUtils.getJobKey(jobId, jobGroup));
+        // 使用线程执行Quartz相关任务
+        THREAD_POOL.execute(() -> {
+            try {
+                if(flag) {
+                    scheduler.pauseJob(ScheduleUtils.getJobKey(jobId, jobGroup));
+                }
+            } catch (SchedulerException e) {
+                throw new TaskException(jobId, ExceptionEnum.PAUSE_ERROR);
             }
-            return flag;
-        } catch (SchedulerException e) {
-            throw new TaskException(jobId, ExceptionEnum.PAUSE_ERROR);
-        }
+        });
+        return flag;
     }
 
     @Override
@@ -89,14 +97,17 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
         xyJob.setStatus(JobStatus.PROCESSING);
 
         boolean flag = super.updateById(xyJob);// 更新数据库信息
-        try {
-            if(flag) {
-                scheduler.resumeJob(ScheduleUtils.getJobKey(jobId, jobGroup));
+        THREAD_POOL.execute(() -> {
+            try {
+                if(flag) {
+                    scheduler.resumeJob(ScheduleUtils.getJobKey(jobId, jobGroup));
+                }
+            } catch (SchedulerException e) {
+                throw new TaskException(jobId, ExceptionEnum.PAUSE_ERROR);
             }
-            return flag;
-        } catch (SchedulerException e) {
-            throw new TaskException(jobId, ExceptionEnum.PAUSE_ERROR);
-        }
+        });
+        return flag;
+
     }
 
     @Override
@@ -107,14 +118,17 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
         JobDataMap jobDataMap = new JobDataMap();
         jobDataMap.put(ScheduleConstants.TASK_PROPERTIES, xyJob);
         JobKey jobKey = ScheduleUtils.getJobKey(jobId, jobGroup);
-        try {
-            if(scheduler.checkExists(jobKey)) {
-                scheduler.triggerJob(jobKey, jobDataMap);
+        THREAD_POOL.execute(() -> {
+            try {
+                if(scheduler.checkExists(jobKey)) {
+                    scheduler.triggerJob(jobKey, jobDataMap);
+                }
+            } catch (SchedulerException e) {
+                throw new TaskException(jobId, ExceptionEnum.TASK_RUN_ERROR);
             }
-            return true;
-        } catch (SchedulerException e) {
-            throw new TaskException(jobId, ExceptionEnum.TASK_RUN_ERROR);
-        }
+        });
+        return true;
+
     }
 
     @Override
@@ -162,9 +176,11 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
 
         int cnt = jobMapper.insert(xyJob);
         boolean flag = cnt == 1;
-        if(flag) {
-            ScheduleUtils.createScheduleJob(scheduler, xyJob);
-        }
+        THREAD_POOL.execute(() -> {
+            if(flag) {
+                ScheduleUtils.createScheduleJob(scheduler, xyJob);
+            }
+        });
         return flag;
     }
 
@@ -181,15 +197,17 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
 
         int cnt = jobMapper.update(xyJob, null);
         boolean flag = cnt == 1;
-        try {
-            if(flag) {
-                scheduler.deleteJob(ScheduleUtils.getJobKey(jobId, xyJob.getJobGroup()));
+        THREAD_POOL.execute(() -> {
+            try {
+                if(flag) {
+                    scheduler.deleteJob(ScheduleUtils.getJobKey(jobId, xyJob.getJobGroup()));
+                }
+                ScheduleUtils.createScheduleJob(scheduler, xyJob);
+            } catch (SchedulerException e) {
+                throw new CustomerException(ExceptionEnum.TASK_NOT_UPDATE);
             }
-            ScheduleUtils.createScheduleJob(scheduler, xyJob);
-            return flag;
-        } catch (SchedulerException e) {
-            throw new CustomerException(ExceptionEnum.TASK_NOT_UPDATE);
-        }
+        });
+        return flag;
     }
 
     @Override
@@ -205,15 +223,18 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
         checkPermission(operator, xyJob);
 
         int cnt = jobMapper.deleteById(jobId);
-        try {
-            boolean flag = cnt == 1;
-            if(flag) {
-                scheduler.deleteJob(ScheduleUtils.getJobKey(jobId, jobGroup));
-            }
-            return flag;
-        } catch (SchedulerException e) {
-            throw new CustomerException(ExceptionEnum.TASK_NOT_DELETED);
-        }
+        boolean flag = cnt == 1;
+
+       THREAD_POOL.execute(() -> {
+           try {
+               if(flag) {
+                   scheduler.deleteJob(ScheduleUtils.getJobKey(jobId, jobGroup));
+               }
+           } catch (SchedulerException e) {
+               throw new CustomerException(ExceptionEnum.TASK_NOT_DELETED);
+           }
+       });
+        return flag;
     }
 
     @Override

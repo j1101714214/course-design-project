@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="修改CharSetConfig和Knife4jConfig的继承WebMvcConfigurationSupport冲突导致API文档不可用的问题">
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="添加定时任务调用部分的Controller测试用例">
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/exception/MethodInvokeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/mapper/XyLogMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/log/pojo/XyLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyLogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XtLogServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/model/log/LogEntityTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/ScheduleUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/utils/ScheduleUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/XyScheduledTaskApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/XyScheduledTaskApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/RestTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/RestTemplateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IRestTemplateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IRestTemplateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +35,8 @@
         <option value="Enum" />
         <option value="JUnit5 Test Class" />
         <option value="HTTP Private Environment File" />
-        <option value="Interface" />
         <option value="UML Use Case" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -141,11 +149,8 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP 请求.job | 停止任务: 正常情况">
-    <configuration name="job | 恢复任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="17" requestIdentifier="恢复任务: 正常情况" runType="运行单个请求">
-      <method v="2" />
-    </configuration>
-    <configuration name="job | 删除任务: 删除不存在的任务" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="14" requestIdentifier="删除任务: 删除不存在的任务" runType="运行单个请求">
+  <component name="RunManager" selected="HTTP 请求.job | 立即执行一次任务: 正常情况">
+    <configuration name="authentication | 用户登录操作: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" index="5" requestIdentifier="用户登录操作: 正常情况" runType="运行单个请求">
       <method v="2" />
     </configuration>
     <configuration name="job | 立即执行一次任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="15" requestIdentifier="立即执行一次任务: 正常情况" runType="运行单个请求">
@@ -163,16 +168,42 @@
     <configuration name="job | 添加任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="5" requestIdentifier="添加任务: 正常情况" runType="运行单个请求">
       <method v="2" />
     </configuration>
-    <configuration name="job | 立即执行一次任务: 停止任务" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="16" requestIdentifier="立即执行一次任务: 停止任务" runType="运行单个请求">
-      <method v="2" />
+    <configuration name="LogEntityTest.testUserEntityInject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xyScheduledTaskModule" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.model.log.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.whu.model.log" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.model.log.LogEntityTest" />
+      <option name="METHOD_NAME" value="testUserEntityInject" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="XyScheduledTaskApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="xyScheduledTaskModule" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.whu.XyScheduledTaskApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP 请求.job | 停止任务: 正常情况" />
-        <item itemvalue="HTTP 请求.job | 恢复任务: 正常情况" />
         <item itemvalue="HTTP 请求.job | 立即执行一次任务: 正常情况" />
-        <item itemvalue="HTTP 请求.job | 立即执行一次任务: 停止任务" />
-        <item itemvalue="HTTP 请求.job | 删除任务: 删除不存在的任务" />
+        <item itemvalue="Spring Boot.XyScheduledTaskApplication" />
+        <item itemvalue="HTTP 请求.authentication | 用户登录操作: 正常情况" />
+        <item itemvalue="HTTP 请求.job | 停止任务: 正常情况" />
+        <item itemvalue="JUnit.LogEntityTest.testUserEntityInject" />
       </list>
     </recent_temporary>
   </component>
@@ -217,7 +248,7 @@
       <workItem from="1696508600028" duration="1782000" />
       <workItem from="1696510408966" duration="1136000" />
       <workItem from="1696512306024" duration="56000" />
-      <workItem from="1696590626841" duration="2148000" />
+      <workItem from="1696590626841" duration="9644000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -387,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696512356140</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="添加定时任务调用部分的Controller测试用例">
+      <created>1696593055259</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1696593055259</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +470,8 @@
     <MESSAGE value="对用户授权和用户管理部分进行Controller层的测试" />
     <MESSAGE value="优化所有的任务操作为线程启动" />
     <MESSAGE value="修改CharSetConfig和Knife4jConfig的继承WebMvcConfigurationSupport冲突导致API文档不可用的问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改CharSetConfig和Knife4jConfig的继承WebMvcConfigurationSupport冲突导致API文档不可用的问题" />
+    <MESSAGE value="添加定时任务调用部分的Controller测试用例" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加定时任务调用部分的Controller测试用例" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -484,7 +523,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java</url>
-          <line>160</line>
+          <line>161</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -494,18 +533,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java</url>
-          <line>188</line>
+          <line>189</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="84" />
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/HttpXyJobServiceImpl.java</url>
-          <line>122</line>
-          <option name="timeStamp" value="85" />
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="102" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-defaults>

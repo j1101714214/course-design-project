@@ -14,6 +14,7 @@ import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Recover;
 import org.springframework.retry.annotation.Retryable;
+import org.springframework.retry.support.RetryTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.ResponseErrorHandler;
@@ -41,11 +42,19 @@ public class RestTemplateServiceImpl implements IRestTemplateService {
 
     @Override
     @Async
-    @Retryable(value = MethodInvokeException.class, maxAttempts = 3, backoff = @Backoff(delay = 1000,multiplier = 0))
+    @Retryable(
+            value = MethodInvokeException.class,
+            maxAttemptsExpression = "${xy-nas-tools.retry.maxAttempts}",
+            backoff = @Backoff(
+                    delayExpression = "${xy-nas-tools.retry.backoff.delay}",
+                    multiplierExpression = "${xy-nas-tools.retry.backoff.multiplier}"
+            )
+    )
     public void doGet(XyJob xyJob) {
         String url = xyJob.getInvokeTarget();
         Map<String, String> param = parseParam(xyJob.getInvokeParam());
         ResponseEntity<String> result = restTemplate.getForEntity(url, String.class, param);
+
         if(result.getStatusCode().value() != HttpStatus.ACCEPTED.value()) {
             throw new MethodInvokeException(result.getBody(), xyJob);
         }
@@ -55,6 +64,14 @@ public class RestTemplateServiceImpl implements IRestTemplateService {
 
     @Override
     @Async
+    @Retryable(
+            value = MethodInvokeException.class,
+            maxAttemptsExpression = "${xy-nas-tools.retry.maxAttempts}",
+            backoff = @Backoff(
+                    delayExpression = "${xy-nas-tools.retry.backoff.delay}",
+                    multiplierExpression = "${xy-nas-tools.retry.backoff.multiplier}"
+            )
+    )
     public void doPost(XyJob xyJob) {
         String url = xyJob.getInvokeTarget();
         Map<String, String> param = parseParam(xyJob.getInvokeParam());

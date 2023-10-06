@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="添加定时任务调用部分的Controller测试用例">
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/exception/MethodInvokeException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/mapper/XyLogMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/log/pojo/XyLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyLogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XtLogServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/test/java/edu/whu/model/log/LogEntityTest.java" afterDir="false" />
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="简单实现了失败重试机制">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/XyScheduledTaskApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/XyScheduledTaskApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/RestTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/RestTemplateConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IRestTemplateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IRestTemplateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +238,7 @@
       <workItem from="1696508600028" duration="1782000" />
       <workItem from="1696510408966" duration="1136000" />
       <workItem from="1696512306024" duration="56000" />
-      <workItem from="1696590626841" duration="9644000" />
+      <workItem from="1696590626841" duration="10503000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -425,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696593055259</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="简单实现了失败重试机制">
+      <created>1696600513382</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1696600513382</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,7 +443,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/demo" />
     </ignored-roots>
-    <MESSAGE value="创建定时任务子模块" />
     <MESSAGE value="定时任务子模块的基础框架搭建" />
     <MESSAGE value="SpringSecurity实现用户登录和注册鉴权操作" />
     <MESSAGE value="对部分注册操作添加对应的测试, 添加用户管理控制器" />
@@ -471,7 +467,8 @@
     <MESSAGE value="优化所有的任务操作为线程启动" />
     <MESSAGE value="修改CharSetConfig和Knife4jConfig的继承WebMvcConfigurationSupport冲突导致API文档不可用的问题" />
     <MESSAGE value="添加定时任务调用部分的Controller测试用例" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加定时任务调用部分的Controller测试用例" />
+    <MESSAGE value="简单实现了失败重试机制" />
+    <option name="LAST_COMMIT_MESSAGE" value="简单实现了失败重试机制" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -538,13 +535,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java</url>
-          <line>47</line>
+          <line>55</line>
           <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java</url>
-          <line>97</line>
+          <line>116</line>
           <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/quartz/executor/QuartzDisallowConcurrentExecutor.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="106" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-defaults>

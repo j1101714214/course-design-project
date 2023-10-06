@@ -120,9 +120,10 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
         JobKey jobKey = ScheduleUtils.getJobKey(jobId, jobGroup);
         THREAD_POOL.execute(() -> {
             try {
-                if(scheduler.checkExists(jobKey)) {
-                    scheduler.triggerJob(jobKey, jobDataMap);
+                if(!scheduler.checkExists(jobKey)) {
+                    ScheduleUtils.createScheduleJob(scheduler, xyJob);
                 }
+                scheduler.triggerJob(jobKey, jobDataMap);
             } catch (SchedulerException e) {
                 throw new TaskException(jobId, ExceptionEnum.TASK_RUN_ERROR);
             }
@@ -195,7 +196,7 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
         xyJob.setUpdateTime(Timestamp.valueOf(LocalDateTime.now()));
         xyJob.setUpdateUser(operator.getId());
 
-        int cnt = jobMapper.update(xyJob, null);
+        int cnt = jobMapper.updateById(xyJob);
         boolean flag = cnt == 1;
         THREAD_POOL.execute(() -> {
             try {
@@ -218,6 +219,9 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
     @Override
     public Boolean deleteJob(Object principal, Long jobId) {
         XyJob xyJob = queryJobById(jobId);
+        if(ObjectUtil.isNull(xyJob)) {
+            throw new CustomerException(ExceptionEnum.JOB_NOT_EXIST);
+        }
         String jobGroup = xyJob.getJobGroup();
         XyUser operator = userService.findCurrentOperator(principal);
         checkPermission(operator, xyJob);
@@ -260,7 +264,7 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
             throw new CustomerException(ExceptionEnum.JOB_NOT_EXIST);
         }
         if(
-                ObjectUtil.notEqual(xyJob.getCreateUser(), operator.getId()) ||
+                ObjectUtil.notEqual(xyJob.getCreateUser(), operator.getId()) &&
                         operator.getUserLevel().getLevel() <= UserLevel.ADV_USER.getLevel()
         ) {
             throw new CustomerException(ExceptionEnum.UN_AUTHORIZED);

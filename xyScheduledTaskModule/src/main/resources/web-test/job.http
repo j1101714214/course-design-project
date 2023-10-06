@@ -54,3 +54,160 @@ Authorization: Bearer {{adminToken}}
 > {% client.test("testAddJob", () => {
     client.assert(response.status === 200)
 }) %}
+
+### 添加任务: 未授权情况
+POST http://{{base-url}}:{{port}}/job/add
+Content-Type: application/json
+
+{
+  "jobName": "测试任务",
+  "jobGroup": "测试任务组",
+  "invokeTarget": "http://127.0.0.1:12121/hello?name=wangwu",
+  "cronExpression": "/1 * * * * ?",
+  "misfirePolicy": "1",
+  "concurrent": "0",
+  "invokeMethod": "GET"
+}
+
+> {% client.test("testAddJob", () => {
+    client.assert(response.status === 403)
+}) %}
+
+### 添加任务: 参数传递不完全
+POST http://{{base-url}}:{{port}}/job/add
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "jobName": "测试任务",
+  "jobGroup": "测试任务组",
+  "invokeTarget": "http://127.0.0.1:12121/hello?name=wangwu",
+  "cronExpression": "/1 * * * * ?",
+  "misfirePolicy": "1",
+  "concurrent": "0",
+  "invokeMethod": null
+}
+
+> {% client.test("testAddJob", () => {
+    client.assert(response.status === 400)
+}) %}
+
+### 更新任务: 正常情况
+PUT http://{{base-url}}:{{port}}/job/update/1
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "jobName": "测试任务",
+  "jobGroup": "测试任务组",
+  "invokeTarget": "http://127.0.0.1:12121/hello?name=lisi",
+  "cronExpression": "/1 * * * * ?",
+  "misfirePolicy": "1",
+  "concurrent": "0",
+  "invokeMethod": "GET"
+}
+
+> {% client.test("testUpdateJob", () => {
+    client.assert(response.status === 200)
+}) %}
+
+### 更新任务: 权限不足
+POST http://{{base-url}}:{{port}}/job/add
+Content-Type: application/json
+
+{
+  "jobName": "测试任务",
+  "jobGroup": "测试任务组",
+  "invokeTarget": "http://127.0.0.1:12121/hello?name=wangwu",
+  "cronExpression": "/1 * * * * ?",
+  "misfirePolicy": "1",
+  "concurrent": "0",
+  "invokeMethod": "GET"
+}
+
+> {% client.test("testAddJob", () => {
+    client.assert(response.status === 403)
+}) %}
+
+### 添加任务: 参数传递不完全
+POST http://{{base-url}}:{{port}}/job/add
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "jobName": "测试任务",
+  "jobGroup": "测试任务组",
+  "invokeTarget": "http://127.0.0.1:12121/hello?name=wangwu",
+  "cronExpression": "/1 * * * * ?",
+  "misfirePolicy": "1",
+  "concurrent": "0",
+  "invokeMethod": null
+}
+
+> {% client.test("testAddJob", () => {
+    client.assert(response.status === 400)
+}) %}
+
+### 删除任务: 正常情况
+DELETE http://{{base-url}}:{{port}}/job/delete/1
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+> {% client.test("testDeleteJob", () => {
+    client.assert(response.status === 200)
+}) %}
+
+### 删除任务: 非本人操作
+DELETE http://{{base-url}}:{{port}}/job/delete/1
+Content-Type: application/json
+Authorization: Bearer {{userToken}}
+
+> {% client.test("testDeleteJob", () => {
+    client.assert(response.status === 401)
+}) %}
+
+### 删除任务: 非本人操作
+DELETE http://{{base-url}}:{{port}}/job/delete/1
+Content-Type: application/json
+
+> {% client.test("testDeleteJob", () => {
+    client.assert(response.status === 403)
+}) %}
+
+
+### 删除任务: 删除不存在的任务
+DELETE http://{{base-url}}:{{port}}/job/delete/1
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+> {% client.test("testDeleteJob", () => {
+    client.assert(response.status === 400)
+}) %}
+
+
+### 立即执行一次任务: 正常情况
+GET http://{{base-url}}:{{port}}/job/run/2
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+> {% client.test("testRunOnce", () => {
+    client.assert(response.status === 200)
+}) %}
+
+### 停止任务: 正常情况
+GET http://{{base-url}}:{{port}}/job/pause/2
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+> {% client.test("testPauseTask", () => {
+    client.assert(response.status === 200)
+}) %}
+
+### 恢复任务: 正常情况
+GET http://{{base-url}}:{{port}}/job/resume/2
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+> {% client.test("testPauseTask", () => {
+    client.assert(response.status === 200)
+}) %}

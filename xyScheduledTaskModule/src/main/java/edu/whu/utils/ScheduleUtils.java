@@ -1,8 +1,6 @@
 package edu.whu.utils;
 
 import cn.hutool.core.util.ObjectUtil;
-import cn.hutool.cron.CronUtil;
-import edu.whu.exception.CustomerException;
 import edu.whu.exception.TaskException;
 import edu.whu.model.common.constant.ScheduleConstants;
 import edu.whu.model.common.enumerate.ExceptionEnum;
@@ -39,6 +37,10 @@ public class ScheduleUtils {
         return TriggerKey.triggerKey(
                 ScheduleConstants.TASK_TRIGGER_NAME + jobId, jogGroup
         );
+    }
+
+    public static void createScheduleJobWithoutSchedule(Scheduler scheduler, XyJob xyJob) {
+
     }
 
     public static void createScheduleJob(Scheduler scheduler, XyJob xyJob) {

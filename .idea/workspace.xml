@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="简单实现了失败重试机制">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/user/vo/LoginAndRegisterVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/user/vo/LoginAndRegisterVo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,9 +143,6 @@
     <configuration name="authentication | 用户登录操作: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" index="5" requestIdentifier="用户登录操作: 正常情况" runType="运行单个请求">
       <method v="2" />
     </configuration>
-    <configuration name="job | 立即执行一次任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="15" requestIdentifier="立即执行一次任务: 正常情况" runType="运行单个请求">
-      <method v="2" />
-    </configuration>
     <configuration name="job | 停止任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="16" requestIdentifier="停止任务: 正常情况" runType="运行单个请求">
       <method v="2" />
     </configuration>
@@ -156,6 +153,9 @@
       <method v="2" />
     </configuration>
     <configuration name="job | 添加任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="5" requestIdentifier="添加任务: 正常情况" runType="运行单个请求">
+      <method v="2" />
+    </configuration>
+    <configuration name="job | 立即执行一次任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="15" requestIdentifier="立即执行一次任务: 正常情况" runType="运行单个请求">
       <method v="2" />
     </configuration>
     <configuration name="LogEntityTest.testUserEntityInject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -192,7 +192,6 @@
         <item itemvalue="HTTP 请求.job | 立即执行一次任务: 正常情况" />
         <item itemvalue="Spring Boot.XyScheduledTaskApplication" />
         <item itemvalue="HTTP 请求.authentication | 用户登录操作: 正常情况" />
-        <item itemvalue="HTTP 请求.job | 停止任务: 正常情况" />
         <item itemvalue="JUnit.LogEntityTest.testUserEntityInject" />
       </list>
     </recent_temporary>
@@ -238,7 +237,8 @@
       <workItem from="1696508600028" duration="1782000" />
       <workItem from="1696510408966" duration="1136000" />
       <workItem from="1696512306024" duration="56000" />
-      <workItem from="1696590626841" duration="10503000" />
+      <workItem from="1696590626841" duration="10543000" />
+      <workItem from="1696661011732" duration="1332000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -422,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696600513382</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="简单实现了失败重试机制">
+      <created>1696601166330</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1696601166330</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,11 +544,6 @@
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java</url>
           <line>55</line>
           <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java</url>
-          <line>116</line>
-          <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/quartz/executor/QuartzDisallowConcurrentExecutor.java</url>

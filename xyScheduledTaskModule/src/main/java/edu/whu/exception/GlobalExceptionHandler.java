@@ -8,6 +8,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.validation.ConstraintViolationException;
 import java.util.List;
 
 /**
@@ -76,5 +77,16 @@ public class GlobalExceptionHandler {
         String message = exception.getMessage();
         Long jobId = exception.getJobId();
         return ResponseEntity.status(exception.getCode()).body(jobId + ":" + message);
+    }
+
+    /**
+     * 处理邮箱正则匹配错误
+     * @param exception 正则匹配错误处理器
+     * @return          异常响应实体, 并设置不同的状态码
+     */
+    @ExceptionHandler(value = ConstraintViolationException.class)
+    public ResponseEntity<String> handleConstraintViolationException(ConstraintViolationException exception) {
+        String message = exception.getMessage();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message);
     }
 }

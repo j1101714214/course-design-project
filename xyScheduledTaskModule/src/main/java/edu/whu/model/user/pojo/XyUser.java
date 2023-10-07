@@ -49,12 +49,22 @@ public class XyUser implements Serializable {
     @ApiModelProperty(value = "用户密码, 密文存储在数据库中")
     private String password;
 
+    /**
+     * 用户权限
+     */
     @TableField("user_level")
     @ApiModelProperty(value = "用户权限")
     private UserLevel userLevel;
 
+    /**
+     * 用户插件
+     */
     @TableField(value = "plugins", typeHandler = ListToStringHandler.class)
     @ApiModelProperty(value = "用户下载的插件")
     private List<Long> plugins;
+
+    @TableField(value = "email")
+    @ApiModelProperty(value = "用户邮箱")
+    private String email;
 
 }

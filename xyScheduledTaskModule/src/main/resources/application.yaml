@@ -40,6 +40,29 @@ spring:
                         threadCount: 20
                         threadPriority: 5
                         threadsInheritContextClassLoaderOfInitializingThread: true
+    mail:
+        # 配置 SMTP 服务器地址
+        host: smtp.qq.com
+        # 发送者邮箱，已开通POP3/SMTP服务的邮箱，也就是你自己的
+        username: 2607038766@qq.com
+        # 配置密码，注意不是真正的密码，而是刚刚申请到的授权码
+        password: kudkdqtefzxoebjf
+        # 端口号465或587（QQ邮箱发送邮件仅支持587端口协议）
+        port: 587
+        # 默认的邮件编码为UTF-8
+        default-encoding: UTF-8
+        # 配置SSL 加密工厂
+        properties:
+            mail:
+                smtp:
+                    socketFactoryClass: javax.net.ssl.SSLSocketFactory
+                #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
+                debug: true
+        protocol: smtp
+
+    thymeleaf:
+        cache: false
+
 
 
 mybatis-plus:
@@ -47,6 +70,7 @@ mybatis-plus:
     type-handlers-package: edu.whu.handler
 
 xy-nas-tools:
+    application-name: nas-tools
     knife4j:
         base-package: edu.whu.controller
         title: xyNasTools任务调度服务在线API文档
@@ -57,3 +81,5 @@ xy-nas-tools:
         backoff:
             delay: 1000
             multiplier: 0
+    admin:
+        address: 2020302111317@whu.edu.cn

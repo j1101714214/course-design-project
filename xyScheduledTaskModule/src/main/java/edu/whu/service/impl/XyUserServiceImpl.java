@@ -173,4 +173,17 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
         }
     }
 
+    @Override
+    public XyUser findUserById(Long userId) {
+        LambdaQueryWrapper<XyUser> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(XyUser::getId, userId);
+
+        XyUser xyUser = xyUserMapper.selectOne(lqw);
+        if(ObjectUtil.isNull(xyUser)) {
+            throw new CustomerException(ExceptionEnum.USER_NOT_EXIST);
+        }
+
+        return xyUser;
+    }
+
 }

@@ -1,10 +1,13 @@
 package edu.whu.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import edu.whu.model.common.enumerate.InvokeMethod;
 import edu.whu.model.job.pojo.XyJob;
 import edu.whu.model.job.vo.AddJobVo;
 import edu.whu.service.IXyJobService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

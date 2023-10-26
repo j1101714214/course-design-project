@@ -1,15 +1,20 @@
 package edu.whu.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import edu.whu.model.common.enumerate.UserLevel;
 import edu.whu.model.user.pojo.XyUser;
 import edu.whu.service.IXyUserService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author Akihabara
@@ -25,6 +30,7 @@ public class UserController {
     private IXyUserService userService;
 
     @ApiOperation(value = "删除用户")
+    @ApiImplicitParam(name = "userId", value = "用户ID", dataTypeClass = Long.class, required = true, paramType = "path")
     @DeleteMapping("{userId}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_SYS_ADMIN')")
     public ResponseEntity<String> deleteUser(@PathVariable("userId") Long userId) {

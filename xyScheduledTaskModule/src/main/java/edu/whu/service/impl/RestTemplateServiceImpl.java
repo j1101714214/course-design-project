@@ -1,8 +1,6 @@
 package edu.whu.service.impl;
 
-import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import edu.whu.exception.CustomerException;
 import edu.whu.exception.MethodInvokeException;
 import edu.whu.model.job.pojo.XyJob;
 import edu.whu.model.user.pojo.XyUser;
@@ -14,29 +12,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Recover;
 import org.springframework.retry.annotation.Retryable;
-import org.springframework.retry.support.RetryTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -150,21 +141,21 @@ public class RestTemplateServiceImpl implements IRestTemplateService {
         // 开启一个线程发送邮件
         SINGLE_THREAD.execute(() -> {
             if(StrUtil.isNotEmpty(user.getEmail())) {
-                sendSimpleMail(user.getEmail(), user, errorJob, exception.getMsg());
+                sendMimeMail(user.getEmail(), user, errorJob, exception.getMsg());
             }
             if(StrUtil.isNotEmpty(adminAddress)) {
-                sendSimpleMail(adminAddress, user, errorJob, exception.getMsg());
+                sendMimeMail(adminAddress, user, errorJob, exception.getMsg());
             }
         });
     }
 
-    private void sendSimpleMail(String email, XyUser user, XyJob errorJob, String msg) {
+    private void sendMimeMail(String email, XyUser user, XyJob errorJob, String msg) {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         try {
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
             helper.setFrom(username);
             helper.setTo(email);
-            helper.setSubject("任务 " + errorJob.getId() + " 处理失败失败");
+            helper.setSubject("Task No." + errorJob.getId() + " process failed!!");
 
             // 构造参数
             Context context = new Context();

@@ -1,13 +1,17 @@
 package edu.whu.controller;
 
+import cn.hutool.log.Log;
 import edu.whu.exception.CustomerException;
 import edu.whu.model.common.enumerate.ExceptionEnum;
 import edu.whu.model.user.pojo.XyUser;
 import edu.whu.model.user.vo.LoginAndRegisterVo;
+import edu.whu.model.user.vo.LoginResponse;
 import edu.whu.service.IXyJobService;
 import edu.whu.service.IXyUserService;
 import edu.whu.utils.JwtUtil;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -43,7 +47,7 @@ public class AuthenticationController {
 
     @ApiOperation(value = "登录操作")
     @PostMapping("/login")
-    public ResponseEntity<String> login(@Validated @RequestBody LoginAndRegisterVo loginAndRegisterVo) {
+    public ResponseEntity<LoginResponse> login(@Validated @RequestBody LoginAndRegisterVo loginAndRegisterVo) {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(loginAndRegisterVo.getUsername(), loginAndRegisterVo.getPassword())
@@ -55,7 +59,10 @@ public class AuthenticationController {
             jobService.startTasksByUserId(operator.getId());
             // TODO: 启动插件
 
-            return ResponseEntity.ok(token);
+            LoginResponse loginResponse = new LoginResponse();
+            loginResponse.setToken(token);
+            loginResponse.setUserLevel(operator.getUserLevel());
+            return ResponseEntity.ok(loginResponse);
         } catch (Exception e) {
             throw new CustomerException(ExceptionEnum.UN_AUTHORIZED);
         }

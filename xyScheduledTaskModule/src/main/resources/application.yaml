@@ -63,8 +63,6 @@ spring:
     thymeleaf:
         cache: false
 
-
-
 mybatis-plus:
     type-enums-package: edu.whu.model.common.enumerate
     type-handlers-package: edu.whu.handler

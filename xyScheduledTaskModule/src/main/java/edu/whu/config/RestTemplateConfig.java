@@ -1,7 +1,6 @@
 package edu.whu.config;
 
-import edu.whu.exception.CustomerException;
-import edu.whu.model.common.enumerate.ExceptionEnum;
+
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.TrustStrategy;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -27,7 +26,7 @@ import java.security.cert.X509Certificate;
 /**
  * @author Akihabara
  * @version 1.0
- * @description RestTemplateConfig: TODO
+ * @description RestTemplateConfig: 配置REST Template
  * @date 2023/9/21 20:14
  */
 @Configuration

@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import edu.whu.model.plugin.pojo.XyPlugin;
 import edu.whu.service.IXyPluginService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,7 @@ public class PluginController {
     private IXyPluginService pluginService;
 
     @GetMapping("/list")
+    @ApiOperation(value = "查询所有可用插件")
     public ResponseEntity<IPage<XyPlugin>> listAllAvailablePlugin(
             @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
             @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize

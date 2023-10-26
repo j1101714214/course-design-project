@@ -4,13 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="添加相关的用户邮箱字段">
-      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/templates/error.html" afterDir="false" />
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="实现任务失败达到上限之后向用户发送消息的功能">
+      <change afterPath="$PROJECT_DIR$/photoAssistant/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/photoAssistant/src/main/java/edu/whu/PhotoAssistantApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/photoAssistant/src/main/lib/opencv-460.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/photoAssistant/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/photoAssistant/src/main/resources/lena.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/photoAssistant/src/test/java/edu/whu/config/LoadOpenCVTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/photoAssistant/src/test/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/photoAssistant/src/test/resources/lena.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/user/vo/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IXyUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/RestTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/config/RestTemplateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/AuthenticationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/JobController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/PluginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/PluginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/exception/TaskException.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/exception/TaskException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/job/vo/AddJobVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/job/vo/AddJobVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/user/vo/LoginAndRegisterVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/model/user/vo/LoginAndRegisterVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IRestTemplateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/IRestTemplateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/XyUserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +47,8 @@
         <option value="HTTP Private Environment File" />
         <option value="UML Use Case" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -63,60 +80,65 @@
     <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="2VR4Px8NJTHt1KT40de3139uthK" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Use Case&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelOrder2&quot;: &quot;2&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth2&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/360MoveData/Users/Akihabara/OneDrive/桌面&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;rest.client.default.execution.environment&quot;: &quot;dev&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;efe00c94848c6a26b7322a567d695df3&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "DefaultPlantUmlFileTemplate": "UML Use Case",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelOrder2": "2",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RequestMappingsPanelWidth2": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/360MoveData/Users/Akihabara/OneDrive/桌面/大型软件课程设计/xyNasTools/photoAssistant/src/test",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "rest.client.default.execution.environment": "dev",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "5daa8bc55bfe3f9f290aec0c77990f10",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\photoAssistant\src\test" />
+      <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\photoAssistant\src\main\lib" />
+      <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\photoAssistant\src\main\resources" />
+      <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\photoAssistant\src\lib" />
       <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\xyScheduledTaskModule\src\main\resources" />
-      <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\xyScheduledTaskModule\src\main\resources\plugin" />
-      <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\xyScheduledTaskModule\src\main\java\edu\whu\utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\photoAssistant\src\main" />
+      <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\xyScheduledTaskModule\src\main\resources\plum" />
       <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\xyScheduledTaskModule\src\main\resources" />
       <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\xyScheduledTaskModule\src\main\resources\WEB-INF" />
       <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\xyScheduledTaskModule\src\main\resources\static" />
-      <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\xyScheduledTaskModule\src\main\resources\sql" />
-      <recent name="D:\360MoveData\Users\Akihabara\OneDrive\桌面\大型软件课程设计\xyNasTools\xyScheduledTaskModule" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -144,20 +166,8 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP 请求.job | 立即执行一次任务: 正常情况">
+  <component name="RunManager" selected="JUnit.LoadOpenCVTest.testLoadOpenCV">
     <configuration name="authentication | 用户登录操作: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/authentication.http" index="5" requestIdentifier="用户登录操作: 正常情况" runType="运行单个请求">
-      <method v="2" />
-    </configuration>
-    <configuration name="job | 立即执行一次任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="15" requestIdentifier="立即执行一次任务: 正常情况" runType="运行单个请求">
-      <method v="2" />
-    </configuration>
-    <configuration name="job | 添加任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="5" requestIdentifier="添加任务: 正常情况" runType="运行单个请求">
-      <method v="2" />
-    </configuration>
-    <configuration name="job | 立即执行一次任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="15" requestIdentifier="立即执行一次任务: 正常情况" runType="运行单个请求">
-      <method v="2" />
-    </configuration>
-    <configuration name="job | 停止任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="16" requestIdentifier="停止任务: 正常情况" runType="运行单个请求">
       <method v="2" />
     </configuration>
     <configuration name="job | 查询任务列表: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" requestIdentifier="查询任务列表: 正常情况" runType="运行单个请求">
@@ -165,6 +175,46 @@
     </configuration>
     <configuration name="job | 添加任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="5" requestIdentifier="添加任务: 正常情况" runType="运行单个请求">
       <method v="2" />
+    </configuration>
+    <configuration name="job | 立即执行一次任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="15" requestIdentifier="立即执行一次任务: 正常情况" runType="运行单个请求">
+      <method v="2" />
+    </configuration>
+    <configuration name="job | 添加任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="5" requestIdentifier="添加任务: 正常情况" runType="运行单个请求">
+      <method v="2" />
+    </configuration>
+    <configuration name="job | 停止任务: 正常情况" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/web-test/job.http" index="16" requestIdentifier="停止任务: 正常情况" runType="运行单个请求">
+      <method v="2" />
+    </configuration>
+    <configuration name="LoadOpenCVTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="photoAssistant" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.whu.config" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.config.LoadOpenCVTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoadOpenCVTest.testLoadOpenCV" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="photoAssistant" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.config.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.whu.config" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.config.LoadOpenCVTest" />
+      <option name="METHOD_NAME" value="testLoadOpenCV" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="LogEntityTest.testUserEntityInject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xyScheduledTaskModule" />
@@ -196,16 +246,18 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="HTTP 请求.job | 停止任务: 正常情况" />
       <item itemvalue="HTTP 请求.authentication | 用户登录操作: 正常情况" />
-      <item itemvalue="HTTP 请求.job | 添加任务: 正常情况" />
-      <item itemvalue="HTTP 请求.job | 立即执行一次任务: 正常情况" />
+      <item itemvalue="JUnit.LoadOpenCVTest" />
+      <item itemvalue="JUnit.LoadOpenCVTest.testLoadOpenCV" />
       <item itemvalue="JUnit.LogEntityTest.testUserEntityInject" />
       <item itemvalue="Spring Boot.XyScheduledTaskApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoadOpenCVTest.testLoadOpenCV" />
+        <item itemvalue="JUnit.LoadOpenCVTest" />
         <item itemvalue="Spring Boot.XyScheduledTaskApplication" />
-        <item itemvalue="HTTP 请求.job | 立即执行一次任务: 正常情况" />
         <item itemvalue="HTTP 请求.authentication | 用户登录操作: 正常情况" />
         <item itemvalue="JUnit.LogEntityTest.testUserEntityInject" />
       </list>
@@ -256,7 +308,23 @@
       <workItem from="1696661011732" duration="2654000" />
       <workItem from="1696681726372" duration="1820000" />
       <workItem from="1696739751966" duration="631000" />
-      <workItem from="1696752207767" duration="7703000" />
+      <workItem from="1696752207767" duration="7749000" />
+      <workItem from="1696765289965" duration="527000" />
+      <workItem from="1696810745602" duration="1968000" />
+      <workItem from="1696816096908" duration="968000" />
+      <workItem from="1697012039418" duration="678000" />
+      <workItem from="1697453399454" duration="133000" />
+      <workItem from="1697453997391" duration="4733000" />
+      <workItem from="1697462876576" duration="286000" />
+      <workItem from="1697505732209" duration="570000" />
+      <workItem from="1697778937696" duration="3481000" />
+      <workItem from="1697789444050" duration="396000" />
+      <workItem from="1697790324507" duration="95000" />
+      <workItem from="1698030078759" duration="1215000" />
+      <workItem from="1698242915252" duration="134000" />
+      <workItem from="1698243602082" duration="278000" />
+      <workItem from="1698318637114" duration="2716000" />
+      <workItem from="1698321590900" duration="988000" />
     </task>
     <task id="LOCAL-00001" summary="创建定时任务子模块">
       <created>1694847731880</created>
@@ -454,7 +522,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696663746508</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="实现任务失败达到上限之后向用户发送消息的功能">
+      <created>1696763006254</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1696763006254</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,10 +547,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/demo" />
     </ignored-roots>
-    <MESSAGE value="SpringSecurity实现用户登录和注册鉴权操作" />
     <MESSAGE value="对部分注册操作添加对应的测试, 添加用户管理控制器" />
     <MESSAGE value="开启Knife4j的静态资源映射, 解决拦截器阻拦API文档的静态资源的问题" />
     <MESSAGE value="添加删除用户操作" />
@@ -500,7 +575,8 @@
     <MESSAGE value="添加定时任务调用部分的Controller测试用例" />
     <MESSAGE value="简单实现了失败重试机制" />
     <MESSAGE value="添加相关的用户邮箱字段" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加相关的用户邮箱字段" />
+    <MESSAGE value="实现任务失败达到上限之后向用户发送消息的功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现任务失败达到上限之后向用户发送消息的功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -527,7 +603,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java</url>
-          <line>30</line>
+          <line>36</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -537,7 +613,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/UserController.java</url>
-          <line>41</line>
+          <line>47</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -547,7 +623,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/controller/JobController.java</url>
-          <line>52</line>
+          <line>55</line>
           <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
@@ -567,8 +643,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java</url>
-          <line>104</line>
+          <line>95</line>
           <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/filter/JwtRequestFilter.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="110" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-defaults>

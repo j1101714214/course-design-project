@@ -14,6 +14,19 @@
       <change beforePath="$PROJECT_DIR$/aria2RPC/src/main/java/whu/edu/aria2rpc/service/impl/IAria2ServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/aria2RPC/src/main/java/whu/edu/aria2rpc/service/impl/Aria2ServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aria2RPC/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/aria2RPC/src/main/resources/application.yaml" afterDir="false" />
     <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="简单实现了失败重试机制">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/648f1cf5-3222-461d-a350-b285faa219de.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/648f1cf5-3222-461d-a350-b285faa219de/storage_v2/_src_/database/yhy-yyds.UqAjaA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/648f1cf5-3222-461d-a350-b285faa219de/storage_v2/_src_/database/yhy-yyds.UqAjaA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/648f1cf5-3222-461d-a350-b285faa219de/storage_v2/_src_/database/yhy-yyds.UqAjaA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anime-assistant-tools/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/CodeGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/resources/application.yaml" afterDir="false" />
@@ -58,10 +71,13 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="D:\Development\local_repository" />
-        <option name="mavenHome" value="$PROJECT_DIR$/../../../../../../../Development/apache-maven-3.8.6" />
-        <option name="userSettingsFile" value="D:\Development\apache-maven-3.8.6\conf\settings.xml" />
+        <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
     </option>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
@@ -72,6 +88,41 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "F:/大四上/大软设/course-design-project1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "cb65b2eb04a7c4f6cdfe8016e3e0e2b7",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="edu.whu" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="CodeGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.whu.CodeGenerator" />
+      <module name="anime-assistant-tools" />
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
@@ -245,6 +296,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CodeGenerator" />
         <item itemvalue="JUnit.Aria2RpcApplicationTests.testRequestStatus" />
         <item itemvalue="JUnit.Aria2RpcApplicationTests.testRequestDownload" />
         <item itemvalue="HTTP 请求.job | 立即执行一次任务: 正常情况" />
@@ -272,6 +324,12 @@
       <workItem from="1694785543862" duration="228000" />
       <workItem from="1694786933844" duration="1062000" />
       <workItem from="1694817608845" duration="16000" />
+      <workItem from="1695603282381" duration="2374000" />
+      <workItem from="1696254203229" duration="3810000" />
+      <workItem from="1696810473376" duration="114000" />
+      <workItem from="1696810597552" duration="3096000" />
+      <workItem from="1698376886350" duration="5062000" />
+      <workItem from="1698504541501" duration="1236000" />
       <workItem from="1695609107414" duration="547000" />
       <workItem from="1695609672655" duration="2334000" />
       <workItem from="1695872021487" duration="966000" />

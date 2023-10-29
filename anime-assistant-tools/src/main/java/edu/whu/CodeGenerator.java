@@ -44,7 +44,7 @@ public class CodeGenerator {
     private static PackageConfig packageConfig() {
         PackageConfig packageInfo = new PackageConfig();
         //设置生成的包名，与代码所在位置不冲突， 二者叠加组成完整路径
-        packageInfo.setParent("edu.whu.demo");
+        packageInfo.setParent("edu.whu");
         //设置实体类包名
         packageInfo.setEntity("domain");
         //设置数据层包名
@@ -72,7 +72,7 @@ public class CodeGenerator {
 
     private static DataSourceConfig dataSourceConfig() {
         DataSourceConfig dataSource = new DataSourceConfig();
-        dataSource.setDriverName("com.mysql.cj.jdbc.Driver");
+        dataSource.setDriverName("org.postgresql.Driver");
         dataSource.setUrl("jdbc:postgresql://lzynb.com.cn:15432/yhy-yyds?serverTimezone=UTC");
         dataSource.setUsername("course-design");
         dataSource.setPassword("course-design2023");

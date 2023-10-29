@@ -4,6 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/aria2RPC/src/main/java/whu/edu/aria2rpc/dao/DownloadInfoDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aria2RPC/src/main/java/whu/edu/aria2rpc/service/RequestBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria2RPC/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aria2RPC/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria2RPC/src/main/java/whu/edu/aria2rpc/controller/Aria2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/aria2RPC/src/main/java/whu/edu/aria2rpc/controller/Aria2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria2RPC/src/main/java/whu/edu/aria2rpc/service/IAria2Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/aria2RPC/src/main/java/whu/edu/aria2rpc/service/IAria2Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria2RPC/src/main/java/whu/edu/aria2rpc/service/impl/IAria2ServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/aria2RPC/src/main/java/whu/edu/aria2rpc/service/impl/Aria2ServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aria2RPC/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/aria2RPC/src/main/resources/application.yaml" afterDir="false" />
     <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="简单实现了失败重试机制">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/xyScheduledTaskModule/src/main/java/edu/whu/service/impl/RestTemplateServiceImpl.java" afterDir="false" />
@@ -65,6 +74,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Use Case&quot;,
@@ -78,6 +91,30 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/学习/大三/大型软件设计/course-design-project&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0e7fc832a83d778140774cde83fadef0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="whu.edu.aria2rpc.serviceImpl" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Aria2RpcApplication">
+    <configuration name="Aria2RpcApplicationTests.testRequestDownload" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aria2RPC" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.aria2rpc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="whu.edu.aria2rpc" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.aria2rpc.Aria2RpcApplicationTests" />
+      <option name="METHOD_NAME" value="testRequestDownload" />
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
@@ -174,6 +211,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Aria2RpcApplicationTests.testRequestStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aria2RPC" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="whu.edu.aria2rpc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="whu.edu.aria2rpc" />
+      <option name="MAIN_CLASS_NAME" value="whu.edu.aria2rpc.Aria2RpcApplicationTests" />
+      <option name="METHOD_NAME" value="testRequestStatus" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Aria2RpcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="aria2RPC" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="whu.edu.aria2rpc.Aria2RpcApplication" />
     <configuration name="XyScheduledTaskApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="xyScheduledTaskModule" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="edu.whu.XyScheduledTaskApplication" />
@@ -189,6 +245,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Aria2RpcApplicationTests.testRequestStatus" />
+        <item itemvalue="JUnit.Aria2RpcApplicationTests.testRequestDownload" />
         <item itemvalue="HTTP 请求.job | 立即执行一次任务: 正常情况" />
         <item itemvalue="Spring Boot.XyScheduledTaskApplication" />
         <item itemvalue="HTTP 请求.authentication | 用户登录操作: 正常情况" />
@@ -214,6 +272,12 @@
       <workItem from="1694785543862" duration="228000" />
       <workItem from="1694786933844" duration="1062000" />
       <workItem from="1694817608845" duration="16000" />
+      <workItem from="1695609107414" duration="547000" />
+      <workItem from="1695609672655" duration="2334000" />
+      <workItem from="1695872021487" duration="966000" />
+      <workItem from="1696770326727" duration="15831000" />
+      <workItem from="1698020412567" duration="8761000" />
+      <workItem from="1698570472722" duration="1225000" />
       <workItem from="1694847636496" duration="7904000" />
       <workItem from="1694858560241" duration="15352000" />
       <workItem from="1695018725666" duration="3772000" />
@@ -433,7 +497,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="lzy_dev" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

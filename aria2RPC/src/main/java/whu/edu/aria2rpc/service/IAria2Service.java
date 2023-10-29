@@ -11,6 +11,6 @@ public interface IAria2Service {
 
     ReqRes requestDownload(String downloadUrl, String title, String saveDir) throws Exception;
 
-    Aria2Enum requestStatus(String GID);
+
 
 }

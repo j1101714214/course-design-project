@@ -5,12 +5,16 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import whu.edu.aria2rpc.service.IAria2Service;
+import whu.edu.aria2rpc.service.IDownInfoService;
 
 @SpringBootTest
 class Aria2RpcApplicationTests {
 
     @Autowired
     private IAria2Service IAria2Service;
+
+    @Autowired
+    private IDownInfoService IDownInfoService;
 
     @Test
     @SneakyThrows
@@ -21,7 +25,7 @@ class Aria2RpcApplicationTests {
     @Test
     @SneakyThrows
     void testRequestStatus() {
-        IAria2Service.requestStatus("cf1ee37124da3793");
+        IDownInfoService.requestStatus("cf1ee37124da3793");
     }
 
 }

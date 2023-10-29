@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="postgres@lzy" uuid="648f1cf5-3222-461d-a350-b285faa219de">
+    <data-source source="LOCAL" name="xy_schedule_task@localhost" uuid="8b4ed8b9-791c-451b-b85b-15f7f2a6e5b0">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://lzynb.com.cn:15432/yhy-yyds</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/xy_schedule_task</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

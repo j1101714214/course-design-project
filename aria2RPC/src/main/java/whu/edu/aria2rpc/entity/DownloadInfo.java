@@ -4,18 +4,24 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import lombok.Value;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Data
 @TableName(value="download_info")
+@NoArgsConstructor
 public class DownloadInfo {
 
-    public DownloadInfo(String GID,String title,String url,String status){
+    public DownloadInfo(String GID,String title,String url,String status,LocalDateTime createTime){
         this.GID = GID;
         this.title = title;
         this.url = url;
         this.status = status;
+        this.createTime = createTime;
     }
 
     @TableId(value = "id",type = IdType.AUTO)
@@ -28,6 +34,15 @@ public class DownloadInfo {
 
     private String url;
 
+    @TableField("status")
     private String status;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @TableField("create_time")
+    private LocalDateTime createTime;
+
+    @TableField("update_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime updateTime;
 
 }

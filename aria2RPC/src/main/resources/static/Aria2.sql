@@ -3,5 +3,7 @@ create table download_info (
                       GID               varchar(200) not null,
                       title             varchar(200) null,
                       url               varchar(200) not null,
-                      status            varchar(200) not null
+                      status            varchar(200) not null,
+                      create_time       timestamp without time zone not null,
+                      update_time       timestamp without time zone null
 );

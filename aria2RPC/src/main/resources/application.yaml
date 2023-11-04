@@ -11,3 +11,8 @@ spring:
     url: jdbc:postgresql://lzynb.com.cn:15432/lzy?useUnicode=true&characterEncoding=utf8&useSSL=true&autoReconnect=true&reWriteBatchedInserts=true
     username: course-design
     password: course-design2023
+
+aria2:
+  download_url: 127.0.0.1
+  download_port: 6800
+  secret: secret

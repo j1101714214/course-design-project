@@ -8,13 +8,19 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import whu.edu.aria2rpc.config.Aria2DownloadConfig;
 import whu.edu.aria2rpc.entity.Aria2Enum;
 import whu.edu.aria2rpc.entity.DownloadInfo;
 import whu.edu.aria2rpc.entity.ReqRes;
 import whu.edu.aria2rpc.service.IAria2Service;
 import whu.edu.aria2rpc.service.IDownInfoService;
 
+import javax.annotation.Resource;
+import java.sql.Time;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.UUID;
 
 import static whu.edu.aria2rpc.utility.Aria2Utility.*;
@@ -25,6 +31,8 @@ public class Aria2ServiceImpl implements IAria2Service {
     @Autowired
     private IDownInfoService downInfoService;
 
+    @Resource
+    private Aria2DownloadConfig downloadConfig;
 
     @Override
     public ReqRes requestDownload(String downloadUrl, String title, String saveDir){
@@ -32,7 +40,7 @@ public class Aria2ServiceImpl implements IAria2Service {
         ReqRes reqRes = new ReqRes();
 
         JSONArray jsonArray = new JSONArray();
-        jsonArray.put("token:secret");
+        jsonArray.put("token:"+downloadConfig.getSecret());
 
         JSONArray urls=new JSONArray();
         urls.put(downloadUrl);
@@ -46,7 +54,7 @@ public class Aria2ServiceImpl implements IAria2Service {
 
         System.out.println(jsonArray);
         HttpClient httpClient = HttpClientBuilder.create().build();
-        HttpPost httpPost = postRequestBuilder();
+        HttpPost httpPost = postRequestBuilder(downloadConfig.getDownload_url(),downloadConfig.getDownload_port());
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id", IDGenerator());
@@ -86,7 +94,7 @@ public class Aria2ServiceImpl implements IAria2Service {
             title = "Untitled";
         }
 
-        DownloadInfo info = new DownloadInfo(result,title,downloadUrl,Aria2Enum.DOWNLOAD_ACTIVE.toString());
+        DownloadInfo info = new DownloadInfo(result,title,downloadUrl,Aria2Enum.DOWNLOAD_ACTIVE.toString(), LocalDateTime.now());
         downInfoService.initDownloadInfo(info);
         System.out.println("----"+Aria2Enum.DOWNLOAD_ACTIVE.toString());
 

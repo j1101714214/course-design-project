@@ -1,11 +1,15 @@
 package whu.edu.aria2rpc.utility;
 
 import org.apache.http.client.methods.HttpPost;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import whu.edu.aria2rpc.entity.Aria2Enum;
 
 import java.util.UUID;
 
 public class Aria2Utility {
+
+
 
     public static String IDGenerator(){
         return UUID.randomUUID().toString().replace("-", "").substring(0, 10);
@@ -24,8 +28,8 @@ public class Aria2Utility {
         }
     }
 
-    public static HttpPost postRequestBuilder(){
-        HttpPost httpPost = new HttpPost("http://127.0.0.1:6800/jsonrpc");
+    public static HttpPost postRequestBuilder(String url,String port){
+        HttpPost httpPost = new HttpPost("http://"+url+":"+port+"/jsonrpc");
         httpPost.setHeader("Accept", "application/json");
         httpPost.setHeader("Content-Type", "application/json");
         return httpPost;

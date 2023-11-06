@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
 
 public interface IAria2Service {
 
-    ReqRes requestDownload(String downloadUrl, String title, String saveDir) throws Exception;
+    ReqRes requestDownload(String downloadUrl, String title, String saveDir);
 
 
 

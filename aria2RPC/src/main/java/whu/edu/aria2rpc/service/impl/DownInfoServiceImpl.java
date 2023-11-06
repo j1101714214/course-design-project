@@ -1,6 +1,8 @@
 package whu.edu.aria2rpc.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -20,7 +22,6 @@ import whu.edu.aria2rpc.service.IDownInfoService;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
 
 import static whu.edu.aria2rpc.utility.Aria2Utility.*;
@@ -112,7 +113,27 @@ public class DownInfoServiceImpl extends ServiceImpl<DownloadInfoDao, DownloadIn
             error:返回false
             complete:返回true
         */
-        return String2Enum(status);
+        return string2Enum(status);
+    }
+
+    public IPage<DownloadInfo> queryInfoList(int type,int page,int size){
+        LambdaQueryWrapper<DownloadInfo> lqw = new LambdaQueryWrapper<>();
+        switch (type){
+            case 1:
+                lqw.eq(DownloadInfo::getStatus, Aria2Enum.DOWNLOAD_ACTIVE);
+                break;
+            case 2:
+                lqw.eq(DownloadInfo::getStatus, Aria2Enum.DOWNLOAD_ERROR);
+                break;
+            case 3:
+                lqw.eq(DownloadInfo::getStatus, Aria2Enum.DOWNLOAD_COMPLETE);
+                break;
+            default:
+                lqw=null;
+                break;
+        }
+        IPage<DownloadInfo> iPage = new Page<>(page,size);
+        return getBaseMapper().selectPage(iPage,lqw);
     }
 
 

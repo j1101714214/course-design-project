@@ -1,13 +1,14 @@
 package whu.edu.aria2rpc.controller;
 
-import lombok.SneakyThrows;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import whu.edu.aria2rpc.entity.Aria2Enum;
 import whu.edu.aria2rpc.entity.DownloadInfo;
 import whu.edu.aria2rpc.entity.ReqRes;
-import whu.edu.aria2rpc.entity.bo.Aria2DownloadBo;
+import whu.edu.aria2rpc.entity.Aria2DownloadBo;
 import whu.edu.aria2rpc.service.IAria2Service;
 import whu.edu.aria2rpc.service.IDownInfoService;
 
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/download/aria2")
+@Api(tags = "aria2下载接口")
 public class Aria2Controller {
 
     @Autowired
@@ -35,8 +37,11 @@ public class Aria2Controller {
         return ResponseEntity.ok(res.toString());
     }
 
-    @GetMapping("/list")
-    public ResponseEntity<List<DownloadInfo>> listDownloadInfo(){
 
+    @GetMapping("/query_page_list")
+    //type: 0:all 1:active 2:error 3:complete
+    public ResponseEntity<IPage<DownloadInfo>> aria2QueryPageList(@RequestParam(required = true) int type,@RequestParam(required = true) int page, @RequestParam(required = true) int size){
+        return ResponseEntity.ok(DownInfoService.queryInfoList(type,page,size));
     }
+
 }

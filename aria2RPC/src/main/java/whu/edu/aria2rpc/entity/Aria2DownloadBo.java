@@ -1,4 +1,4 @@
-package whu.edu.aria2rpc.entity.bo;
+package whu.edu.aria2rpc.entity;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;

@@ -1,6 +1,7 @@
 package whu.edu.aria2rpc;
 
 import lombok.SneakyThrows;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,15 +18,19 @@ class Aria2RpcApplicationTests {
     private IDownInfoService IDownInfoService;
 
     @Test
-    @SneakyThrows
     void testRequestDownload() {
         IAria2Service.requestDownload("https://www.voidtools.com/Everything-1.4.1.1024.x64.zip","EveryThing",".\\res");
     }
 
     @Test
-    @SneakyThrows
     void testRequestStatus() {
         IDownInfoService.requestStatus("cf1ee37124da3793");
     }
+
+    @Test
+    void testQueryPage(){
+        IDownInfoService.queryInfoList(3,1,3);
+    }
+
 
 }

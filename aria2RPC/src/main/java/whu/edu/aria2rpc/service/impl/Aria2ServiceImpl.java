@@ -8,7 +8,6 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import whu.edu.aria2rpc.config.Aria2DownloadConfig;
 import whu.edu.aria2rpc.entity.Aria2Enum;
@@ -18,10 +17,7 @@ import whu.edu.aria2rpc.service.IAria2Service;
 import whu.edu.aria2rpc.service.IDownInfoService;
 
 import javax.annotation.Resource;
-import java.sql.Time;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.UUID;
 
 import static whu.edu.aria2rpc.utility.Aria2Utility.*;
 

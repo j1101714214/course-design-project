@@ -1,8 +1,6 @@
 package whu.edu.aria2rpc.utility;
 
 import org.apache.http.client.methods.HttpPost;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 import whu.edu.aria2rpc.entity.Aria2Enum;
 
 import java.util.UUID;
@@ -15,7 +13,7 @@ public class Aria2Utility {
         return UUID.randomUUID().toString().replace("-", "").substring(0, 10);
     }
 
-    public static Aria2Enum String2Enum(String status) {
+    public static Aria2Enum string2Enum(String status) {
         switch (status) {
             case "complete":
                 return Aria2Enum.DOWNLOAD_COMPLETE;

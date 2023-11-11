@@ -30,6 +30,13 @@ public class Aria2ServiceImpl implements IAria2Service {
     @Resource
     private Aria2DownloadConfig downloadConfig;
 
+    /**
+     * 请求下载
+     * @param downloadUrl 下载链接
+     * @param title 标题
+     * @param saveDir 保存路径
+     * @return ReqRes
+     */
     @Override
     public ReqRes requestDownload(String downloadUrl, String title, String saveDir){
 
@@ -44,7 +51,7 @@ public class Aria2ServiceImpl implements IAria2Service {
 
 
         JSONObject output = new JSONObject();
-        output.put("dir",".\\res");
+        output.put("dir",saveDir==null?downloadConfig.getDefault_save_path():saveDir);
         jsonArray.put(output);
 
 
@@ -54,7 +61,7 @@ public class Aria2ServiceImpl implements IAria2Service {
 
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("id", IDGenerator());
-        jsonObject.put("jsonrpc", "2.0");
+        jsonObject.put("jsonrpc", downloadConfig.getJson__rpc_version());
 
         jsonObject.put("method", "aria2.addUri");
         jsonObject.put("params", jsonArray);

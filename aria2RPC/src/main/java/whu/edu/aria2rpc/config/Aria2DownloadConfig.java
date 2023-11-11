@@ -11,10 +11,14 @@ import org.springframework.stereotype.Component;
 @ApiModel(value = "Aria2DownloadConfig", description = "Aria2下载配置")
 public class Aria2DownloadConfig {
 
+    private String default_save_path;
+
     private String download_url;
 
     private String download_port;
 
     private String secret;
+
+    private String json__rpc_version;
 
 }

@@ -9,9 +9,11 @@ import java.util.List;
 
 public interface IDownInfoService extends IService<DownloadInfo> {
 
-    public boolean initDownloadInfo(DownloadInfo info);
+    boolean initDownloadInfo(DownloadInfo info);
 
     Aria2Enum requestStatus(String GID);
 
-    public IPage<DownloadInfo> queryInfoList(int type,int page, int size);
+    IPage<DownloadInfo> queryInfoList(int type,int page, int size);
+
+    DownloadInfo queryDetail(String GID);
 }

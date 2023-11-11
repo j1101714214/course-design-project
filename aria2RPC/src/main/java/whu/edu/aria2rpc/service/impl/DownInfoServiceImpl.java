@@ -32,6 +32,9 @@ public class DownInfoServiceImpl extends ServiceImpl<DownloadInfoDao, DownloadIn
     @Resource
     private Aria2DownloadConfig downloadConfig;
 
+    /**
+     * 定时检查下载状态
+     */
     @Scheduled(cron = "0/15 * * * * ?")
     public void checkStatus(){
         List<DownloadInfo> informationList = getActiveStatus();
@@ -40,36 +43,51 @@ public class DownInfoServiceImpl extends ServiceImpl<DownloadInfoDao, DownloadIn
             if(!information.getStatus().equals(requestStatus(GID).toString())){
                 information.setStatus(requestStatus(GID).toString());
                 information.setUpdateTime(LocalDateTime.now());
+                information.setStatus(analyzeStatus(information));
                 getBaseMapper().updateById(information);
             }
         }
     }
 
-    private DownloadInfo analyzeStatus(DownloadInfo info) {
+    /**
+     * 分析下载状态并调整下载状态
+     * @param info DownloadInfo
+     * @return boolean
+     */
+    private String analyzeStatus(DownloadInfo info) {
         if (info.getUpdateTime() != null) {
             if (info.getUpdateTime().isAfter(info.getCreateTime().plusDays(7))) {
-                info.setStatus(Aria2Enum.DOWNLOAD_ERROR.toString());
+                return Aria2Enum.DOWNLOAD_ERROR.toString();
             }
         }
-        return info;
+        return info.getStatus();
     }
 
+    /**
+     * 获取正在下载的任务
+     * @return List<DownloadInfo>
+     */
     private List<DownloadInfo> getActiveStatus(){
         LambdaQueryWrapper<DownloadInfo> lqw = new LambdaQueryWrapper<>();
         lqw.eq(DownloadInfo::getStatus, Aria2Enum.DOWNLOAD_ACTIVE);
         return getBaseMapper().selectList(lqw);
     }
 
-    private List<DownloadInfo> getErrorStatus(){
-        LambdaQueryWrapper<DownloadInfo> lqw = new LambdaQueryWrapper<>();
-        lqw.eq(DownloadInfo::getStatus, Aria2Enum.DOWNLOAD_ERROR);
-        return getBaseMapper().selectList(lqw);
-    }
-
+    /**
+     * 初始化下载信息
+     * @param info DownloadInfo
+     * @return boolean
+     */
+    @Override
     public boolean initDownloadInfo(DownloadInfo info){
         return getBaseMapper().insert(info)>0;
     }
 
+    /**
+     * 请求下载状态
+     * @param GID 下载标识符
+     * @return Aria2Enum
+     */
     @Override
     public Aria2Enum requestStatus(String GID) {
         HttpClient httpClient = HttpClientBuilder.create().build();
@@ -116,6 +134,14 @@ public class DownInfoServiceImpl extends ServiceImpl<DownloadInfoDao, DownloadIn
         return string2Enum(status);
     }
 
+    /**
+     * 查询下载信息
+     * @param type 1:正在下载 2:下载失败 3:下载完成
+     * @param page 页码
+     * @param size 每页大小
+     * @return IPage<DownloadInfo>
+     */
+    @Override
     public IPage<DownloadInfo> queryInfoList(int type,int page,int size){
         LambdaQueryWrapper<DownloadInfo> lqw = new LambdaQueryWrapper<>();
         switch (type){
@@ -136,5 +162,16 @@ public class DownInfoServiceImpl extends ServiceImpl<DownloadInfoDao, DownloadIn
         return getBaseMapper().selectPage(iPage,lqw);
     }
 
+    /**
+     * 查询下载详情
+     * @param GID 下载标识符
+     * @return DownloadInfo
+     */
+    @Override
+    public DownloadInfo queryDetail(String GID) {
+        LambdaQueryWrapper<DownloadInfo> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(DownloadInfo::getGID, GID);
+        return getBaseMapper().selectOne(lqw);
+    }
 
 }

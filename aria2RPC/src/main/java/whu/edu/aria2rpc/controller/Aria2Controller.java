@@ -25,23 +25,27 @@ public class Aria2Controller {
     @Autowired
     private IDownInfoService DownInfoService;
 
-    @PostMapping("/jsonrpc")
+    @PostMapping("/download")
     public ResponseEntity<ReqRes> aria2Download(@RequestBody Aria2DownloadBo bo){
         ReqRes reqRes = Aria2Service.requestDownload(bo.getDownloadUrl(),bo.getTitle(),bo.getSaveDir());
         return ResponseEntity.ok(reqRes);
     }
 
     @GetMapping("/status")
-    public ResponseEntity<String> aria2GetStatus(@RequestParam String GID){
+    public ResponseEntity<String> aria2GetStatus(@RequestParam(required = true) String GID){
         Aria2Enum res = DownInfoService.requestStatus(GID);
         return ResponseEntity.ok(res.toString());
     }
-
 
     @GetMapping("/query_page_list")
     //type: 0:all 1:active 2:error 3:complete
     public ResponseEntity<IPage<DownloadInfo>> aria2QueryPageList(@RequestParam(required = true) int type,@RequestParam(required = true) int page, @RequestParam(required = true) int size){
         return ResponseEntity.ok(DownInfoService.queryInfoList(type,page,size));
+    }
+
+    @GetMapping("/query_detail")
+    public ResponseEntity<DownloadInfo> aria2QueryDetail(@RequestParam(required = true) String GID){
+        return ResponseEntity.ok(DownInfoService.queryDetail(GID));
     }
 
 }

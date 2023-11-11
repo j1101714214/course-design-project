@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import whu.edu.aria2rpc.service.IAria2Service;
 import whu.edu.aria2rpc.service.IDownInfoService;
 
-@SpringBootTest
+@SpringBootTest(classes = Aria2RpcApplication.class)
 class Aria2RpcApplicationTests {
 
     @Autowired
@@ -29,8 +29,13 @@ class Aria2RpcApplicationTests {
 
     @Test
     void testQueryPage(){
-        IDownInfoService.queryInfoList(3,1,3);
+        System.out.println(IDownInfoService.queryInfoList(1,1,3).getTotal());
+        System.out.println(IDownInfoService.queryInfoList(0,1,3).getTotal());
     }
 
+    @Test
+    void testQueryDetail(){
+        IDownInfoService.queryDetail("28263e5ce0db3129");
+    }
 
 }

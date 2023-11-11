@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import whu.edu.aria2rpc.entity.Aria2Enum;
+import whu.edu.aria2rpc.entity.DownloadInfo;
+import whu.edu.aria2rpc.entity.ReqRes;
 import whu.edu.aria2rpc.service.IAria2Service;
 import whu.edu.aria2rpc.service.IDownInfoService;
 
@@ -19,23 +22,61 @@ class Aria2RpcApplicationTests {
 
     @Test
     void testRequestDownload() {
-        IAria2Service.requestDownload("https://www.voidtools.com/Everything-1.4.1.1024.x64.zip","EveryThing",".\\res");
+        ReqRes reqRes = IAria2Service.requestDownload("https://www.voidtools.com/Everything-1.4.1.1024.x64.zip","EveryThing",".\\res");
+        Assertions.assertNotNull(reqRes.getGID());
     }
 
     @Test
-    void testRequestStatus() {
-        IDownInfoService.requestStatus("cf1ee37124da3793");
+    void testRequestDownload_NoSuchFile() {
+        ReqRes reqRes = IAria2Service.requestDownload("https://www.voidtools.com/Everything-1.4.1.1024.x641.zip","EveryThing",".\\res");
+        Assertions.assertNotNull(reqRes.getGID());
+    }
+
+    @Test
+    void testRequestDownload_DefaultNameAndDir() {
+        ReqRes reqRes = IAria2Service.requestDownload("https://www.voidtools.com/Everything-1.4.1.1024.x641.zip",null,null);
+        Assertions.assertNotNull(reqRes.getGID());
+        DownloadInfo downloadInfo = IDownInfoService.queryDetail(reqRes.getGID());
+        Assertions.assertEquals(downloadInfo.getTitle(),"Untitled");
+        Assertions.assertEquals(downloadInfo.getDir(),"./res");
+    }
+
+    @Test
+    void testRequestCompleteStatus() {
+        Aria2Enum status = IDownInfoService.requestStatus("b4efba622d52d0e7");
+        Assertions.assertEquals(status,Aria2Enum.DOWNLOAD_COMPLETE);
+    }
+
+    @Test
+    void testRequestErrorStatus() {
+        Aria2Enum status = IDownInfoService.requestStatus("d0b644b3649f21af");
+        Assertions.assertEquals(status,Aria2Enum.DOWNLOAD_ERROR);
+    }
+
+    @Test
+    void testRequestStatus_NoGID() {
+        Aria2Enum status = IDownInfoService.requestStatus("d0b644b3649f21a1");
+        Assertions.assertEquals(status,Aria2Enum.DECODE_ERROR);
     }
 
     @Test
     void testQueryPage(){
-        System.out.println(IDownInfoService.queryInfoList(1,1,3).getTotal());
-        System.out.println(IDownInfoService.queryInfoList(0,1,3).getTotal());
+        Assertions.assertEquals(IDownInfoService.queryInfoList(2,1,3).getTotal(),3);
+        Assertions.assertEquals(IDownInfoService.queryInfoList(3,1,3).getTotal(),4);
+        Assertions.assertEquals(IDownInfoService.queryInfoList(4,1,3).getTotal(),7);
+        Assertions.assertEquals(IDownInfoService.queryInfoList(0,1,3).getTotal(),7);
     }
 
     @Test
     void testQueryDetail(){
-        IDownInfoService.queryDetail("28263e5ce0db3129");
+        DownloadInfo info = IDownInfoService.queryDetail("05154485ff16e7bc");
+        Assertions.assertEquals(info.getGID(),"05154485ff16e7bc");
+    }
+
+    @Test
+    void testQueryDetail_NoGID(){
+        DownloadInfo info = IDownInfoService.queryDetail("05154485ff16e7bc1");
+        Assertions.assertNull(info);
     }
 
 }

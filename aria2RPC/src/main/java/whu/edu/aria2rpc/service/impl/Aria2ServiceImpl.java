@@ -50,7 +50,8 @@ public class Aria2ServiceImpl implements IAria2Service {
 
 
         JSONObject output = new JSONObject();
-        output.put("dir",saveDir==null?downloadConfig.getDefault_save_path():saveDir);
+        saveDir = saveDir==null?downloadConfig.getDefault_save_path():saveDir;
+        output.put("dir",saveDir);
         jsonArray.put(output);
 
 
@@ -96,7 +97,7 @@ public class Aria2ServiceImpl implements IAria2Service {
             title = "Untitled";
         }
 
-        DownloadInfo info = new DownloadInfo(result,title,downloadUrl,Aria2Enum.DOWNLOAD_ACTIVE.toString(), LocalDateTime.now());
+        DownloadInfo info = new DownloadInfo(result,title,saveDir,downloadUrl,Aria2Enum.DOWNLOAD_ACTIVE.toString(), LocalDateTime.now());
         downInfoService.initDownloadInfo(info);
         System.out.println("----"+Aria2Enum.DOWNLOAD_ACTIVE);
 

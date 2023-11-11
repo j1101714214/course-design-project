@@ -15,9 +15,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class DownloadInfo {
 
-    public DownloadInfo(String GID,String title,String url,String status,LocalDateTime createTime){
+    public DownloadInfo(String GID,String title,String dir,String url,String status,LocalDateTime createTime){
         this.GID = GID;
         this.title = title;
+        this.dir = dir;
         this.url = url;
         this.status = status;
         this.createTime = createTime;
@@ -30,6 +31,8 @@ public class DownloadInfo {
     private String GID;
 
     private String title;
+
+    private String dir;
 
     private String url;
 

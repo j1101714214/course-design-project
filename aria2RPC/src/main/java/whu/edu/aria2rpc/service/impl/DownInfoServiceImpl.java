@@ -118,19 +118,17 @@ public class DownInfoServiceImpl extends ServiceImpl<DownloadInfoDao, DownloadIn
             return Aria2Enum.REQUEST_ERROR;
         }
         JSONObject resJSON;
+        String status;
         try {
             resJSON = new JSONObject(EntityUtils.toString(res.getEntity()));
+            status = (String) resJSON.getJSONObject("result").get("status");
         }catch (Exception e) {
             return Aria2Enum.DECODE_ERROR;
         }
-        String status= (String) resJSON.getJSONObject("result").get("status");
+
+
         System.out.println(status);
-        //complete error active
-        /*todo:
-            active:定时查询后续状态直到complete或error
-            error:返回false
-            complete:返回true
-        */
+
         return string2Enum(status);
     }
 

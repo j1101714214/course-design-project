@@ -8,9 +8,7 @@ spring:
     driverClassName: org.postgresql.Driver
     hikari:
       auto-commit: false
-      idle-timeout: 60000
       minimum-idle: 5
-      leak-detection-threshold: 240000
       maximum-pool-size: 100
       connection-timeout: 30000
       max-lifetime: 30000
@@ -31,3 +29,15 @@ aria2:
   download_port: 6800
   secret: secret
   json_rpc_version: 2.0
+
+aria2RPC:
+    knife4j:
+      base-package: edu.whu.aria2rpc.controller
+      title: xyNasTools任务调度服务在线API文档
+      description: xyNasTools任务调度服务在线API文档, 用于前后端联调
+      version: 1.0
+    retry:
+      maxAttempts: 3
+      backoff:
+        delay: 1000
+        multiplier: 0

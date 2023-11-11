@@ -7,7 +7,6 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import whu.edu.aria2rpc.config.Aria2DownloadConfig;
 import whu.edu.aria2rpc.entity.Aria2Enum;
@@ -24,7 +23,7 @@ import static whu.edu.aria2rpc.utility.Aria2Utility.*;
 @Service
 public class Aria2ServiceImpl implements IAria2Service {
 
-    @Autowired
+    @Resource
     private IDownInfoService downInfoService;
 
     @Resource
@@ -99,7 +98,7 @@ public class Aria2ServiceImpl implements IAria2Service {
 
         DownloadInfo info = new DownloadInfo(result,title,downloadUrl,Aria2Enum.DOWNLOAD_ACTIVE.toString(), LocalDateTime.now());
         downInfoService.initDownloadInfo(info);
-        System.out.println("----"+Aria2Enum.DOWNLOAD_ACTIVE.toString());
+        System.out.println("----"+Aria2Enum.DOWNLOAD_ACTIVE);
 
         return reqRes;
     }

@@ -12,17 +12,18 @@ import whu.edu.aria2rpc.entity.Aria2DownloadBo;
 import whu.edu.aria2rpc.service.IAria2Service;
 import whu.edu.aria2rpc.service.IDownInfoService;
 
-import java.util.List;
+import javax.annotation.Resource;
+
 
 @RestController
 @RequestMapping("/download/aria2")
 @Api(tags = "aria2下载接口")
 public class Aria2Controller {
 
-    @Autowired
+    @Resource
     private IAria2Service Aria2Service;
 
-    @Autowired
+    @Resource
     private IDownInfoService DownInfoService;
 
     @PostMapping("/download")
@@ -31,6 +32,7 @@ public class Aria2Controller {
         return ResponseEntity.ok(reqRes);
     }
 
+    //暂时弃用，请使用query_detail
     @GetMapping("/status")
     public ResponseEntity<String> aria2GetStatus(@RequestParam(required = true) String GID){
         Aria2Enum res = DownInfoService.requestStatus(GID);

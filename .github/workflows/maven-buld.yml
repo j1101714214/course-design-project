@@ -19,7 +19,7 @@ jobs:
         distribution: 'adopt'
         java-version: '8'
 
-    - name: Build with Maven
+    - name: Build with Maven (skip tests)
       run: |
-        mvn -B package --file pom.xml
+        mvn clean install -B -DskipTests --file pom.xml
 

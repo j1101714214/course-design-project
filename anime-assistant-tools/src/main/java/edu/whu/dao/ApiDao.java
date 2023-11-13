@@ -1,6 +1,6 @@
 package edu.whu.dao;
 
-import edu.whu.domain.Params;
+import edu.whu.domain.Api;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author yang hengyi
  * @since 2023-11-03
  */
-public interface ParamsDao extends BaseMapper<Params> {
+public interface ApiDao extends BaseMapper<Api> {
 
 }

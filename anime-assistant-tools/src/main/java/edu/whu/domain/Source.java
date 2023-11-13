@@ -12,39 +12,34 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author yang hengyi
- * @since 2023-10-29
+ * @since 2023-11-03
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Tmdb_api implements Serializable {
+public class Source implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * api的id
+     * 视频资源网站
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
-     * api名称
+     * 视频网站名称
      */
     private String name;
 
     /**
-     * 调用方法（1-GET, 2-POST, 3-PUT, 4-DEL)
-     */
-    private Integer methed;
-
-    /**
-     * 调用api的模板
-     */
-    private String template;
-
-    /**
-     * api的详细信息
+     * 视频网站描述信息
      */
     private String description;
+
+    /**
+     * 网站链接
+     */
+    private String website;
 
 
 }

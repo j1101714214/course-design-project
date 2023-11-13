@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author yang hengyi
- * @since 2023-10-29
+ * @since 2023-11-03
  */
 public interface AuthorizationDao extends BaseMapper<Authorization> {
 

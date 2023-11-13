@@ -1,6 +1,6 @@
 package edu.whu.service;
 
-import edu.whu.domain.Params;
+import edu.whu.domain.Api;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author yang hengyi
  * @since 2023-11-03
  */
-public interface IParamsService extends IService<Params> {
+public interface IApiService extends IService<Api> {
 
 }

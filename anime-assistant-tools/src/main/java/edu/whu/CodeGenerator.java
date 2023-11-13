@@ -27,7 +27,7 @@ public class CodeGenerator {
     private static StrategyConfig strategyConfig() {
         StrategyConfig strategyConfig = new StrategyConfig();
         //设置当前参与生成的表名，参数为可 变参数
-        strategyConfig.setInclude("authorization","tmdb_api", "params");
+        strategyConfig.setInclude("authorization","api", "params", "source");
         //设置数据库表的前缀名称，模块名 = 数据库表名 - 前缀名 例如： User = tbl_user - tbl_
         //strategyConfig.setTablePrefix("tbl_");
         //设置是否启用Rest风格

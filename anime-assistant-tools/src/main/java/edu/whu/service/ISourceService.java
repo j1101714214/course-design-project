@@ -1,6 +1,6 @@
 package edu.whu.service;
 
-import edu.whu.domain.Tmdb_api;
+import edu.whu.domain.Source;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author yang hengyi
- * @since 2023-10-29
+ * @since 2023-11-03
  */
-public interface ITmdb_apiService extends IService<Tmdb_api> {
+public interface ISourceService extends IService<Source> {
 
 }

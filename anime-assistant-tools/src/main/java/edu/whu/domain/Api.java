@@ -16,45 +16,35 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Params implements Serializable {
+public class Api implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 参数id
+     * api的id
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     /**
-     * 参数名称
+     * api名称
      */
     private String name;
 
     /**
-     * 参数的详细信息
+     * 调用方法（1-GET, 2-POST, 3-PUT, 4-DEL)
+     */
+    private Integer methed;
+
+    /**
+     * 调用api的模板
+     */
+    private String template;
+
+    /**
+     * api的详细信息
      */
     private String description;
-
-    /**
-     * 参数类型
-     */
-    private String type;
-
-    /**
-     * params位置（0-path params, 1-query params, 2-body)
-     */
-    private Integer pos;
-
-    /**
-     * params对应api
-     */
-    private Long api_id;
-
-    /**
-     * params对应api源
-     */
-    private Integer db_id;
 
 
 }

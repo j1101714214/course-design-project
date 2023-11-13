@@ -5,10 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant-tools/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/CodeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/CodeGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/AuthorizationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/ParamsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/Tmdb_apiController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/dao/AuthorizationDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/dao/ParamsDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/dao/Tmdb_apiDao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/domain/Authorization.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/domain/Params.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/domain/Tmdb_api.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/mapper/xml/AuthorizationMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/mapper/xml/ParamsMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/mapper/xml/Tmdb_apiMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/IAuthorizationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/IParamsService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/ITmdb_apiService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/AuthorizationServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/ParamsServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/Tmdb_apiServiceImpl.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +79,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;cb65b2eb04a7c4f6cdfe8016e3e0e2b7&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;4cc922917676abea63e0471240deacf1&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -112,6 +130,9 @@
       <workItem from="1696810597552" duration="3096000" />
       <workItem from="1698376886350" duration="5062000" />
       <workItem from="1698504541501" duration="1236000" />
+      <workItem from="1698670599346" duration="8741000" />
+      <workItem from="1698994992905" duration="6668000" />
+      <workItem from="1699837883080" duration="762000" />
     </task>
     <servers />
   </component>

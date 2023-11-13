@@ -1,8 +1,8 @@
 package edu.whu.service.impl;
 
-import edu.whu.domain.Authorization;
-import edu.whu.dao.AuthorizationDao;
-import edu.whu.service.IAuthorizationService;
+import edu.whu.domain.Api;
+import edu.whu.dao.ApiDao;
+import edu.whu.service.IApiService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2023-11-03
  */
 @Service
-public class AuthorizationServiceImpl extends ServiceImpl<AuthorizationDao, Authorization> implements IAuthorizationService {
+public class ApiServiceImpl extends ServiceImpl<ApiDao, Api> implements IApiService {
 
 }

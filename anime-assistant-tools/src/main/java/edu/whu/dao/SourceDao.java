@@ -1,6 +1,6 @@
 package edu.whu.dao;
 
-import edu.whu.domain.Tmdb_api;
+import edu.whu.domain.Source;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author yang hengyi
- * @since 2023-10-29
+ * @since 2023-11-03
  */
-public interface Tmdb_apiDao extends BaseMapper<Tmdb_api> {
+public interface SourceDao extends BaseMapper<Source> {
 
 }

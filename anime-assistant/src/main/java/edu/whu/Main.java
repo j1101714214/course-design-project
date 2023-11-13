@@ -1,5 +1,8 @@
-package edu.whu;public class Main {
+package edu.whu;
+
+public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
+
 }

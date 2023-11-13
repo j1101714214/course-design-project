@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>anime-assistant-tools</module>
+        <module>anime-assistant</module>
     </modules>
     <version>1.0-SNAPSHOT</version>
 

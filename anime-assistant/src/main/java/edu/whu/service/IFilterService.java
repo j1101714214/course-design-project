@@ -13,4 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IFilterService extends IService<Filter> {
 
+    Long addFilter(Filter filter);
+
+    boolean updateFilter(Long id, Filter filter);
 }

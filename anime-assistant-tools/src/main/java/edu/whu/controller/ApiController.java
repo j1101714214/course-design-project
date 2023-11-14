@@ -2,6 +2,7 @@ package edu.whu.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import edu.whu.domain.Api;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,6 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class ApiController {
-    public ResponseEntity<Page<>>
+    // public ResponseEntity<Page<Api>> listApisByPage()
 }
 

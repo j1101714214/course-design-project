@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: anime-assistant-ttols
+    name: anime-assistant-tools
   profiles:
     active: dev
   mvc:

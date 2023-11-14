@@ -1,9 +1,11 @@
 package edu.whu.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
+import edu.whu.domain.Filter;
+import edu.whu.service.IFilterService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -16,6 +18,32 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/filter")
 public class FilterController {
+
+    @Autowired
+    private IFilterService filterService;
+
+    @PostMapping("/add")
+    public ResponseEntity<Long> addNewFilter(@RequestBody Filter filter) {
+        Long id = filterService.addFilter(filter);
+        if (id != null) {
+            return ResponseEntity.ok(id);
+        }
+        else {
+            return ResponseEntity.badRequest().build();
+        }
+
+    }
+
+    @PostMapping("/update/{id}")
+    public ResponseEntity<Void> updateFilter(@PathVariable("id") Long id, @RequestBody Filter filter) {
+        boolean status = filterService.updateFilter(id, filter);
+        if(status) {
+            return ResponseEntity.ok().build();
+        }
+        else {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 
 }
 

@@ -3,6 +3,8 @@ package edu.whu.service;
 import edu.whu.domain.Category;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -13,4 +15,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ICategoryService extends IService<Category> {
 
+    List<Category> getAllCategories();
+
+    Long addNewCategory(Category category);
 }

@@ -43,7 +43,7 @@ public class Anime implements Serializable {
      * 视频发布时间
      */
     @TableField("ani_initial_date")
-    private LocalDateTime aniInitialDate;
+    private String aniInitialDate;
 
     /**
      * 视频剧集数
@@ -54,7 +54,7 @@ public class Anime implements Serializable {
     /**
      * 视频季
      */
-    @TableField("aniSeason")
+    @TableField("ani_season")
     private Integer aniSeason;
 
     /**

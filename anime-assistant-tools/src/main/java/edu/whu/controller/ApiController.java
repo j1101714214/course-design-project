@@ -3,7 +3,10 @@ package edu.whu.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import edu.whu.domain.Api;
+import edu.whu.service.IApiService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class ApiController {
-    // public ResponseEntity<Page<Api>> listApisByPage()
+    @Autowired
+    private IApiService apiService;
+
+    @GetMapping("/list")
+    public ResponseEntity<Page<Api>> listApiPage() {
+        return ResponseEntity.ok().build();
+    }
 }
 

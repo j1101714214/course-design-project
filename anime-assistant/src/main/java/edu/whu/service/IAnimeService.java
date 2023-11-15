@@ -14,6 +14,7 @@ import java.util.Map;
  * @author yang hengyi
  * @since 2023-11-13
  */
+
 public interface IAnimeService extends IService<Anime> {
 
     Anime findAnimeById(Long id);

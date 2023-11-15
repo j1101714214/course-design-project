@@ -5,36 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/config/MyBatisPlusConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anime-assistant/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hmacg-plugin/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hmacg-plugin/src/main/java/edu/whu/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hmacg-plugin/src/main/java/edu/whu/DownloadFileUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hmacg-plugin/src/main/java/edu/whu/HmacgMeta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hmacg-plugin/src/main/java/edu/whu/HmacgReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anime-assistant/src/test/java/edu/whu/AnimeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/CodeGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/ApiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/CodeGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/controller/AnimeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/controller/AnimeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/controller/FilterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/controller/FilterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/dao/AnimeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/dao/AnimeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/dao/CategoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/dao/CategoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/dao/DownloadDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/dao/DownloadDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/dao/FilterDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/dao/FilterDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/dao/MapDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/dao/MapDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/domain/Anime.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/domain/Anime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/mapper/xml/AnimeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/resources/mapper/xml/AnimeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/mapper/xml/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/resources/mapper/xml/CategoryMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/mapper/xml/DownloadMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/resources/mapper/xml/DownloadMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/mapper/xml/FilterMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/resources/mapper/xml/FilterMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/mapper/xml/MapMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/resources/mapper/xml/MapMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/IAnimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/IAnimeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/ICategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/ICategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/IFilterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/IFilterService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/impl/AnimeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/impl/AnimeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/impl/FilterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/impl/FilterServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +87,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "4cc922917676abea63e0471240deacf1",
+    "spring.configuration.checksum": "babe46d78fd9813b950eb8d17e059ada",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -108,14 +97,24 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="edu.whu" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="edu.whu" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.Main">
-    <configuration name="CodeGenerator (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.whu.CodeGenerator" />
-      <module name="anime-assistant" />
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="应用程序.DownloadFileUtils">
+    <configuration name="DownloadFileUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.whu.DownloadFileUtils" />
+      <module name="Hmacg-plugin" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="edu.whu.*" />
@@ -126,9 +125,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CodeGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.whu.CodeGenerator" />
+    <configuration name="FileDownload" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.whu.FileDownload" />
+      <module name="Hmacg-plugin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HmacgReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.whu.HmacgReader" />
+      <module name="Hmacg-plugin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="anime-assistant-tools" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.whu.Main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="edu.whu.*" />
@@ -154,9 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.DownloadFileUtils" />
+        <item itemvalue="应用程序.HmacgReader" />
+        <item itemvalue="应用程序.FileDownload" />
+        <item itemvalue="Spring Boot.Main (1)" />
         <item itemvalue="Spring Boot.Main" />
-        <item itemvalue="应用程序.CodeGenerator (1)" />
-        <item itemvalue="应用程序.CodeGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +206,8 @@
       <workItem from="1698504541501" duration="1236000" />
       <workItem from="1698670599346" duration="8741000" />
       <workItem from="1698994992905" duration="6668000" />
-      <workItem from="1699837883080" duration="20001000" />
+      <workItem from="1699837883080" duration="29879000" />
+      <workItem from="1700031854709" duration="20667000" />
     </task>
     <servers />
   </component>
@@ -196,5 +224,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Hmacg-plugin/src/main/java/edu/whu/HmacgReader.java</url>
+          <line>380</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

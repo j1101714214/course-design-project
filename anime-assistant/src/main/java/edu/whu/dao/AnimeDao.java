@@ -1,5 +1,6 @@
 package edu.whu.dao;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import edu.whu.domain.Anime;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -17,8 +18,8 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface AnimeDao extends BaseMapper<Anime> {
 
-    @Select("SELECT anime FROM map, anime WHERE map.cate_id = #{cateId} " +
-            "and map.anime_id = anime.id and anime.ani_initial_date = CONCAT ('%', #{date},'%') " +
+    @Select("SELECT anime.* FROM map, anime WHERE map.cate_id = #{cateId} " +
+            "and map.anime_id = anime.id  " +
             "and anime.name LIKE CONCAT ('%', #{name},'%')")
-    Page<Anime> findAnimesByCate(Long cateId, String date, String name, Integer cur, Integer size);
+    Page<Anime> findAnimesByCate(Long cateId, String date, String name, IPage<Anime> page);
 }

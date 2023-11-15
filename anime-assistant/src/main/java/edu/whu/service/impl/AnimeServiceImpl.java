@@ -44,7 +44,7 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeDao, Anime> implements IA
             if(params.containsKey("date")) {
                 date = (String) params.get("date");
             }
-            return getBaseMapper().findAnimesByCate(cateId, date, name, cur, size);
+            return getBaseMapper().findAnimesByCate(cateId, date, name, new Page<>(cur,size));
         }
         else {
             LambdaQueryWrapper<Anime> lqw = new LambdaQueryWrapper<>();
@@ -57,11 +57,14 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeDao, Anime> implements IA
 
     @Override
     public Long addNewAnime(Anime anime) {
+        System.out.println("21312");
         int res = animeBaseMapper.insert(anime);
+
         if(res > 0) {
             return anime.getId();
         }
         else {
+
             return null;
         }
     }

@@ -20,14 +20,3 @@ mybatis-plus:
   type-enums-package: edu.whu.model.common.enumerate
   type-handlers-package: edu.whu.handler
 
-xy-nas-tools:
-  knife4j:
-    base-package: edu.whu.controller
-    title: xyNasTools任务调度服务在线API文档
-    description: xyNasTools任务调度服务在线API文档, 用于前后端联调
-    version: 1.0
-  retry:
-    maxAttempts: 3
-    backoff:
-      delay: 1000
-      multiplier: 0

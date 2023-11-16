@@ -63,3 +63,11 @@ G
 anime-assistant/pom.xml,4\6\466c731605a15dc9c9394f482d80c3c494bd6bae
 D
 Hmacg-plugin/pom.xml,6\3\634c16e9358bb92deb4b75ddfa4d87d163a3f8e0
+j
+:anime-assistant-tools/src/test/java/edu/whu/ToolsTest.java,b\9\b9b8ab97da401b7d5c0d459fd97605c92a5e5a61
+c
+3Hmacg-plugin/src/test/java/edu/whu/Reader/test.java,2\6\26c3f9306869124b58891cf34fab8cd5ce90e6c4
+c
+3Hmacg-plugin/src/main/java/edu/whu/HmacgReader.java,4\4\4410d8992640702ac040dcf0f145793c2bd95c4b
+d
+4anime-assistant/src/test/java/edu/whu/AnimeTest.java,3\3\33f00afe801f7b87471cbd169099a8299d065c61

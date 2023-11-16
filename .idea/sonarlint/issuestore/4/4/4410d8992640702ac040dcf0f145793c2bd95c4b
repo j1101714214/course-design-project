@@ -1,0 +1,95 @@
+
+a	java:S112‚"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+J
+java:S10663"/Merge this if statement with the enclosing one.(ôÊ¨šúÿÿÿÿ
+J
+java:S1066L"/Merge this if statement with the enclosing one.(ôÊ¨šúÿÿÿÿ
+g	java:S117Ø"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³üè‚
+v
+java:S2259‹"SA "NullPointerException" could be thrown; "getMergedRegionValue()" can return null.(¨Ô¢Çÿÿÿÿÿ8¢Å‚»½1
+j
+java:S2095í"GUse try-with-resources or close this "Statement" in a "finally" clause.(ºò–œıÿÿÿÿ8£Å‚»½1
+j
+java:S2095Œ"GUse try-with-resources or close this "Statement" in a "finally" clause.(õ½ÛØşÿÿÿÿ8£Å‚»½1
+j
+java:S2095õ"GUse try-with-resources or close this "Statement" in a "finally" clause.(°½¦öûÿÿÿÿ8¤Å‚»½1
+j
+java:S2095ê"GUse try-with-resources or close this "Statement" in a "finally" clause.(õ½ÛØşÿÿÿÿ8£Å‚»½1
+N
+java:S3011v",This accessibility update should be removed.(’øÚúÿÿÿÿ8†Æ‚»½1
+F
+java:S1940x")Use the opposite operator ("!=") instead.(ğüùä8‡Æ‚»½1
+p
+java:S3776Š"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(ÊÃîÏ8ˆÆ‚»½1
+c
+java:S2147"ECombine this catch with the one at line 142, which has the same body.(îæ³8ŠÆ‚»½1
+G
+java:S1481–")Remove this unused "save" local variable.(‡ğ×é8ñ“»º½1
+Y	java:S125­"<This block of commented-out lines of code should be removed.(’–Ôİ8‘Æ‚»½1
+i
+java:S1858°"F"getCellValue" returns a string, there's no need to call "toString()".(™§÷×úÿÿÿÿ8’Æ‚»½1
+[	java:S106Î"9Replace this use of System.out or System.err by a logger.(…çñ§ùÿÿÿÿ8”Æ‚»½1
+E	java:S108Ñ")Either remove or fill this block of code.(ÂÓ¤v8”Æ‚»½1
+^	java:S125×"<This block of commented-out lines of code should be removed.(Ê‰¾ÿÿÿÿÿ8•Æ‚»½1
+V	java:S106İ"9Replace this use of System.out or System.err by a logger.(ÚéÉÀ8•Æ‚»½1
+u
+java:S3776é"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(¨¤–ôüÿÿÿÿ8–Æ‚»½1
+\
+java:S1854÷">Remove this useless assignment to local variable "lastRowNum".(ÎÆÀ8˜Æ‚»½1
+c
+java:S2147ï"ECombine this catch with the one at line 237, which has the same body.(îæ³8™Æ‚»½1
+G
+java:S1481õ")Remove this unused "save" local variable.(‡ğ×é8œÆ‚»½1
+M
+java:S1481÷"/Remove this unused "lastRowNum" local variable.(ÎÆÀ8Æ‚»½1
+[	java:S106û"9Replace this use of System.out or System.err by a logger.(´‹¹öşÿÿÿÿ8Æ‚»½1
+q
+java:S1858‹"N"getMergedRegionValue" returns a string, there's no need to call "toString()".(¨Ô¢Çÿÿÿÿÿ8¤Æ‚»½1
+i
+java:S1858"F"getCellValue" returns a string, there's no need to call "toString()".(™§÷×úÿÿÿÿ8¥Æ‚»½1
+V	java:S106"9Replace this use of System.out or System.err by a logger.(Ùªœå8¥Æ‚»½1
+E	java:S108 ")Either remove or fill this block of code.(ÂÓ¤v8¦Æ‚»½1
+^	java:S125¨"<This block of commented-out lines of code should be removed.(Ê‰¾ÿÿÿÿÿ8¦Æ‚»½1
+p	java:S100Ã"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´»€Æúÿÿÿÿ8§Æ‚»½1
+P
+java:S4925Ç"-Remove this "Class.forName()", it is useless.(õ†¨Äùÿÿÿÿ8¨Æ‚»½1
+V	java:S106Í"9Replace this use of System.out or System.err by a logger.(®à´8©Æ‚»½1
+V	java:S106Ğ"9Replace this use of System.out or System.err by a logger.(ÚãÙ‰8«Æ‚»½1
+\
+java:S1854ë"9Remove this useless assignment to local variable "count".(Šÿªÿÿÿÿÿ8Ë”»º½1
+\
+java:S1854í"9Remove this useless assignment to local variable "stmt1".(ºò–œıÿÿÿÿ8­Æ‚»½1
+\
+java:S1854õ"9Remove this useless assignment to local variable "stmt2".(°½¦öûÿÿÿÿ8Ë”»º½1
+]
+java:S1854÷":Remove this useless assignment to local variable "count2".(œ¹³şÿÿÿÿ8®Æ‚»½1
+G
+java:S1659Ú"$Declare "season" on a separate line.(ç›ìÚùÿÿÿÿ8±Æ‚»½1
+a
+java:S1155ã">Use isEmpty() to check whether the collection is empty or not.(—ÑŠïşÿÿÿÿ8³Æ‚»½1
+j
+java:S3252ä"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "replace".(Šäİõ8Ò”»º½1
+o
+java:S3252å"LUse static access with "cn.hutool.core.text.CharSequenceUtil" for "replace".(ƒº¿úÿÿÿÿ8´Æ‚»½1
+i
+java:S3252æ"KUse static access with "cn.hutool.core.text.CharSequenceUtil" for "format".(áÒÅò8´Æ‚»½1
+M
+java:S1481ë"*Remove this unused "count" local variable.(Šÿªÿÿÿÿÿ8Ø”»º½1
+M
+java:S1481í"*Remove this unused "stmt1" local variable.(ºò–œıÿÿÿÿ8µÆ‚»½1
+m
+java:S3252ò"JUse static access with "cn.hutool.core.text.CharSequenceUtil" for "split".(Ö”º‚ÿÿÿÿÿ8¶Æ‚»½1
+M
+java:S1481õ"*Remove this unused "stmt2" local variable.(°½¦öûÿÿÿÿ8Ú”»º½1
+h
+java:S3252ö"KUse static access with "cn.hutool.core.text.CharSequenceUtil" for "format".(¬·²-8·Æ‚»½1
+N
+java:S1481÷"+Remove this unused "count2" local variable.(œ¹³şÿÿÿÿ8¸Æ‚»½1
+\
+java:S1854•"9Remove this useless assignment to local variable "count".(Šÿªÿÿÿÿÿ8¹Æ‚»½1
+V	java:S106‰"9Replace this use of System.out or System.err by a logger.(‹–Ş‚8¹Æ‚»½1
+i
+java:S3252“"KUse static access with "cn.hutool.core.text.CharSequenceUtil" for "format".(Üîç—8ºÆ‚»½1
+M
+java:S1481•"*Remove this unused "count" local variable.(Šÿªÿÿÿÿÿ8»Æ‚»½1
+V	java:S106¡"9Replace this use of System.out or System.err by a logger.(Ò›ô¡8¼Æ‚»½1

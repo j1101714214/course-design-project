@@ -1,6 +1,7 @@
 package edu.whu;
 
 import cn.hutool.core.util.StrUtil;
+import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
@@ -12,6 +13,7 @@ import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.*;
 
+@Data
 public class HmacgReader {
 
     public HmacgReader() {
@@ -216,6 +218,7 @@ public class HmacgReader {
 //                list.clear();
 //            }
         }
+        System.out.println(metaList.size());
     }
 
 
@@ -385,7 +388,7 @@ public class HmacgReader {
 
     }
 
-    private Long selectCategory(String cateName) {
+    public  Long selectCategory(String cateName) {
         String template1 = "SELECT id FROM category WHERE name = '" +cateName + "'";
         System.out.println(template1);
         String template2 = "INSERT INTO category(name, description) VALUES ('{}', '{}')";

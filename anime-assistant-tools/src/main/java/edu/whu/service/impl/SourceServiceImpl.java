@@ -1,5 +1,6 @@
 package edu.whu.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import edu.whu.domain.Api;
 import edu.whu.domain.Source;
@@ -23,16 +24,25 @@ public class SourceServiceImpl extends ServiceImpl<SourceDao, Source> implements
 
     @Override
     public Page<Api> getApiPageBySource(Long id, Integer page, Integer size) {
-        return null;
+        return getBaseMapper().getApiPageBySourceId(id, new Page<>(page,size));
     }
 
     @Override
     public List<Source> getAllSources() {
-        return null;
+        LambdaQueryWrapper<Source> lqw = new LambdaQueryWrapper<>();
+        lqw.orderByAsc(Source::getId);
+        return getBaseMapper().selectList(lqw);
     }
 
     @Override
     public Long addNewSource(Source source) {
-        return null;
+        source.setId(null);
+        int res = getBaseMapper().insert(source);
+        if(res > 0) {
+            return source.getId();
+        }
+        else  {
+            return null;
+        }
     }
 }

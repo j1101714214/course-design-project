@@ -16,7 +16,7 @@ import java.util.List;
  */
 public interface IParamsService extends IService<Params> {
 
-    ResponseEntity<List<Params>> getParamsByApi(Long id);
+    List<Params> getParamsByApi(Long id);
 
     Long addNewParams(Params params);
 }

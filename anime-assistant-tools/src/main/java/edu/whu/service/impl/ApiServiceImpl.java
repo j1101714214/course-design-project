@@ -46,7 +46,6 @@ public class ApiServiceImpl extends ServiceImpl<ApiDao, Api> implements IApiServ
 
     @Override
     public Long addNewApi(Api api) {
-        api.setId(null);
         int res = getBaseMapper().insert(api);
         if(res > 0) {
             return api.getId();

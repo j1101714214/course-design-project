@@ -1,6 +1,7 @@
 package edu.whu.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import lombok.Data;
@@ -49,12 +50,14 @@ public class Params implements Serializable {
     /**
      * params对应api
      */
-    private Long api_id;
+    @TableField("api_id")
+    private Long apiId;
 
     /**
      * params对应api源
      */
-    private Integer db_id;
+    @TableField("db_id")
+    private Integer dbId;
 
 
 }

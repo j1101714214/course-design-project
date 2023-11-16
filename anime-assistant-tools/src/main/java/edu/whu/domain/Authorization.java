@@ -1,6 +1,7 @@
 package edu.whu.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
 import lombok.Data;
@@ -24,17 +25,19 @@ public class Authorization implements Serializable {
      * 用户id
      */
     @TableId(value = "user_id", type = IdType.AUTO)
-    private Long user_id;
+    private Long userId;
 
     /**
      * db源api密钥
      */
-    private String api_key;
+    @TableField("api_key")
+    private String apiKey;
 
     /**
      * db源api访问令牌
      */
-    private String api_token;
+    @TableField("api_token")
+    private String apiToken;
 
     /**
      * db源

@@ -1,5 +1,6 @@
 package edu.whu.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import edu.whu.domain.Params;
 import edu.whu.dao.ParamsDao;
 import edu.whu.service.IParamsService;
@@ -21,12 +22,21 @@ import java.util.List;
 public class ParamsServiceImpl extends ServiceImpl<ParamsDao, Params> implements IParamsService {
 
     @Override
-    public ResponseEntity<List<Params>> getParamsByApi(Long id) {
-        return null;
+    public List<Params> getParamsByApi(Long id) {
+        LambdaQueryWrapper<Params> lqw = new LambdaQueryWrapper<>();
+        lqw.eq(Params::getApiId, id);
+        return getBaseMapper().selectList(lqw);
     }
 
     @Override
     public Long addNewParams(Params params) {
-        return null;
+        params.setId(null);
+        int res = getBaseMapper().insert(params);
+        if(res > 0) {
+            return params.getId();
+        }
+        else {
+            return null;
+        }
     }
 }

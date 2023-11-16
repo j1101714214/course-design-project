@@ -25,7 +25,7 @@ public class ParamsController {
 
     @GetMapping("/list")
     public ResponseEntity<List<Params>> getApiParams(@RequestParam(name = "api") Long id) {
-        return paramsService.getParamsByApi(id);
+        return ResponseEntity.ok(paramsService.getParamsByApi(id));
     }
 
     @PostMapping("/add")

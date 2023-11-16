@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/sql/authorization.sql" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/sql/authorization.sql" afterDir="false" />
     </list>
@@ -213,7 +212,7 @@
       <workItem from="1699837883080" duration="29879000" />
       <workItem from="1700031854709" duration="38221000" />
       <workItem from="1700134919340" duration="2361000" />
-      <workItem from="1700137376402" duration="79000" />
+      <workItem from="1700137376402" duration="183000" />
     </task>
     <servers />
   </component>

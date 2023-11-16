@@ -25,7 +25,7 @@ CREATE TABLE "public"."authorization" (
                                           "user_id" int8 NOT NULL,
                                           "api_key" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
                                           "api_token" varchar(255) COLLATE "pg_catalog"."default" NOT NULL,
-                                          "source" int4 NOT NULL
+                                          "source" int8 NOT NULL
 )
 ;
 COMMENT ON COLUMN "public"."authorization"."user_id" IS '用户id';

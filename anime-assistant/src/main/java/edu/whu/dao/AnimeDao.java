@@ -19,7 +19,20 @@ import org.apache.ibatis.annotations.Select;
 public interface AnimeDao extends BaseMapper<Anime> {
 
     @Select("SELECT anime.* FROM map, anime WHERE map.cate_id = #{cateId} " +
-            "and map.anime_id = anime.id  " +
+            "and map.anime_id = anime.id ")
+    Page<Anime> findAnimesByCate(Long cateId, IPage<Anime> page);
+    @Select("SELECT anime.* FROM map, anime WHERE map.cate_id = #{cateId} " +
+            "and map.anime_id = anime.id " +
             "and anime.name LIKE CONCAT ('%', #{name},'%')")
-    Page<Anime> findAnimesByCate(Long cateId, String date, String name, IPage<Anime> page);
+    Page<Anime> findAnimesByCateAndName(Long cateId, String name, IPage<Anime> page);
+
+    @Select("SELECT anime.* FROM map, anime WHERE map.cate_id = #{cateId} " +
+            "and map.anime_id = anime.id " +
+            "and anime.ani_initial_date LIKE CONCAT ('%', #{date},'%')")
+    Page<Anime> findAnimesByCateAndDate(Long cateId, String date, IPage<Anime> page);
+    @Select("SELECT anime.* FROM map, anime WHERE map.cate_id = #{cateId} " +
+            "and map.anime_id = anime.id " +
+            "and anime.name LIKE CONCAT ('%', #{name},'%')" +
+            "and anime.ani_initial_date LIKE CONCAT ('%', #{date},'%') ")
+    Page<Anime> findAnimesByCateAndDateAndName(Long cateId, String date, String name, IPage<Anime> page);
 }

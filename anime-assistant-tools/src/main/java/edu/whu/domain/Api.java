@@ -34,7 +34,7 @@ public class Api implements Serializable {
     /**
      * 调用方法（1-GET, 2-POST, 3-PUT, 4-DEL)
      */
-    private Integer methed;
+    private Integer method;
 
     /**
      * 调用api的模板
@@ -45,6 +45,8 @@ public class Api implements Serializable {
      * api的详细信息
      */
     private String description;
+
+    private Long source;
 
 
 }

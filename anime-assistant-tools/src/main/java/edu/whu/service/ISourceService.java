@@ -1,7 +1,11 @@
 package edu.whu.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import edu.whu.domain.Api;
 import edu.whu.domain.Source;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ISourceService extends IService<Source> {
 
+    Page<Api> getApiPageBySource(Long id, Integer page, Integer size);
+
+    List<Source> getAllSources();
+
+    Long addNewSource(Source source);
 }

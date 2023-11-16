@@ -1,9 +1,13 @@
 package edu.whu.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import edu.whu.domain.Params;
+import edu.whu.service.IParamsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 /**
  * <p>
@@ -16,6 +20,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/params")
 public class ParamsController {
+    @Autowired
+    private IParamsService paramsService;
 
+    @GetMapping("/list")
+    public ResponseEntity<List<Params>> getApiParams(@RequestParam(name = "api") Long id) {
+        return paramsService.getParamsByApi(id);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Long> addNewParams(@RequestBody Params params) {
+        Long res = paramsService.addNewParams(params);
+        if(res != null) {
+            return ResponseEntity.ok(res);
+        }
+        else {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }
 

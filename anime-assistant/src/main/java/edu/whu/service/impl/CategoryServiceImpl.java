@@ -37,4 +37,10 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, Category> impl
             return null;
         }
     }
+
+    @Override
+    public Boolean updateCategory(Long id, Category category) {
+        category.setId(id);
+        return getBaseMapper().updateById(category) > 0;
+    }
 }

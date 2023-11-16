@@ -37,14 +37,24 @@ public class AnimeServiceImpl extends ServiceImpl<AnimeDao, Anime> implements IA
         if (params.containsKey("cate")) {
             Long cateId = (Long) params.get("cate");
             String date = "", name = "";
+            boolean flag1 = false, flag2 = false;
             if(params.containsKey("name")) {
                 name = (String) params.get("name");
+                flag1  = true;
             }
 
             if(params.containsKey("date")) {
                 date = (String) params.get("date");
+                flag2 = true;
             }
-            return getBaseMapper().findAnimesByCate(cateId, date, name, new Page<>(cur,size));
+            if(flag1 && flag2)
+                return getBaseMapper().findAnimesByCateAndDateAndName(cateId, date, name, new Page<>(cur,size));
+            else if(flag1 && (!flag2))
+                return getBaseMapper().findAnimesByCateAndName(cateId, name, new Page<>(cur,size));
+            else if((!flag1) && flag2)
+                return getBaseMapper().findAnimesByCateAndDate(cateId, date, new Page<>(cur,size));
+            else
+                return getBaseMapper().findAnimesByCate(cateId,new Page<>(cur,size));
         }
         else {
             LambdaQueryWrapper<Anime> lqw = new LambdaQueryWrapper<>();

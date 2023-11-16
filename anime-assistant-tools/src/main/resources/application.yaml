@@ -12,7 +12,7 @@ spring:
   # 数据库配置
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://lzynb.com.cn/yhy-yyds
+    url: jdbc:postgresql://lzynb.com.cn:15432/yhy-yyds
     username: course-design
     password: course-design2023
 

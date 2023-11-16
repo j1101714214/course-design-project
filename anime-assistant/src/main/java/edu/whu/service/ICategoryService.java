@@ -18,4 +18,6 @@ public interface ICategoryService extends IService<Category> {
     List<Category> getAllCategories();
 
     Long addNewCategory(Category category);
+
+    Boolean updateCategory(Long id, Category category);
 }

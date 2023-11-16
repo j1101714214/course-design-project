@@ -410,11 +410,13 @@ public class HmacgReader {
     }
 
     public static void main(String[] args) {
+        if(args.length < 1) {
+            System.out.println("please input file path");
+            return;
+        }
         HmacgReader reader = new HmacgReader();
-        reader.readExcelSheet1("C:\\Users\\Lenovo\\AppData\\Local\\Temp\\Rar$DIa63792.5607\\2023年10月新番表v3.21 byHazx.xlsx"
-        , 0, 4, 0);
-        reader.readExcelSheet2("C:\\Users\\Lenovo\\AppData\\Local\\Temp\\Rar$DIa63792.5607\\2023年10月新番表v3.21 byHazx.xlsx",
-                1, 4, 4 + 6*reader.metaList.size());
+        reader.readExcelSheet1(args[0], 0, 4, 0);
+        reader.readExcelSheet2(args[0], 1, 4, 4 + 6*reader.metaList.size());
         reader.insert();
     }
 

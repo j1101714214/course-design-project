@@ -5,25 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hmacg-plugin/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hmacg-plugin/src/main/java/edu/whu/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hmacg-plugin/src/main/java/edu/whu/DownloadFileUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hmacg-plugin/src/main/java/edu/whu/HmacgMeta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Hmacg-plugin/src/main/java/edu/whu/HmacgReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anime-assistant/src/test/java/edu/whu/AnimeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/config/MyBatisPlusConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/CodeGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hmacg-plugin/src/main/java/edu/whu/HmacgReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hmacg-plugin/src/main/java/edu/whu/HmacgReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/ApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/AuthorizationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/ParamsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/ParamsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/SourceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/SourceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/dao/ApiDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/dao/ApiDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/domain/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/domain/Api.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/IApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/IApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/IParamsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/IParamsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/ISourceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/ISourceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/ApiServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/ApiServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/SourceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/SourceServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/controller/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/dao/AnimeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/dao/AnimeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/IAnimeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/IAnimeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/ICategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/ICategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/impl/AnimeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/impl/AnimeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant/src/main/java/edu/whu/service/impl/CategoryServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +78,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "F:/大四上/大软设/course-design-project1",
+    "last_opened_file_path": "F:/大四上/大软设/course-design-project/anime-assistant-tools/src/main/java/edu/whu",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -97,6 +98,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\大四上\大软设\course-design-project\anime-assistant-tools\src\main\java\edu\whu" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="edu.whu" />
     </key>
@@ -207,7 +211,7 @@
       <workItem from="1698670599346" duration="8741000" />
       <workItem from="1698994992905" duration="6668000" />
       <workItem from="1699837883080" duration="29879000" />
-      <workItem from="1700031854709" duration="20667000" />
+      <workItem from="1700031854709" duration="26728000" />
     </task>
     <servers />
   </component>

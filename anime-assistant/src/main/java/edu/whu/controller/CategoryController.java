@@ -42,5 +42,11 @@ public class CategoryController {
             return ResponseEntity.ok(res);
         }
     }
+
+    @ApiOperation("更新分类信息")
+    @PostMapping("/update/{id}")
+    public ResponseEntity<Boolean> updateCategory(@PathVariable("id") Long id, @RequestBody Category category) {
+        return ResponseEntity.ok(categoryService.updateCategory(id, category));
+    }
 }
 

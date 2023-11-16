@@ -2,6 +2,9 @@ package edu.whu.service;
 
 import edu.whu.domain.Params;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IParamsService extends IService<Params> {
 
+    ResponseEntity<List<Params>> getParamsByApi(Long id);
+
+    Long addNewParams(Params params);
 }

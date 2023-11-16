@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2023-11-03
  */
 @RestController
-@RequestMapping("/authorization")
+@RequestMapping("/api-auth")
 public class AuthorizationController {
 
 }

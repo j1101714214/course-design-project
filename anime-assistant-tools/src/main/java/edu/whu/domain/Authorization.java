@@ -24,7 +24,7 @@ public class Authorization implements Serializable {
     /**
      * 用户id
      */
-    @TableId(value = "user_id", type = IdType.AUTO)
+    @TableId(value = "user_id", type = IdType.ASSIGN_ID)
     private Long userId;
 
     /**
@@ -42,6 +42,7 @@ public class Authorization implements Serializable {
     /**
      * db源
      */
+    @TableId(value = "source", type = IdType.ASSIGN_ID)
     private Integer source;
 
 

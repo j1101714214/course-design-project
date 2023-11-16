@@ -25,4 +25,6 @@ public interface IApiService extends IService<Api> {
     Api getApiById(Long id);
 
     Long addNewApi(Api api);
+
+    Boolean updateApi(Long id, Api api);
 }

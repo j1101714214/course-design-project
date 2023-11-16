@@ -5,36 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/Hmacg-plugin/src/test/java/edu/whu/Reader/test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/sql/api.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/sql/authorization.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/sql/params.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/sql/source.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anime-assistant-tools/src/test/java/edu/whu/ToolsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anime-assistant/src/main/resources/sql/anime.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anime-assistant/src/main/resources/sql/category.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anime-assistant/src/main/resources/sql/download.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anime-assistant/src/main/resources/sql/filter.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/anime-assistant/src/main/resources/sql/map.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/b/1b122acfe93bf30c7c3365351548b67e365c3944" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/214c5d385815ab56ab91bd6dc67a7d864bc4a04a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/7/272bc33f3dc341aaca2b6107267046f7e8fd0bd7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/f/2f0db1ddfcab994bb4985ec2a5706e7719ebf4a7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/8/382a6648d035d259ea59ea362bce01e7e12da756" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3a4041c32d9f6055e1ba3a8de2d28409b13818a0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/a/3a6f8079a1295262a755bd74a8875a879b6403b7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/b/3b45cc9647f5251a54fb6d854c8ddd9ca5bc2444" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/6/466c731605a15dc9c9394f482d80c3c494bd6bae" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/7/47ed8bdef96f55bc761ea61f3fd2619b3e5c5300" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/e/4e5574b300024690aab28dd3130cc891e306ed7f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/f/4f0c3c9a0c1af0d3cf46e2eee3fa21727418d1fc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/f/5f3dc5489adafd60463a67371c4ad4086389f0ba" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/0/6018386d65883642ebb3b387882dd3b57e7817ac" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/3/634c16e9358bb92deb4b75ddfa4d87d163a3f8e0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/c/7c7d7b4ac4f1a3328c8f46e9696224066f7fe31f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/e/8ebb0bad5b8ad844af9c0b56bc485f1735182906" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/1/9153390c7771e40dfad2730fb3636e2a919c32cb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/5/9553fd5ffcd52abb7efa377bc52eac2c1c216ff0" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/4/a4e085467b67cd04b2a706511730825782423ce3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/e/aeb1a1630863b8d11d8bcf5846fc59532e52cda4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/0/b0f2ebac919bdc6436bb976ad3479ebde0132cf4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/1/b1ae6db51d511512dc2ca7368a2f9803435ecd5b" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/7/b7fccf594e75af7cc9e156711044aff8b307dad1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/f/bfd15852614881f9b78770133b5241f3e740373a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/9/c9d327585d22b146a34d529cd7597356c3f28272" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/9/d9394fbcf7d2be40524d7c5525503a2461d3a51d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/a/da75705fb05d477ab3d43a9652536250cda9a066" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/5/f59ff0ba2587095209fe1b03166bc95079fbdbb6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/d/fda417507d70a1e757244472ac3523434d07360e" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hmacg-plugin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Hmacg-plugin/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hmacg-plugin/src/main/java/edu/whu/HmacgReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hmacg-plugin/src/main/java/edu/whu/HmacgReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/ApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/AuthorizationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/ParamsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/ParamsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/dao/ApiDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/dao/ApiDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/dao/AuthorizationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/dao/AuthorizationDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/dao/ParamsDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/dao/ParamsDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/dao/SourceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/dao/SourceDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/SourceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/controller/SourceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/domain/Authorization.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/domain/Authorization.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/domain/Params.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/domain/Params.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/mapper/xml/ApiMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/mapper/xml/ApiMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/mapper/xml/AuthorizationMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/mapper/xml/AuthorizationMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/mapper/xml/ParamsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/mapper/xml/ParamsMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/mapper/xml/SourceMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/mapper/xml/SourceMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/IParamsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/IParamsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/IApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/IApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/IAuthorizationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/IAuthorizationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/ApiServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/ApiServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/ParamsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/ParamsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/SourceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/SourceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/AuthorizationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/java/edu/whu/service/impl/AuthorizationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/sql/api.sql" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/sql/api.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,36 +91,36 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "F:/大四上/大软设/course-design-project/anime-assistant/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "babe46d78fd9813b950eb8d17e059ada",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/大四上/大软设/course-design-project/anime-assistant/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;babe46d78fd9813b950eb8d17e059ada&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\大四上\大软设\course-design-project\anime-assistant\src\main\resources" />
@@ -130,23 +144,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.test.ReadTest2">
-    <configuration name="ToolsTest.getTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="anime-assistant-tools" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.whu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu.whu" />
-      <option name="MAIN_CLASS_NAME" value="edu.whu.ToolsTest" />
-      <option name="METHOD_NAME" value="getTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Spring Boot.Main">
     <configuration name="test.ReadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Hmacg-plugin" />
       <extension name="coverage">
@@ -211,13 +209,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="anime-assistant-tools" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.whu.Main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.Main" />
         <item itemvalue="JUnit.test.ReadTest2" />
         <item itemvalue="JUnit.test.ReadTest" />
         <item itemvalue="JUnit.test.insertTest" />
         <item itemvalue="JUnit.test.connectTest" />
-        <item itemvalue="JUnit.ToolsTest.getTest" />
       </list>
     </recent_temporary>
   </component>
@@ -241,7 +252,8 @@
       <workItem from="1698670599346" duration="8741000" />
       <workItem from="1698994992905" duration="6668000" />
       <workItem from="1699837883080" duration="29879000" />
-      <workItem from="1700031854709" duration="38111000" />
+      <workItem from="1700031854709" duration="38221000" />
+      <workItem from="1700134919340" duration="2285000" />
     </task>
     <servers />
   </component>

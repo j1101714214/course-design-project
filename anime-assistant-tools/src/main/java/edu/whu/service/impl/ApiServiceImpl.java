@@ -54,4 +54,10 @@ public class ApiServiceImpl extends ServiceImpl<ApiDao, Api> implements IApiServ
             return null;
         }
     }
+
+    @Override
+    public Boolean updateApi(Long id, Api api) {
+        api.setId(id);
+        return getBaseMapper().updateById(api) > 0;
+    }
 }

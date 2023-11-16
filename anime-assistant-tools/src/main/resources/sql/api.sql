@@ -31,7 +31,7 @@ CREATE TABLE "public"."api" (
 ;
 COMMENT ON COLUMN "public"."api"."id" IS 'api的id';
 COMMENT ON COLUMN "public"."api"."name" IS 'api名称';
-COMMENT ON COLUMN "public"."api"."methed" IS '调用方法（1-GET, 2-POST, 3-PUT, 4-DEL)';
+COMMENT ON COLUMN "public"."api"."method" IS '调用方法（1-GET, 2-POST, 3-PUT, 4-DEL)';
 COMMENT ON COLUMN "public"."api"."template" IS '调用api的模板';
 COMMENT ON COLUMN "public"."api"."description" IS 'api的详细信息';
 COMMENT ON COLUMN "public"."api"."source" IS 'api来源';

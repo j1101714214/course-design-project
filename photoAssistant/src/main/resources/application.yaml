@@ -12,7 +12,7 @@ spring:
     # 数据库配置
     datasource:
         driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://localhost:5432/xy_schedule_task
+        url: jdbc:postgresql://localhost:5432/xy_photo_plugin
         username: postgres
         password: j1101714214
 
@@ -20,3 +20,6 @@ spring:
 mybatis-plus:
     type-enums-package: edu.whu.model.common.enumerate
     type-handlers-package: edu.whu.handler
+
+photo-plugin:
+    root: D:\xyNasToolsRoot\

@@ -64,4 +64,11 @@ public interface IXyUserService extends IService<XyUser> {
      * @return      当前系统的操作者
      */
     XyUser findCurrentOperator(Object principal);
+
+    /**
+     * 根据用户id查询其邮箱地址
+     * @param userId    用户id
+     * @return          用户对应邮箱地址
+     */
+    XyUser findUserById(Long userId);
 }

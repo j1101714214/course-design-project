@@ -1,7 +1,7 @@
 ### 根据id查询用户: 正常情况
 GET http://{{base-url}}:{{port}}/user/{{id}}
 Content-Type: application/json
-Authorization: Bearer {{userToken}}
+Authorization: Bearer {{adminToken}}
 
 > {% client.test("testQueryUserById", () => {
     client.assert(response.status === 200)
@@ -17,7 +17,7 @@ Content-Type: application/json
 })%}
 
 ### 根据id查询用户: 非本人操作
-GET http://{{base-url}}:{{port}}/user/1
+GET http://{{base-url}}:{{port}}/user/1711199364872585218
 Content-Type: application/json
 Authorization: Bearer {{userToken}}
 
@@ -65,7 +65,7 @@ Content-Type: application/json
 Authorization: Bearer {{userToken}}
 
 {
-  "username": "王五"
+  "username": "liuxingyu123123"
 }
 
 > {% client.test("updateUserData", () => {
@@ -98,7 +98,7 @@ Authorization: Bearer {{userToken}}
 
 
 ### 删除用户: 正常情况
-DELETE http://{{base-url}}:{{port}}/user/1709566287230525441
+DELETE http://{{base-url}}:{{port}}/user/1707014805683687425
 Content-Type: application/json
 Authorization: Bearer {{adminToken}}
 

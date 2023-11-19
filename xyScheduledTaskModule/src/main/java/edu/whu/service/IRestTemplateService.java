@@ -8,7 +8,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * @author Akihabara
  * @version 1.0
- * @description IRestTemplateService: TODO
+ * @description IRestTemplateService: REST API接口调用服务层
  * @date 2023/9/21 20:18
  */
 public interface IRestTemplateService {

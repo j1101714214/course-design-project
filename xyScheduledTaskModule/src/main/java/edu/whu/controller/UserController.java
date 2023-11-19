@@ -1,15 +1,22 @@
 package edu.whu.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import edu.whu.model.common.enumerate.UserLevel;
 import edu.whu.model.user.pojo.XyUser;
+import edu.whu.service.IXyPluginService;
 import edu.whu.service.IXyUserService;
+import edu.whu.utils.PluginUtils;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author Akihabara
@@ -19,12 +26,16 @@ import org.springframework.web.bind.annotation.*;
  */
 @Api(value = "用户管理API")
 @RestController
+@CrossOrigin
 @RequestMapping("/user")
 public class UserController {
     @Autowired
     private IXyUserService userService;
+    @Autowired
+    private PluginUtils pluginUtils;
 
     @ApiOperation(value = "删除用户")
+    @ApiImplicitParam(name = "userId", value = "用户ID", dataTypeClass = Long.class, required = true, paramType = "path")
     @DeleteMapping("{userId}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_SYS_ADMIN')")
     public ResponseEntity<String> deleteUser(@PathVariable("userId") Long userId) {
@@ -64,5 +75,12 @@ public class UserController {
             @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize
     ) {
         return ResponseEntity.ok(userService.queryUserList(pageNum, pageSize));
+    }
+
+    @GetMapping("/logout")
+    @ApiOperation(value = "退出登录")
+    public ResponseEntity<String> logout() {
+        pluginUtils.killAllPlugins();
+        return ResponseEntity.ok("退出成功");
     }
 }

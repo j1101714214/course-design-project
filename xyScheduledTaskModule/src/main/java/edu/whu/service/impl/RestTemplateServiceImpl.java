@@ -1,30 +1,36 @@
 package edu.whu.service.impl;
 
 import cn.hutool.core.util.StrUtil;
-import edu.whu.exception.CustomerException;
+import org.apache.commons.lang3.StringUtils;
 import edu.whu.exception.MethodInvokeException;
 import edu.whu.model.job.pojo.XyJob;
+import edu.whu.model.user.pojo.XyUser;
 import edu.whu.service.IRestTemplateService;
 import edu.whu.service.IXyLogService;
+import edu.whu.service.IXyUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.ClientHttpResponse;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Recover;
 import org.springframework.retry.annotation.Retryable;
-import org.springframework.retry.support.RetryTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
 
-import java.io.IOException;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @author Akihabara
@@ -39,6 +45,24 @@ public class RestTemplateServiceImpl implements IRestTemplateService {
     private RestTemplate restTemplate;
     @Autowired
     private IXyLogService logService;
+    @Autowired
+    private IXyUserService userService;
+    @Autowired
+    private JavaMailSender javaMailSender;
+    @Autowired
+    private TemplateEngine templateEngine;
+
+    @Value("${spring.mail.username}")
+    private String username;
+    @Value("${xy-nas-tools.admin.address}")
+    private String adminAddress;
+    @Value("${xy-nas-tools.application-name}")
+    private String applicationName;
+
+    @Value("${xy-nas-tools.root}")
+    private String root;
+
+    private static final ExecutorService SINGLE_THREAD = Executors.newSingleThreadExecutor();
 
     @Override
     @Async
@@ -52,13 +76,20 @@ public class RestTemplateServiceImpl implements IRestTemplateService {
     )
     public void doGet(XyJob xyJob) {
         String url = xyJob.getInvokeTarget();
-        Map<String, String> param = parseParam(xyJob.getInvokeParam());
-        ResponseEntity<String> result = restTemplate.getForEntity(url, String.class, param);
+        if(url.contains("userId")) {
+            url = StrUtil.format(url, xyJob.getCreateUser().toString());
+        }
+        if(url.contains("root")) {
+            url = StrUtil.format(url, root);
+        }
+        ResponseEntity<String> result = restTemplate.getForEntity(url, String.class);
 
-        if(result.getStatusCode().value() != HttpStatus.ACCEPTED.value()) {
+
+
+        if(result.getStatusCode().value() != HttpStatus.OK.value()) {
             throw new MethodInvokeException(result.getBody(), xyJob);
         }
-        log.info("{} - 任务{}被调用, 结果为: {}",LocalDateTime.now() , xyJob.getId(), result);
+        log.info("{} - 任务{}被调用, 结果为: {}",LocalDateTime.now() , xyJob.getId(), result.getBody());
 
     }
 
@@ -74,9 +105,15 @@ public class RestTemplateServiceImpl implements IRestTemplateService {
     )
     public void doPost(XyJob xyJob) {
         String url = xyJob.getInvokeTarget();
-        Map<String, String> param = parseParam(xyJob.getInvokeParam());
+        Map<String, String> param = parseParam(xyJob);
+        if(url.contains("userId")) {
+            url = StrUtil.format(url, xyJob.getCreateUser().toString());
+        }
+        if(url.contains("root")) {
+            url = StrUtil.format(url, root);
+        }
         ResponseEntity<String> result = restTemplate.postForEntity(url, param, String.class);
-        if(result.getStatusCode().value() != HttpStatus.ACCEPTED.value()) {
+        if(result.getStatusCode().value() != HttpStatus.OK.value()) {
             throw new MethodInvokeException(result.getBody(), xyJob);
         }
     }
@@ -85,7 +122,7 @@ public class RestTemplateServiceImpl implements IRestTemplateService {
     @Async
     public void doPut(XyJob xyJob) {
         String url = xyJob.getInvokeTarget();
-        Map<String, String> param = parseParam(xyJob.getInvokeParam());
+        Map<String, String> param = parseParam(xyJob);
         restTemplate.put(url, param);
     }
 
@@ -93,20 +130,21 @@ public class RestTemplateServiceImpl implements IRestTemplateService {
     @Async
     public void doDelete(XyJob xyJob) {
         String url = xyJob.getInvokeTarget();
-        Map<String, String> param = parseParam(xyJob.getInvokeParam());
+        Map<String, String> param = parseParam(xyJob);
         restTemplate.delete(url, param);
     }
 
-    private Map<String, String> parseParam(String invokeParam) {
+    private Map<String, String> parseParam(XyJob xyJob) {
+        String invokeParam = xyJob.getInvokeParam();
         Map<String, String> map = new HashMap<>();
+
         if(StrUtil.isEmptyOrUndefined(invokeParam)) {
             return map;
         }
         String[] kvPairs = invokeParam.split(";");
         for (String kvPair : kvPairs) {
-            String[] pair = kvPair.split(":");
-
-            map.put(pair[0], pair[1]);
+            int separator = kvPair.indexOf(':');
+            map.put(kvPair.substring(0, separator), kvPair.substring(separator + 1, kvPair.length()));
         }
 
         return map;
@@ -114,6 +152,41 @@ public class RestTemplateServiceImpl implements IRestTemplateService {
 
     @Recover
     private void recover(MethodInvokeException exception) {
-        logService.addLog(exception.getMsg(), exception.getErrorJob());
+        XyJob errorJob = exception.getErrorJob();
+        logService.addLog(exception.getMsg(), errorJob);
+        // 根据用户注册邮箱发送邮件
+        XyUser user = userService.findUserById(errorJob.getCreateUser());
+        // 开启一个线程发送邮件
+        SINGLE_THREAD.execute(() -> {
+            if(StrUtil.isNotEmpty(user.getEmail())) {
+                sendMimeMail(user.getEmail(), user, errorJob, exception.getMsg());
+            }
+            if(StrUtil.isNotEmpty(adminAddress)) {
+                sendMimeMail(adminAddress, user, errorJob, exception.getMsg());
+            }
+        });
+    }
+
+    private void sendMimeMail(String email, XyUser user, XyJob errorJob, String msg) {
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        try {
+            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+            helper.setFrom(username);
+            helper.setTo(email);
+            helper.setSubject("Task No." + errorJob.getId() + " process failed!!");
+
+            // 构造参数
+            Context context = new Context();
+            Map<String, Object> emailParam = new HashMap<>();
+            emailParam.put("username", user.getUsername());
+            emailParam.put("task_id", errorJob.getId());
+            emailParam.put("msg", msg);
+            emailParam.put("from", applicationName);
+            context.setVariable("param", emailParam);
+            String template = templateEngine.process("error", context);
+            helper.setText(template, true);
+            javaMailSender.send(mimeMessage);
+        } catch (MessagingException ignored) {
+        }
     }
 }

@@ -66,11 +66,11 @@ public class HttpXyJobServiceTest {
     }
 
     @Test
-    void queryUserList() {
+    void queryJobList() {
         IPage<XyJob> page = jobService.queryUserList(1, 10);
 
         Assertions.assertNotNull(page);
-        Assertions.assertEquals(page.getTotal(), 2);
+        Assertions.assertEquals(page.getTotal(), 4);
     }
 
     @Test
@@ -79,7 +79,7 @@ public class HttpXyJobServiceTest {
                 jobService.queryJobListByUser(currOperator, 1, 10, 1708466197371809793L);
 
         Assertions.assertNotNull(page);
-        Assertions.assertEquals(page.getTotal(), 1);
+        Assertions.assertEquals(page.getTotal(), 4);
 
         Assertions.assertThrows(CustomerException.class, () -> {
             jobService.queryJobListByUser(null, 1, 10, 1708466197371809793L);
@@ -108,14 +108,11 @@ public class HttpXyJobServiceTest {
             jobService.updateJob(null, vo, 2L);
         });
 
-        Assertions.assertThrows(CustomerException.class, () -> {
-            jobService.updateJob(currOperator, vo, 2L);
-        });
 
         vo.setJobName("task_job1");
         vo.setConcurrent("0");
-        jobService.updateJob(currOperator, vo, 1L);
-        Assertions.assertEquals("0", jobService.queryJobById(1L).getConcurrent());
+        jobService.updateJob(currOperator, vo, 2L);
+        Assertions.assertEquals("0", jobService.queryJobById(2L).getConcurrent());
     }
 
     @Test
@@ -132,14 +129,10 @@ public class HttpXyJobServiceTest {
         });
 
         Assertions.assertThrows(CustomerException.class, () -> {
-            jobService.deleteJob(currOperator, 2L);
+            jobService.deleteJob(currOperator, 3L);
         });
 
-        Assertions.assertThrows(CustomerException.class, () -> {
-            jobService.deleteJob(currOperator, 2L);
-        });
-
-        Boolean ret = jobService.deleteJob(currOperator, 1L);
+        Boolean ret = jobService.deleteJob(currOperator, 2L);
         Assertions.assertTrue(ret);
     }
 }

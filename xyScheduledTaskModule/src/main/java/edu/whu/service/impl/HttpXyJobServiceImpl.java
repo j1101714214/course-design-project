@@ -134,7 +134,7 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
 
     @Override
     public IPage<XyJob> queryUserList(Integer pageNum, Integer pageSize) {
-        IPage<XyJob> page = new Page<>(pageNum - 1, pageSize);
+        IPage<XyJob> page = new Page<>(pageNum, pageSize);
         page = jobMapper.selectPage(page, null);
         return page;
     }
@@ -150,7 +150,7 @@ public class HttpXyJobServiceImpl extends ServiceImpl<XyJobMapper, XyJob> implem
             throw new CustomerException(ExceptionEnum.UN_AUTHORIZED);
         }
 
-        IPage<XyJob> page = new Page<>(pageNum - 1, pageSize);
+        IPage<XyJob> page = new Page<>(pageNum, pageSize);
         LambdaQueryWrapper<XyJob> lqw = new LambdaQueryWrapper<>();
         lqw.eq(XyJob::getCreateUser, userId);
         page = jobMapper.selectPage(page, lqw);

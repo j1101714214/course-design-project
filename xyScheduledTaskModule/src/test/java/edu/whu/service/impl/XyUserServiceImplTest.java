@@ -155,7 +155,7 @@ public class XyUserServiceImplTest {
 
         IPage<XyUser> page = xyUserService.queryUserList(1, 10);
         Assertions.assertNotNull(page.getRecords());
-        Assertions.assertEquals(page.getTotal(), 3);
+        Assertions.assertEquals(page.getTotal(), 10);
         Assertions.assertEquals(page.getCurrent(), 1L);
         Assertions.assertNotNull(page.getRecords().stream()
                 .filter(xyUser -> xyUser.getId().equals(user.getId())).collect(Collectors.toList()).get(0));

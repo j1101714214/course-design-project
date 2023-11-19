@@ -1,0 +1,96 @@
+server:
+    port: 12138
+
+spring:
+    application:
+        name: xy-schedule-task-module
+    profiles:
+        active: dev
+    mvc:
+        pathmatch:
+            matching-strategy: ant_path_matcher
+    # 数据库配置
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/xy_schedule_task
+        username: postgres
+        password: j1101714214
+    redis:
+        port: 6379
+        host: localhost
+        jedis:
+          pool:
+              max-active: 8
+              max-wait: 5000    # 最大阻塞等待时间5000ms
+              max-idle: 8
+              min-idle: 0
+    quartz:
+        properties:
+            org:
+                quartz:
+                    scheduler:
+                        # 集群名，区分同一系统的不同实例，若使用集群功能，则每一个实例都要使用相同的名字
+                        instanceName: SERVICEX-SCHEDULER-INSTANCE
+                        # 若是集群下，每个instanceId必须唯一
+                        instanceId: AUTO
+                    threadPool:
+                        #一般使用这个便可
+                        class: org.quartz.simpl.SimpleThreadPool
+                        #线程数量，不会动态增加
+                        threadCount: 20
+                        threadPriority: 5
+                        threadsInheritContextClassLoaderOfInitializingThread: true
+    mail:
+        # 配置 SMTP 服务器地址
+        host: smtp.qq.com
+        # 发送者邮箱，已开通POP3/SMTP服务的邮箱，也就是你自己的
+        username: 2607038766@qq.com
+        # 配置密码，注意不是真正的密码，而是刚刚申请到的授权码
+        password: bstgmmngfmjdechj
+        # 端口号465或587（QQ邮箱发送邮件仅支持587端口协议）
+        port: 587
+        # 默认的邮件编码为UTF-8
+        default-encoding: UTF-8
+        # 配置SSL 加密工厂
+        properties:
+            mail:
+                smtp:
+                    socketFactoryClass: javax.net.ssl.SSLSocketFactory
+                #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
+                debug: true
+        protocol: smtp
+
+    thymeleaf:
+        cache: false
+
+    servlet:
+        multipart:
+            max-file-size: 200MB
+            max-request-size: 200MB
+
+mybatis-plus:
+    type-enums-package: edu.whu.model.common.enumerate
+    type-handlers-package: edu.whu.handler
+
+xy-nas-tools:
+    application-name: nas-tools
+    knife4j:
+        base-package: edu.whu.controller
+        title: xyNasTools任务调度服务在线API文档
+        description: xyNasTools任务调度服务在线API文档, 用于前后端联调
+        version: 1.0
+    retry:
+        maxAttempts: 3
+        backoff:
+            delay: 1000
+            multiplier: 0
+    admin:
+        address: 2020302111317@whu.edu.cn
+    root: D:\xyNasToolsRoot
+
+minio:
+    endpoint: http://localhost:9000
+    accessKey: minioadmin
+    secretKey: minioadmin
+    bucket:
+        files: xy-nas-plugins

@@ -1,0 +1,85 @@
+### 用户注册操作: 正常情况
+POST http://{{base-url}}:{{port}}/authenticate/register
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password":"admin"
+}
+
+<> 2023-10-04T200805.200.json
+
+### 用户注册操作: 异常情况 - 用户名为null
+POST http://{{base-url}}:{{port}}/authenticate/register
+Content-Type: application/json;charset=UTF-8
+
+{
+  "username": null,
+  "password":"123456"
+}
+
+> {% client.test("testNullUsername", () => {
+    client.assert(response.status === 400, "当前用户名为空")
+}) %}
+
+### 用户注册操作: 异常情况 - 密码为null
+POST http://{{base-url}}:{{port}}/authenticate/register
+Content-Type: application/json;charset=UTF-8
+
+{
+  "username": "test",
+  "password": null
+}
+
+> {% client.test("testNullPassword", () => {
+    client.assert(response.status === 400, "当前密码为空")
+}) %}
+
+### 用户注册操作: 异常情况 - 重复注册
+POST http://{{base-url}}:{{port}}/authenticate/register
+Content-Type: application/json;charset=UTF-8
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+> {% client.test("testRepeatRegiste", () => {
+    client.assert(response.status === 400, "重复注册")
+}) %}
+
+### 用户登录操作: 正常情况
+POST http://localhost:12138/authenticate/login
+Content-Type: application/json
+
+{
+  "username":"admin",
+  "password":"admin"
+}
+
+### 用户登录操作 - 用户不存在
+POST http://localhost:12138/authenticate/login
+Content-Type: application/json
+
+{
+  "username":"zhangsan1212",
+  "password":"123456"
+}
+
+> {% client.test("testUserNotRegister", () => {
+    client.assert(response.status === 401, "用户不存在")
+}) %}
+
+
+### 用户登录操作 - 用户密码错误
+POST http://localhost:12138/authenticate/login
+Content-Type: application/json
+
+{
+  "username":"zhangsan",
+  "password":"12345678"
+}
+
+> {% client.test("testUnMatchedUsernamePassword", () => {
+    client.assert(response.status === 401, "用户密码错误")
+}) %}

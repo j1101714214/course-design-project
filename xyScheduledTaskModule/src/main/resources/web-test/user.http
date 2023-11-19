@@ -1,0 +1,107 @@
+### 根据id查询用户: 正常情况
+GET http://{{base-url}}:{{port}}/user/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+> {% client.test("testQueryUserById", () => {
+    client.assert(response.status === 200)
+    client.assert(response.body.password === "*******")
+})%}
+
+### 根据id查询用户: 未注册用户调用此方法
+GET http://{{base-url}}:{{port}}/user/{{id}}
+Content-Type: application/json
+
+> {% client.test("testUnauthorized", () => {
+    client.assert(response.status === 404)
+})%}
+
+### 根据id查询用户: 非本人操作
+GET http://{{base-url}}:{{port}}/user/1711199364872585218
+Content-Type: application/json
+Authorization: Bearer {{userToken}}
+
+> {% client.test("testOtherOperate", () => {
+    client.assert(response.status === 400)
+})%}
+
+
+### 查询列表: 权限不足
+GET http://{{base-url}}:{{port}}/user/list?pageNum=1&pageSize=1
+Content-Type: application/json
+Authorization: Bearer {{userToken}}
+
+> {% client.test("testUnAuthorized", () => {
+    client.assert(response.status === 401)
+}) %}
+
+### 查询列表: 正常情况
+GET http://{{base-url}}:{{port}}/user/list?pageNum=1&pageSize=1
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+> {% client.test("testList", () => {
+    client.assert(response.status === 200)
+    client.assert(response.body.size === 1)
+}) %}
+
+### 更新用户信息: 权限不足
+PUT http://{{base-url}}:{{port}}/user/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+  "username": "王五"
+}
+
+> {% client.test("updateUserData", () => {
+    client.assert(response.status === 401)
+}) %}
+
+
+### 更新用户信息: 正常情况
+PUT http://{{base-url}}:{{port}}/user/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{userToken}}
+
+{
+  "username": "liuxingyu123123"
+}
+
+> {% client.test("updateUserData", () => {
+    client.assert(response.status === 200)
+}) %}
+
+
+### 更新用户信息: 权限不足
+PUT http://{{base-url}}:{{port}}/user/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{userToken}}
+
+{
+  "username": "王五",
+  "userLevel": "ADMIN"
+}
+
+> {% client.test("updateUserData", () => {
+    client.assert(response.status === 401)
+}) %}
+
+### 删除用户: 权限不足
+DELETE http://{{base-url}}:{{port}}/user/1709566287230525441
+Content-Type: application/json
+Authorization: Bearer {{userToken}}
+
+> {% client.test("testDeleteUserUnauthorized", () => {
+    client.assert(response.status === 401)
+}) %}
+
+
+### 删除用户: 正常情况
+DELETE http://{{base-url}}:{{port}}/user/1707014805683687425
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+> {% client.test("testDeleteUser", () => {
+    client.assert(response.status === 200)
+}) %}

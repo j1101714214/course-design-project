@@ -12,7 +12,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,6 +31,7 @@ public class PluginUtils {
     private static String CMD_KILL_TASK = "";
 
     private static final List<String> PIDS = new ArrayList<>();
+    private static final Map<String, String> PLUGIN_NAME_PIDS_MAP = new HashMap<>();
 
     @PostConstruct
     private void init() {
@@ -53,10 +56,11 @@ public class PluginUtils {
      * 通过路径加载对应的jar包
      * @param path  jar包的路径
      */
-    public void loadPlugin(String path) {
+    public static void loadPlugin(String path) {
         try {
             // 拼接命令
             String command = CMD_JAVA_COMMAND_PREFIX + path;
+            command = command.replace("/", "\\");
             Process process = Runtime.getRuntime().exec(command);
 
             // 准备提取进程号
@@ -71,7 +75,9 @@ public class PluginUtils {
                 if(matcher.find()) {
                     System.out.println(line);
                     System.out.println(matcher.group().split(" ")[1]);
-                    PIDS.add(matcher.group().split(" ")[1]);
+                    String PID = matcher.group().split(" ")[1];
+                    PIDS.add(PID);
+                    PLUGIN_NAME_PIDS_MAP.put(path.substring(path.lastIndexOf('/') + 1, path.length()), PID);
                     break;
                 }
             }
@@ -101,13 +107,35 @@ public class PluginUtils {
         }
     }
 
+    public static void killPluginByName(String name) {
+        try {
+            String pid = PLUGIN_NAME_PIDS_MAP.get(name);
+            // 拼接命令
+            if(StrUtil.isNullOrUndefined(CMD_KILL_TASK)) {
+                throw new CustomerException(ExceptionEnum.ERROR_INVOKE_PLUGIN);
+            }
+            String command = CMD_KILL_TASK + pid;
+            Process process = Runtime.getRuntime().exec(command);
+
+            process.waitFor();
+            PIDS.remove(pid);
+            PLUGIN_NAME_PIDS_MAP.remove(name);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * 对外暴露的接口, 删除所有插件进程
      */
     @PreDestroy
     public void killAllPlugins() {
         PIDS.forEach(this::killPlugin);
+        PIDS.clear();
+        PLUGIN_NAME_PIDS_MAP.clear();
     }
+
+
 
 
     /*public static void main(String[] args) {
@@ -121,4 +149,6 @@ public class PluginUtils {
 
         killAllPlugins();
     }*/
+
+
 }

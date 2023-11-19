@@ -55,7 +55,7 @@ public class SecurityConfig {
                             "/v2/api-docs/**",
                             "/captcha"
                     ).permitAll()
-                    .anyRequest().authenticated()
+                    .anyRequest().permitAll()
                     .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
 

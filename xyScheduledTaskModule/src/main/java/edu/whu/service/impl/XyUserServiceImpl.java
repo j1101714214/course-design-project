@@ -22,6 +22,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Objects;
+
 
 /**
  * @author Akihabara
@@ -106,7 +108,7 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
         boolean hasUpdate = false;
         if(user.getUsername() != null && !ObjectUtil.equal(user.getUsername(), operator.getUsername())) {
             XyUser usernameInDb = findUserByUsername(user.getUsername(), false);
-            if(usernameInDb != null) {
+            if(usernameInDb != null && !Objects.equals(usernameInDb.getId(), userId)) {
                 throw new CustomerException(ExceptionEnum.USER_HAS_EXIST);
             }
             hasUpdate = true;
@@ -135,19 +137,19 @@ public class XyUserServiceImpl extends ServiceImpl<XyUserMapper, XyUser> impleme
     public XyUser queryUserById(Object principal, Long userId) {
         XyUser operator = findCurrentOperator(principal);
 
-        if (operator == null) {
-            throw new CustomerException(ExceptionEnum.USER_NOT_LOGIN);
-        }
-        if (!ObjectUtil.equals(operator.getId(), userId)) {
-            throw new CustomerException(ExceptionEnum.ILLEGAL_OPERATION);
-        }
+//        if (operator == null) {
+//            throw new CustomerException(ExceptionEnum.USER_NOT_LOGIN);
+//        }
+//        if (!ObjectUtil.equals(operator.getId(), userId)) {
+//            throw new CustomerException(ExceptionEnum.ILLEGAL_OPERATION);
+//        }
         operator.setPassword("*******");
         return operator;
     }
 
     @Override
     public IPage<XyUser> queryUserList(Integer pageNum, Integer pageSize) {
-        IPage<XyUser> page = new Page<>(pageNum - 1, pageSize);
+        IPage<XyUser> page = new Page<>(pageNum, pageSize);
         page = xyUserMapper.selectPage(page, null);
 
         page.getRecords().forEach(user -> user.setPassword("******"));

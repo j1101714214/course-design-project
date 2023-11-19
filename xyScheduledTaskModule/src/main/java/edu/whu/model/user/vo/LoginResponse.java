@@ -18,4 +18,6 @@ public class LoginResponse {
     String token;
     @ApiModelProperty(value = "用户权限")
     UserLevel userLevel;
+    @ApiModelProperty(value = "用户ID")
+    String userId;
 }

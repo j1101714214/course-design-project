@@ -20,7 +20,7 @@ Authorization: Bearer {{userToken}}
 ### 查询某个用户的任务列表
 GET http://{{base-url}}:{{port}}/job/list/{{id}}
 Content-Type: application/json
-Authorization: Bearer {{userToken}}
+Authorization: Bearer {{adminToken}}
 
 > {% client.test("testListJobsById", () => {
     client.assert(response.status === 200)
@@ -44,7 +44,7 @@ Authorization: Bearer {{adminToken}}
 {
   "jobName": "测试任务",
   "jobGroup": "测试任务组",
-  "invokeTarget": "http://127.0.0.1:12121/hello?name=wangwu",
+  "invokeTarget": "http://127.0.0.1:12121/hello?name=wangwu12112",
   "cronExpression": "/1 * * * * ?",
   "misfirePolicy": "1",
   "concurrent": "0",
@@ -93,7 +93,7 @@ Authorization: Bearer {{adminToken}}
 }) %}
 
 ### 更新任务: 正常情况
-PUT http://{{base-url}}:{{port}}/job/update/1
+PUT http://{{base-url}}:{{port}}/job/update/2
 Content-Type: application/json
 Authorization: Bearer {{adminToken}}
 
@@ -129,8 +129,8 @@ Content-Type: application/json
     client.assert(response.status === 403)
 }) %}
 
-### 添加任务: 参数传递不完全
-POST http://{{base-url}}:{{port}}/job/add
+### 更新任务: 参数传递不完全
+PUT http://{{base-url}}:{{port}}/job/update/2
 Content-Type: application/json
 Authorization: Bearer {{adminToken}}
 
@@ -149,7 +149,7 @@ Authorization: Bearer {{adminToken}}
 }) %}
 
 ### 删除任务: 正常情况
-DELETE http://{{base-url}}:{{port}}/job/delete/1
+DELETE http://{{base-url}}:{{port}}/job/delete/2
 Content-Type: application/json
 Authorization: Bearer {{adminToken}}
 
@@ -167,7 +167,7 @@ Authorization: Bearer {{userToken}}
 }) %}
 
 ### 删除任务: 非本人操作
-DELETE http://{{base-url}}:{{port}}/job/delete/1
+DELETE http://{{base-url}}:{{port}}/job/delete/1723301617678901249
 Content-Type: application/json
 
 > {% client.test("testDeleteJob", () => {
@@ -186,7 +186,7 @@ Authorization: Bearer {{adminToken}}
 
 
 ### 立即执行一次任务: 正常情况
-GET http://{{base-url}}:{{port}}/job/run/2
+GET http://{{base-url}}:{{port}}/job/run/1723302422335139842
 Content-Type: application/json
 Authorization: Bearer {{adminToken}}
 
@@ -195,7 +195,7 @@ Authorization: Bearer {{adminToken}}
 }) %}
 
 ### 停止任务: 正常情况
-GET http://{{base-url}}:{{port}}/job/pause/2
+GET http://{{base-url}}:{{port}}/job/pause/1723302422335139842
 Content-Type: application/json
 Authorization: Bearer {{adminToken}}
 
@@ -204,7 +204,7 @@ Authorization: Bearer {{adminToken}}
 }) %}
 
 ### 恢复任务: 正常情况
-GET http://{{base-url}}:{{port}}/job/resume/2
+GET http://{{base-url}}:{{port}}/job/resume/1723302422335139842
 Content-Type: application/json
 Authorization: Bearer {{adminToken}}
 

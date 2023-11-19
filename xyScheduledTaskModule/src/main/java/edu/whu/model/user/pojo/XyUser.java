@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import edu.whu.handler.ListToStringHandler;
 import edu.whu.model.common.enumerate.UserLevel;
 import io.swagger.annotations.ApiModel;
@@ -33,6 +34,7 @@ public class XyUser implements Serializable {
      */
     @TableId(value = "user_id", type = IdType.ASSIGN_ID)
     @ApiModelProperty(value = "用户id")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
     /**

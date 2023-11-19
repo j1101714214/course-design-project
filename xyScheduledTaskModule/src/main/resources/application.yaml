@@ -46,7 +46,7 @@ spring:
         # 发送者邮箱，已开通POP3/SMTP服务的邮箱，也就是你自己的
         username: 2607038766@qq.com
         # 配置密码，注意不是真正的密码，而是刚刚申请到的授权码
-        password: kudkdqtefzxoebjf
+        password: bstgmmngfmjdechj
         # 端口号465或587（QQ邮箱发送邮件仅支持587端口协议）
         port: 587
         # 默认的邮件编码为UTF-8
@@ -62,6 +62,11 @@ spring:
 
     thymeleaf:
         cache: false
+
+    servlet:
+        multipart:
+            max-file-size: 200MB
+            max-request-size: 200MB
 
 mybatis-plus:
     type-enums-package: edu.whu.model.common.enumerate
@@ -81,3 +86,11 @@ xy-nas-tools:
             multiplier: 0
     admin:
         address: 2020302111317@whu.edu.cn
+    root: D:\xyNasToolsRoot
+
+minio:
+    endpoint: http://localhost:9000
+    accessKey: minioadmin
+    secretKey: minioadmin
+    bucket:
+        files: xy-nas-plugins

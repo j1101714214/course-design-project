@@ -3,8 +3,8 @@ POST http://{{base-url}}:{{port}}/authenticate/register
 Content-Type: application/json
 
 {
-  "username": "liuxingyu",
-  "password":"123000000"
+  "username": "admin",
+  "password":"admin"
 }
 
 <> 2023-10-04T200805.200.json

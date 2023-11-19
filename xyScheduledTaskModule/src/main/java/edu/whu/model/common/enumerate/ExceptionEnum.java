@@ -29,6 +29,8 @@ public enum ExceptionEnum {
     /* 插件管理 */
     ERROR_INVOKE_PLUGIN(HttpStatus.BAD_REQUEST, "启动插件失败"),
     ERROR_PLUGIN_TYPE(HttpStatus.BAD_REQUEST, "错误插件类型"),
+    ERROR_PLUGIN_UPLOAD(HttpStatus.BAD_REQUEST, "上传插件失败"),
+    ERROR_PLUGIN_DOWNLOAD(HttpStatus.BAD_REQUEST, "上传插件失败"),
 
     /* 权限管理 */
     USER_NOT_LOGIN(HttpStatus.UNAUTHORIZED, "用户未登录"),

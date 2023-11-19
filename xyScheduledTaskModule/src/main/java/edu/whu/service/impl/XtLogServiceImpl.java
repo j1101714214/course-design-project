@@ -32,7 +32,7 @@ public class XtLogServiceImpl extends ServiceImpl<XyLogMapper, XyLog> implements
     @Autowired
     private XyLogMapper logMapper;
 
-    private static final int MAX_DESC_LENGTH = 20;
+    private static final int MAX_DESC_LENGTH = 120;
 
     @Override
     public IPage<XyLog> queryLogByUserId(Integer pageNum, Integer pageSize, Object principal) {
@@ -42,16 +42,21 @@ public class XtLogServiceImpl extends ServiceImpl<XyLogMapper, XyLog> implements
             throw new CustomerException(ExceptionEnum.USER_NOT_LOGIN);
         }
 
-        IPage<XyLog> page = new Page<>(pageNum - 1, pageSize);
+        IPage<XyLog> page = new Page<>(pageNum, pageSize);
         LambdaQueryWrapper<XyLog> lqw = new LambdaQueryWrapper<>();
         lqw.eq(XyLog::getUserId, userId);
+        lqw.orderByAsc(XyLog::getLogTime);
 
         page = logMapper.selectPage(page, lqw);
         // 截取最大长度
+        /*
         page.getRecords().forEach(log -> {
-            log.setLogDesc(log.getLogDesc()
-                    .substring(0, Math.min(MAX_DESC_LENGTH, log.getLogDesc().length())));
+            if(log.getLogDesc().length() >= MAX_DESC_LENGTH) {
+                log.setLogDesc(log.getLogDesc()
+                        .substring(0, MAX_DESC_LENGTH) + "...");
+            }
         });
+         */
         return page;
     }
 

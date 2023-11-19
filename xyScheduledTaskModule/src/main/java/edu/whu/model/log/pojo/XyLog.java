@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -30,6 +31,7 @@ public class XyLog implements Serializable {
      */
     @TableId(value = "log_id", type = IdType.ASSIGN_ID)
     @ApiModelProperty(value = "日志id")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
     /**

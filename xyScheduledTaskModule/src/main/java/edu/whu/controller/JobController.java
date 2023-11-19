@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Api(value = "任务管理API")
 @RestController
+@CrossOrigin
 @RequestMapping("/job")
 public class JobController {
     @Autowired

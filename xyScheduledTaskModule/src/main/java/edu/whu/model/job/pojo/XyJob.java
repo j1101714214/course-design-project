@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import edu.whu.model.common.enumerate.InvokeMethod;
 import edu.whu.model.common.enumerate.JobStatus;
 import io.swagger.annotations.ApiModel;
@@ -35,6 +36,7 @@ public class XyJob implements Serializable {
      */
     @TableId(value = "job_id", type = IdType.ASSIGN_ID)
     @ApiModelProperty(value = "任务id")
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long id;
 
     /**

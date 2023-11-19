@@ -9,6 +9,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>anime-assistant-tools</module>
+        <module>anime-assistant</module>
+        <module>Hmacg-plugin</module>
         <module>xyScheduledTaskModule</module>
         <module>photoAssistant</module>
     </modules>

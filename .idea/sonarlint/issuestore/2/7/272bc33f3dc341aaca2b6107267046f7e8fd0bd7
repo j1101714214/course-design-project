@@ -1,0 +1,6 @@
+
+k
+java:S2095$"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ŠÀø¯8„øûš½1
+U	java:S106)"9Replace this use of System.out or System.err by a logger.(¿Õ´Õ8ÃÎùš½1
+^
+java:S1075C"ARefactor your code to get this URI from a customizable parameter.(İ”Ë 8ÆÎùš½1

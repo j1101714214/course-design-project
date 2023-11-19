@@ -17,6 +17,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
     <list default="true" id="2790ba6b-dad0-4012-955c-310eabca9352" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/sql/authorization.sql" beforeDir="false" afterPath="$PROJECT_DIR$/anime-assistant-tools/src/main/resources/sql/authorization.sql" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/aria2RPC/src/main/java/whu/edu/aria2rpc/dao/DownloadInfoDao.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/aria2RPC/src/main/java/whu/edu/aria2rpc/service/RequestBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -112,6 +114,29 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/大四上/大软设/course-design-project/anime-assistant/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;babe46d78fd9813b950eb8d17e059ada&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
@@ -155,21 +180,103 @@
     "spring.configuration.checksum": "cb65b2eb04a7c4f6cdfe8016e3e0e2b7",
     "vue.rearranger.settings.migration": "true"
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\大四上\大软设\course-design-project\anime-assistant\src\main\resources" />
+      <recent name="F:\大四上\大软设\course-design-project\anime-assistant-tools\src\main\java\edu\whu" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\大四上\大软设\course-design-project\anime-assistant-tools\src\main\resources\sql" />
+      <recent name="F:\大四上\大软设\course-design-project\anime-assistant-tools\src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="edu.whu" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="edu.whu" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="CodeGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.whu.CodeGenerator" />
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Main">
+    <configuration name="test.ReadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hmacg-plugin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.Reader.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.whu.Reader" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.Reader.test" />
+      <option name="METHOD_NAME" value="ReadTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.ReadTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hmacg-plugin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.Reader.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.whu.Reader" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.Reader.test" />
+      <option name="METHOD_NAME" value="ReadTest2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.connectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hmacg-plugin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.Reader.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.whu.Reader" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.Reader.test" />
+      <option name="METHOD_NAME" value="connectTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test.insertTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Hmacg-plugin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.whu.Reader.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="edu.whu.Reader" />
+      <option name="MAIN_CLASS_NAME" value="edu.whu.Reader.test" />
+      <option name="METHOD_NAME" value="insertTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="anime-assistant-tools" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.whu.Main" />
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
@@ -385,6 +492,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.Main" />
+        <item itemvalue="JUnit.test.ReadTest2" />
+        <item itemvalue="JUnit.test.ReadTest" />
+        <item itemvalue="JUnit.test.insertTest" />
+        <item itemvalue="JUnit.test.connectTest" />
         <item itemvalue="JUnit.LoadOpenCVTest.testLoadOpenCV" />
         <item itemvalue="JUnit.LoadOpenCVTest" />
         <item itemvalue="Application.CodeGenerator" />
@@ -420,6 +532,12 @@
       <workItem from="1696810597552" duration="3096000" />
       <workItem from="1698376886350" duration="5062000" />
       <workItem from="1698504541501" duration="1236000" />
+      <workItem from="1698670599346" duration="8741000" />
+      <workItem from="1698994992905" duration="6668000" />
+      <workItem from="1699837883080" duration="29879000" />
+      <workItem from="1700031854709" duration="38221000" />
+      <workItem from="1700134919340" duration="2361000" />
+      <workItem from="1700137376402" duration="183000" />
       <workItem from="1695609107414" duration="547000" />
       <workItem from="1695609672655" duration="2334000" />
       <workItem from="1695872021487" duration="966000" />
@@ -703,6 +821,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
